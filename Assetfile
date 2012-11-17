@@ -96,6 +96,10 @@ input "app" do
 	end
 
 
+	match "vendor/bootstrap-tab.js" do
+		filter ConcatFilter, "app.js"
+	end
+
 	match "vendor/handlebars-1.0.rc.1.js" do
 		filter ConcatFilter, "app.js"
 	end
