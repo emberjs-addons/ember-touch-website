@@ -13,6 +13,7 @@ gem "rake-pipeline-web-filters",
 	:ref => "81a22fb0808dfdeab8ed92d5d8c898ad198b9938"
 
 gem "colored"
+gem "thin"
 
 gem "execjs", "~> 1.2.6"
 # Using git to prevent deprecation warnings
