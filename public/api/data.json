@@ -1,0 +1,1455 @@
+{
+    "project": {
+        "name": "Ember/Sprouctore Touch API",
+        "description": "Ember/Sprouctore Touch API: a lightweight library for building and using touch gestures",
+        "version": "0.1"
+    },
+    "files": {
+        "../packages/ember-touch/lib/gesture_recognizers/pan.js": {
+            "name": "../packages/ember-touch/lib/gesture_recognizers/pan.js",
+            "modules": {
+                "ember-touch": 1
+            },
+            "classes": {
+                "Ember.PanGestureRecognizer": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/gesture_recognizers/pinch.js": {
+            "name": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "modules": {},
+            "classes": {
+                "Ember.PinchGestureRecognizer": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/gesture_recognizers/press.js": {
+            "name": "../packages/ember-touch/lib/gesture_recognizers/press.js",
+            "modules": {},
+            "classes": {
+                "Ember.PressGestureRecognizer": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/gesture_recognizers/swipe.js": {
+            "name": "../packages/ember-touch/lib/gesture_recognizers/swipe.js",
+            "modules": {},
+            "classes": {
+                "Ember.SwipeGestureRecognizer": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/gesture_recognizers/tap.js": {
+            "name": "../packages/ember-touch/lib/gesture_recognizers/tap.js",
+            "modules": {},
+            "classes": {
+                "Ember.TapGestureRecognizer": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/gesture_recognizers/touch_hold.js": {
+            "name": "../packages/ember-touch/lib/gesture_recognizers/touch_hold.js",
+            "modules": {},
+            "classes": {
+                "Ember.TouchHoldGestureRecognizer": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/system/application_gesture_manager.js": {
+            "name": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "modules": {},
+            "classes": {
+                "Ember.ApplicationGestureManager": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/system/delegate_rule.js": {
+            "name": "../packages/ember-touch/lib/system/delegate_rule.js",
+            "modules": {},
+            "classes": {
+                "Ember.DelegateRule": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/system/gesture.js": {
+            "name": "../packages/ember-touch/lib/system/gesture.js",
+            "modules": {},
+            "classes": {
+                "Ember.Gesture": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/system/gesture_delegate.js": {
+            "name": "../packages/ember-touch/lib/system/gesture_delegate.js",
+            "modules": {},
+            "classes": {
+                "Ember.GestureDelegate": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/system/gesture_manager.js": {
+            "name": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "modules": {},
+            "classes": {
+                "Ember.GestureManager": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/system/view_ext.js": {
+            "name": "../packages/ember-touch/lib/system/view_ext.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "../packages/ember-touch/lib/utils/gesture_delegates.js": {
+            "name": "../packages/ember-touch/lib/utils/gesture_delegates.js",
+            "modules": {},
+            "classes": {
+                "Ember.GestureDelegates": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/utils/registered_gestures.js": {
+            "name": "../packages/ember-touch/lib/utils/registered_gestures.js",
+            "modules": {},
+            "classes": {
+                "Ember.RegisteredGestureList": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/utils/touch_list.js": {
+            "name": "../packages/ember-touch/lib/utils/touch_list.js",
+            "modules": {},
+            "classes": {
+                "Ember.TouchList": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/main.js": {
+            "name": "../packages/ember-touch/lib/main.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "ember": {
+            "name": "ember",
+            "submodules": {
+                "ember-touch": 1
+            },
+            "classes": {
+                "Ember.PanGestureRecognizer": 1,
+                "Ember.PinchGestureRecognizer": 1,
+                "Ember.PressGestureRecognizer": 1,
+                "Ember.SwipeGestureRecognizer": 1,
+                "Ember.TapGestureRecognizer": 1,
+                "Ember.TouchHoldGestureRecognizer": 1,
+                "Ember.ApplicationGestureManager": 1,
+                "Ember.DelegateRule": 1,
+                "Ember.Gesture": 1,
+                "Ember.GestureDelegate": 1,
+                "Ember.GestureManager": 1,
+                "Ember.GestureDelegates": 1,
+                "Ember.RegisteredGestureList": 1,
+                "Ember.TouchList": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            },
+            "file": "../packages/ember-touch/lib/utils/touch_list.js",
+            "line": 7
+        },
+        "ember-touch": {
+            "name": "ember-touch",
+            "submodules": {},
+            "classes": {
+                "Ember.PanGestureRecognizer": 1,
+                "Ember.PinchGestureRecognizer": 1,
+                "Ember.PressGestureRecognizer": 1,
+                "Ember.SwipeGestureRecognizer": 1,
+                "Ember.TapGestureRecognizer": 1,
+                "Ember.TouchHoldGestureRecognizer": 1,
+                "Ember.ApplicationGestureManager": 1,
+                "Ember.DelegateRule": 1,
+                "Ember.Gesture": 1,
+                "Ember.GestureDelegate": 1,
+                "Ember.GestureManager": 1,
+                "Ember.GestureDelegates": 1,
+                "Ember.RegisteredGestureList": 1,
+                "Ember.TouchList": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "Ember": 1
+            },
+            "module": "ember",
+            "namespace": "",
+            "file": "../packages/ember-touch/lib/utils/touch_list.js",
+            "line": 7,
+            "description": "A lightweight library for building and using touch gestures with Ember Applications",
+            "tag": "main",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "Ember.PanGestureRecognizer": {
+            "name": "Ember.PanGestureRecognizer",
+            "shortname": "Ember.PanGestureRecognizer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pan.js",
+            "line": 10,
+            "description": "Recognizes a multi-touch pan gesture. Pan gestures require a specified number of fingers to move and will record and update the center point between the touches.\n\nFor panChange events, the pan gesture recognizer includes a translation property which can be applied as a CSS transform directly. Translation values are hashes which contain an x and a y value.\n\n    var myview = Em.View.create({\n      elementId: 'gestureTest',\n\n      panChange: function(rec, evt) {\n        var val = rec.get('translation');\n        this.$().css({\n          translateX: '%@=%@'.fmt((val.x < 0)? '-' : '+',Math.abs(val.x)),\n          translateY: '%@=%@'.fmt((val.y < 0)? '-' : '+',Math.abs(val.y))\n        });\n      }\n    });\n  \nYou can specify how many touches the gesture requires to start using the _numberOfRequiredTouches_ property, which you can set in the panOptions hash.\n\n    var myview = Em.View.create({\n      panOptions: {\n        numberOfRequiredTouches: 2\n      }\n    });",
+            "extends": "Em.Gesture"
+        },
+        "Ember.PinchGestureRecognizer": {
+            "name": "Ember.PinchGestureRecognizer",
+            "shortname": "Ember.PinchGestureRecognizer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "line": 9,
+            "description": "Recognizes a multi-touch pinch gesture. Pinch gestures require a specified number of fingers to move and will record and update the scale.\n\nFor pinchChange events, the pinch gesture recognizer includes a scale property which can be applied as a CSS transform directly.\n\n    var myview = Em.View.create({\n      elementId: 'gestureTest',\n      \n      pinchChange: function(rec, evt) {\n        this.$().css('scale',function(index, value) {\n          return rec.get('scale') * value\n        });\n      }\n    });\n\nYou can specify how many touches the gesture requires to start using the _numberOfRequiredTouches_ property, which you can set in the pinchOptions hash:\n\n    var myview = Em.View.create({\n      pinchOptions: {\n        numberOfRequiredTouches: 3\n      }\n    });",
+            "extends": "Em.Gesture"
+        },
+        "Ember.PressGestureRecognizer": {
+            "name": "Ember.PressGestureRecognizer",
+            "shortname": "Ember.PressGestureRecognizer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/gesture_recognizers/press.js",
+            "line": 10,
+            "description": "Recognizes a multi-touch press gesture. Press gestures  allow for a certain amount of wiggle-room between a start and end of a touch, and requires a minimum hold period to be triggered. \n\nPresss are discrete gestures so only _pressEnd_ event will get fired.\n\n    var myview = Em.View.create({\n      elementId: 'gestureTest',\n      \n      pressEnd: function(recognizer, evt) {\n\n      }\n    });\n\nYou can specify how many touches the gesture requires to start using the _numberOfRequiredTouches_ property, and a minimum _pressPeriodThreshold_ which you can set in the _pressHoldOptions_ hash:\n\n    var myview = Em.View.create({\n      pressOptions: {\n        pressPeriodThreshold: 500\n      }\n    });",
+            "extends": "Em.Gesture"
+        },
+        "Ember.SwipeGestureRecognizer": {
+            "name": "Ember.SwipeGestureRecognizer",
+            "shortname": "Ember.SwipeGestureRecognizer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/gesture_recognizers/swipe.js",
+            "line": 9,
+            "description": "Recognizes a swipe gesture in one or more directions.\n\nSwipes are continuous gestures that will get fired on a view.\n\n    var myview = Em.View.create({\n\n      swipeStart: function(recognizer, evt) {\n\n      },\n      swipeChange: function(recognizer, evt) {\n\n      },\n      // usually, you will only use this method\n      swipeEnd: function(recognizer, evt) {\n\n      },\n      swipeCancel: function(recognizer, evt) {\n\n      }\n    });\n\nSwipeGestureRecognizer recognizes a swipe when the touch has moved to a (direction)  far enough (swipeThreshold) in a period (cancelPeriod). \nThe current implementation will only recognize a direction on swipeEnd on (recognizer.swipeDirection).\n\n    var myview = Em.View.create({\n      swipeOptions: {\n        direction: Em.OneGestureDirection.Left | Em.OneGestureDirection.Right,\n        cancelPeriod: 100,\n        swipeThreshold: 10\n      }\n    });",
+            "extends": "Em.Gesture"
+        },
+        "Ember.TapGestureRecognizer": {
+            "name": "Ember.TapGestureRecognizer",
+            "shortname": "Ember.TapGestureRecognizer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/gesture_recognizers/tap.js",
+            "line": 9,
+            "description": "Recognizes a multi-touch tap gesture. Tap gestures allow for a certain amount of wiggle-room between a start and end of a touch. Taps are discrete gestures so only tapEnd() will get fired on a view.\n\n    var myview = Em.View.create({\n      elementId: 'gestureTest',\n\n      tapEnd: function(recognizer, evt) {\n        $('#gestureTest').css('background','yellow');\n      }\n    });\n\nYou can specify how many touches the gesture requires to start using the numberOfRequiredTouches property, which you can set in the panOptions hash:\n\n    var myview = Em.View.create({\n      tapOptions: {\n        numberOfRequiredTouches: 3\n      }\n    });\n\nAnd you can also specify the number of taps required for the gesture to fire using the numberOfTaps property.\n\n    var myview = Em.View.create({\n      tapOptions: {\n        numberOfTaps: 3,\n        delayBetweenTaps: 150\n      }\n    });",
+            "extends": "Em.Gesture"
+        },
+        "Ember.TouchHoldGestureRecognizer": {
+            "name": "Ember.TouchHoldGestureRecognizer",
+            "shortname": "Ember.TouchHoldGestureRecognizer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/gesture_recognizers/touch_hold.js",
+            "line": 9,
+            "description": "Recognizes a multi-touch touch and hold gesture. \n\nTouch and Hold gestures  allow move the finger on the same view, and after the user leaves its finger motionless during a specific period the end view event is automatically triggered. \n\nTouchHold are discrete gestures so only _touchHoldEnd_ will get fired.\n\n    var myview = Em.View.create({\n      elementId: 'gestureTest',\n      \n      touchHoldEnd: function(recognizer, evt) {\n\n      }\n    });\n\nYou can specify how many touches the gesture requires to start using the _numberOfRequiredTouches_  a minimum _period_ the finger must be held to automatically trigger the end event  and _moveThreshold_ which allows to move the finger a specific number of pixels.\n\n\n    var myview = Em.View.create({\n      touchHoldOptions: {\n        holdPeriod: 500,\n        moveThreshold: 10\n      }\n    });",
+            "extends": "Em.Gesture"
+        },
+        "Ember.ApplicationGestureManager": {
+            "name": "Ember.ApplicationGestureManager",
+            "shortname": "Ember.ApplicationGestureManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 7,
+            "description": "Allow any view to block the gesture recognition.\n\nWhen ApplicationGestureManager isBlocked, gestureManager will call shouldReceiveTouch method \nand when it returns false, it will deny passing touchEvents to view gestures.",
+            "extends": "Em.Object",
+            "static": 1
+        },
+        "Ember.DelegateRule": {
+            "name": "Ember.DelegateRule",
+            "shortname": "Ember.DelegateRule",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/system/delegate_rule.js",
+            "line": 6,
+            "extends": "Ember.Object"
+        },
+        "Ember.Gesture": {
+            "name": "Ember.Gesture",
+            "shortname": "Ember.Gesture",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 8,
+            "description": "Base class for all gesture recognizers. Handles low-level touch and state\nmanagement, and provides some utility methods and some required methods all\ngesture recognizers are expected to implement.\n\n# Overview\n\nGestures coalesce multiple touch events to a single higher-level gesture\nevent. For example, a tap gesture recognizer takes information about a\ntouchstart event, a few touchmove events, and a touchend event and uses\nsome heuristics to decide whether or not that sequence of events qualifies\nas a tap event. If it does, then it will notify the view of the higher-level\ntap events.\n\nGesture events follow the format:\n\n  * *[GESTURE_NAME]* Start - Sent when a gesture has gathered enough information\n      to begin tracking the gesture\n\n  * *[GESTURE_NAME]* Change - Sent when a gesture has already started and has\n      received touchmove events that cause its state to change\n\n  * *[GESTURE_NAME]* End - Sent when a touchend event is received and the gesture\n      recognizer decides that the gesture is finished.\n\n  * *[GESTURE_NAME]* Cancel - Sent when a touchcancel event is received.\n\nThere are two types of gestures: Discrete and Continuous gestures. In contrast\nto continuous gestures, discrete gestures don't have any change events. Rather,\nthe end event is the only one that gets sent to the view.\n\n## Usage\n\nWhile you wouldn't use Em.Gesture directly, all its subclasses implement the \nsame API. For example, to implement pinch on a view, you implement one or more \nof the pinch events. For example:\n\n    var myView = Em.View.create({\n      pinchStart: function(recognizer, evt) {\n        this.$().css('background','red');\n      },\n\n      pinchChange: function(recognizer, evt) {\n        var scale = recognizer.get('scale');\n        this.$().css('scale',function(index, value) {\n          return recognizer.get('scale') * value\n        });\n      },\n\n      pinchEnd: function(recognizer, evt) {\n        this.$().css('background','blue');\n      },\n\n      pinchCancel: function(recognizer, evt) {\n        this.$().css('background','blue');\n      }\n    });\n\npinchStart(), pinchEnd() and pinchCancel() will only get called once per\ngesture, but pinchChange() will get called repeatedly called every time\none of the touches moves.\n\n## Customizing Gesture Recognizers\n\nSome of the gesture recognizers include properties that can be customized by \nthe user for a specific instance of a view. For example, a pan gesture defaults \nto being a one-finger gesture, but in some scenarios, it must be defined as a \ntwo-finger gesture. In that case, you can override defaults by specifying an \nOptions hash. \n\n    var myView = Em.View.create({\n      panOptions: {\n        numberOfRequiredTouches: 2\n      }\n    });      \n\n## Creating Custom Gesture Recognizers\n\nEm.Gesture also defines an API which its subclasses can implement to build\ncustom gestures. The methods are:\n\n  * **didBecomePossible** - Called when a gesture enters a possible state. This\n      means the gesture recognizer has accepted enough touches to match \n      the number of required touches. You would usually initialize your state\n      in this callback.\n\n  * **eventWasRejected** - Called if a view returns false from a gesture event.\n      This callback allows you to reset internal state if the user rejects\n      an event.\n\n  * **shouldBegin** - Allows a gesture to block itself from entering a began state.\n      This callback will continuously be called as touches move until it begins.\n\n  * **shouldEnd** - Allows a gesture to block itself from entering an ended state.\n      This callback gets called whenever a tracked touch gets a touchEnd event.\n\n  * **didBegin** - Called when the gesture enters a began state. Called before the\n     view receives the Start event on continuous gestures.\n\n  * **didChange** - Called when the gesture enters a changed state, and when one of the\n      touches moves. Called before the view receives the Change event on continuos gestures.\n\n  * **didEnd** - Called when the gesture enters an ended state. Called before the\n     view receives the End event.\n\n  * **didCancel** - Called when the gesture enters a cancelled state. Called before the\n     view receives the Cancel event on continuos gestures.\n\nIn all the callbacks, you can use the `touches` protected property to access the\ntouches hash. The touches hash is keyed on the identifiers of the touches, and the\nvalues are the jQuery.Event objects. You can also access the length property to inspect \nhow many touches are active, this is mostly useful in shouldBegin since every other \ncallback can assume that there are as many active touches as specified in the \nnumberOfRequiredTouches property.\n\n## Discrete vs Continuous Gestures\n\nThere are two main classes of gesture recognizers: Discrete and Continuous \ngestures. Discrete gestures do not get Start, Change nor Cancel events sent, \nsince they represent a single, instantaneous event, rather than a continuous \nmotion. If you are implementing your own discrete gesture recognizer, you must \nset the gestureIsDiscrete property to yes, and Em.Gesture will adapt its behavior.\n\nDiscrete gestures use the shouldEnd callback to either accept or decline the gesture\nevent. If it is declined, then the gesture will enter a Cancelled state.",
+            "extends": "Ember.Object"
+        },
+        "Ember.GestureDelegate": {
+            "name": "Ember.GestureDelegate",
+            "shortname": "Ember.GestureDelegate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/system/gesture_delegate.js",
+            "line": 6,
+            "description": "Delegate implements the logic of your application's gesture-recognition behavior.\n\nSet up your gestures to use a GestureDelegate to coordinate the gesture recognition based  on the current status of your Application.",
+            "extends": "Ember.Object"
+        },
+        "Ember.GestureManager": {
+            "name": "Ember.GestureManager",
+            "shortname": "Ember.GestureManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 8,
+            "description": "Manages multiplegesture recognizers that are associated with a view. This class is instantiated automatically by Em.View and you wouldn't\ninteract with it yourself.\n\nEm.GestureManager mainly acts as a composite for the multiple gesture recognizers associated with a view. Whenever it gets a touch event, it relays it to the gestures. The other main resposibility of Em.GestureManager is to handle re-dispatching of events to the view.",
+            "extends": "Ember.Object"
+        },
+        "Ember.GestureDelegates": {
+            "name": "Ember.GestureDelegates",
+            "shortname": "Ember.GestureDelegates",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/utils/gesture_delegates.js",
+            "line": 7,
+            "description": "Registry of delegates in the system. A instance of this class is injected in the Application namespace.",
+            "extends": "Em.Object",
+            "access": "private",
+            "tagname": "",
+            "static": 1
+        },
+        "Ember.RegisteredGestureList": {
+            "name": "Ember.RegisteredGestureList",
+            "shortname": "Ember.RegisteredGestureList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/utils/registered_gestures.js",
+            "line": 9,
+            "description": "Registry of known gestures in the system to be used on view creation to find which gestures are implemented in the view class. A instance of this class is injected in the Application namespace.\nYou must be responsable to register your own gestures when you want to make the system aware of them.",
+            "extends": "Em.Object",
+            "access": "private",
+            "tagname": "",
+            "static": 1
+        },
+        "Ember.TouchList": {
+            "name": "Ember.TouchList",
+            "shortname": "Ember.TouchList",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/utils/touch_list.js",
+            "line": 7,
+            "description": "Used to manage and maintain a list of active touches related to a gesture  recognizer.",
+            "extends": "Ember.Object",
+            "access": "private",
+            "tagname": ""
+        }
+    },
+    "classitems": [
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pan.js",
+            "line": 41,
+            "description": "The translation value which represents the current amount of movement that has been applied\nto the view. You would normally apply this value directly to your element as a 3D\ntransform.",
+            "type": "Location",
+            "class": "Ember.PanGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pan.js",
+            "line": 51,
+            "description": "The pixel distance that the fingers need to move before this gesture is recognized.\nYou should set up depending on your device factor and view behaviors.\nDistance is calculated separately on vertical and horizontal directions depending \non the direction property.",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.PanGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pan.js",
+            "line": 67,
+            "description": "Used to measure offsets",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.PanGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pan.js",
+            "line": 75,
+            "description": "Used for rejected events",
+            "access": "private",
+            "tagname": "",
+            "type": "Hash",
+            "class": "Ember.PanGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "line": 38,
+            "description": "The scale value which represents the current amount of scaling that has been applied\nto the view. You would normally apply this value directly to your element as a 3D\nscale.",
+            "type": "Number",
+            "class": "Ember.PinchGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "line": 52,
+            "description": "Track starting distance between touches per gesture.",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.PinchGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "line": 60,
+            "description": "Used for measuring velocity",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.PinchGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "line": 68,
+            "description": "Used for measuring velocity and scale",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.PinchGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "line": 76,
+            "description": "The pixel distance that the fingers need to get closer/farther away by before\nthis gesture is recognized.",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.PinchGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "line": 85,
+            "description": "Used for rejected events",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.PinchGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/pinch.js",
+            "line": 93,
+            "access": "private",
+            "tagname": "",
+            "class": "Ember.PinchGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/press.js",
+            "line": 37,
+            "description": "The minimum period (ms) that the fingers must be held to recognize the gesture end.",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.PressGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/press.js",
+            "line": 47,
+            "class": "Ember.PressGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/press.js",
+            "line": 50,
+            "class": "Ember.PressGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/press.js",
+            "line": 53,
+            "class": "Ember.PressGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/press.js",
+            "line": 56,
+            "class": "Ember.PressGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/swipe.js",
+            "line": 48,
+            "description": "The period (ms) in which the gesture should have been recognized.",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.SwipeGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/swipe.js",
+            "line": 76,
+            "description": "The pixel distance that the fingers need to move before this gesture is recognized.",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.SwipeGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/tap.js",
+            "line": 43,
+            "description": "The translation value which represents the current amount of movement that has been applied\nto the view. You would normally apply this value directly to your element as a 3D\ntransform.",
+            "type": "Location",
+            "class": "Ember.TapGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/tap.js",
+            "line": 59,
+            "class": "Ember.TapGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/tap.js",
+            "line": 62,
+            "class": "Ember.TapGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/tap.js",
+            "line": 65,
+            "class": "Ember.TapGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/tap.js",
+            "line": 68,
+            "class": "Ember.TapGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/touch_hold.js",
+            "line": 41,
+            "description": "The minimum period (ms) that the fingers must be held to trigger the event.",
+            "access": "private",
+            "tagname": "",
+            "type": "Number",
+            "class": "Ember.TouchHoldGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/gesture_recognizers/touch_hold.js",
+            "line": 54,
+            "class": "Ember.TouchHoldGestureRecognizer",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 21,
+            "type": "Em.GestureDelegates",
+            "itemtype": "property",
+            "name": "gestureDelegates",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 27,
+            "type": "Em.RegisteredGestures",
+            "itemtype": "property",
+            "name": "registeredGestures",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 33,
+            "itemtype": "property",
+            "name": "isAllBlocked",
+            "default": "false",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 39,
+            "description": "Assign the view which has blocked the recognizer, in order\nthat view can be the only one which can unblock the recognizer.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "_blockerView",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 48,
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "_isBlocked",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 54,
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "_shouldReceiveTouchFn",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 67,
+            "itemtype": "method",
+            "name": "shouldReceiveTouch",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 76,
+            "description": "ShouldReceiveTouchFn function(view) which will be used to allow/deny passing touchEvents to view gestures.",
+            "itemtype": "method",
+            "name": "block",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
+            "line": 93,
+            "itemtype": "method",
+            "name": "unblock",
+            "class": "Ember.ApplicationGestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/delegate_rule.js",
+            "line": 13,
+            "itemtype": "property",
+            "name": "gestureDelegate",
+            "class": "Ember.DelegateRule",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/delegate_rule.js",
+            "line": 19,
+            "itemtype": "method",
+            "name": "shouldReceiveTouch",
+            "class": "Ember.DelegateRule",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 140,
+            "description": "The current state of the gesture recognizer. This value can be any one\nof the states defined at the end of this file.",
+            "itemtype": "property",
+            "name": "state",
+            "type": "Number",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 149,
+            "description": "A string of the gesture recognizer's name. This value is set automatically\nbut Em.Gestures when a gesture is registered.",
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 158,
+            "description": "View in which the gesture must be recognized.\nAssigned on startup.",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 164,
+            "description": "Assigned on startup.",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 169,
+            "description": "Specifies whether a gesture is discrete or continuous.",
+            "itemtype": "property",
+            "name": "gestureIsDiscrete",
+            "type": "Boolean",
+            "default": "false",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 179,
+            "description": "When true is guaranteed to allow simultaneous recognition. When false, the gesture  \nshould not be recognized when there is other active gesture whose simultaneously is disabled.",
+            "itemtype": "property",
+            "name": "simultaneously",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 189,
+            "description": "Used to assign a gesture delegate on init process.",
+            "itemtype": "property",
+            "name": "delegateName",
+            "type": "String",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 197,
+            "description": "Apply a delegate to customize an application's gesture-recognition behavior.",
+            "itemtype": "property",
+            "name": "delegate",
+            "type": "Em.GestureDelegate",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 205,
+            "description": "Use this property to disable gesture recognition. \nUse isEnabledBinding to global or view properties.",
+            "itemtype": "property",
+            "name": "isEnabled",
+            "type": "Boolean",
+            "default": "true",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 216,
+            "description": "You can use the `touches` protected property to access the touches hash. The touches \nhash is keyed on the identifiers of the touches, and the values are the jQuery.Event \nobjects.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "touches",
+            "type": "Hash",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 227,
+            "description": "You can also use the numberOfActiveTouches property to inspect how many touches\nare active, this is mostly useful in shouldBegin since every other callback can\nassume that there are as many active touches as specified in the \nnumberOfRequiredTouches property.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "numberOfActiveTouches",
+            "type": "Number",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 239,
+            "description": "Used to specify the number of touches required for the gesture to enter a possible \nstate",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "numberOfRequiredTouches",
+            "type": "Number",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 273,
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "didBecomePossible",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 279,
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "shouldBegin",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 287,
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "didBegin",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 293,
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "didChange",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 299,
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "eventWasRejected",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 305,
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "shouldEnd",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 313,
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "didEnd",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 319,
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "didCancel",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 328,
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 331,
+            "description": "Block AppGestureManager, if simultaneously is true.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "blockApplicationGestureManagerIfSimultaneously",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 350,
+            "description": "Notify the View of the event and trigger eventWasRejected if the view doesn't implement the API \nor return false",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "attemptGestureEventDelivery",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 367,
+            "description": "Given two Touch objects, this method returns the distance between them.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "distance",
+            "return": {
+                "description": "Number"
+            },
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 390,
+            "description": "Given two Touch objects, this method returns the midpoint between them.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "centerPointForTouches",
+            "return": {
+                "description": "Number"
+            },
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 415,
+            "description": "Allows the gesture to notify the view it's associated with of a gesture\nevent.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "_notifyViewOfGestureEvent",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 433,
+            "itemtype": "method",
+            "name": "toString",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 440,
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "_resetState",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 451,
+            "description": "Handles touchStart events.",
+            "itemtype": "method",
+            "name": "touchStart",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 498,
+            "description": "Handles touchMove events.",
+            "itemtype": "method",
+            "name": "touchMove",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 553,
+            "description": "Handles touchEnd events.",
+            "itemtype": "method",
+            "name": "touchEnd",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture.js",
+            "line": 609,
+            "description": "Handles touchCancel events.",
+            "itemtype": "method",
+            "name": "touchCancel",
+            "class": "Ember.Gesture",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_delegate.js",
+            "line": 17,
+            "description": "Name of the gestureDelegate. It will be used on gestureOptions to assign a gestureDelegate to a specific gesture.",
+            "itemtype": "property",
+            "name": "name",
+            "type": "Array",
+            "class": "Ember.GestureDelegate",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_delegate.js",
+            "line": 25,
+            "description": "Rules can be setup with string path, extended classes or instances.\nThey are intented to be executed before shouldReceiveTouch method.",
+            "itemtype": "property",
+            "name": "rules",
+            "type": "Array",
+            "class": "Ember.GestureDelegate",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_delegate.js",
+            "line": 70,
+            "description": "Respond if a gesture recognizer should receive a touch event.",
+            "itemtype": "method",
+            "name": "shouldReceiveTouch",
+            "return": {
+                "description": "Boolen"
+            },
+            "class": "Ember.GestureDelegate",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 20,
+            "description": "An array containing all the gesture recognizers associated with a\nview. This is set automatically by Em.View.",
+            "itemtype": "property",
+            "name": "gestures",
+            "default": "null",
+            "type": "Array",
+            "class": "Ember.GestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 34,
+            "description": "The Em.View which belongs this GestureManager instance.",
+            "itemtype": "property",
+            "name": "view",
+            "type": "Em.View",
+            "class": "Ember.GestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 42,
+            "description": "Relays touchStart events to all the gesture recognizers to the\nspecified view",
+            "itemtype": "method",
+            "name": "touchStart",
+            "return": {
+                "description": "Boolen"
+            },
+            "class": "Ember.GestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 53,
+            "description": "Relays touchMove events to all the gesture recognizers to the\nspecified view",
+            "itemtype": "method",
+            "name": "touchMove",
+            "return": {
+                "description": "Boolen"
+            },
+            "class": "Ember.GestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 64,
+            "description": "Relays touchEnd events to all the gesture recognizers to the\nspecified view",
+            "itemtype": "method",
+            "name": "touchEnd",
+            "return": {
+                "description": "Boolen"
+            },
+            "class": "Ember.GestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 75,
+            "description": "Relays touchCancel events to all the gesture recognizers to the\nspecified view",
+            "itemtype": "method",
+            "name": "touchCancel",
+            "return": {
+                "description": "Boolen"
+            },
+            "class": "Ember.GestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 86,
+            "description": "Relays an event to the gesture recognizers. Used internally\nby the touch event listeners. Propagates the event to the parentViews.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "_invokeEvent",
+            "return": {
+                "description": "Boolean"
+            },
+            "class": "Ember.GestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_manager.js",
+            "line": 167,
+            "description": "Iterates all gestureDelegate DelegateRule instances executing its shouldReceiveTouch method and return the value whenever a rule respond with a defined value .",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "_applyDelegateRules",
+            "return": {
+                "description": "Boolean"
+            },
+            "class": "Ember.GestureManager",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/view_ext.js",
+            "line": 7,
+            "description": "/**\n    The Em.GestureManager instance which will manager the gestures of the view.    \n    This object is automatically created and set at init-time.",
+            "default": "null",
+            "type": "Array",
+            "class": "Ember.GestureDelegates",
+            "module": "ember",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/view_ext.js",
+            "line": 18,
+            "description": "Inspects the properties on the view instance and create gestures if they're \nused.",
+            "class": "Ember.GestureDelegates",
+            "module": "ember",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/utils/registered_gestures.js",
+            "line": 23,
+            "itemtype": "method",
+            "name": "_registeredGestures",
+            "access": "private",
+            "tagname": "",
+            "class": "Ember.RegisteredGestureList",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/utils/registered_gestures.js",
+            "line": 35,
+            "description": "Registers a gesture recognizer to the system. The gesture recognizer is identified by the name parameter, which must be globally unique.",
+            "itemtype": "method",
+            "name": "register",
+            "class": "Ember.RegisteredGestureList",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/utils/registered_gestures.js",
+            "line": 50,
+            "itemtype": "method",
+            "name": "unregister",
+            "class": "Ember.RegisteredGestureList",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/utils/registered_gestures.js",
+            "line": 61,
+            "description": "Registers a gesture recognizer to the system. The gesture recognizer is identified by the name parameter, which must be unique across the system.",
+            "itemtype": "method",
+            "name": "knownGestures",
+            "class": "Ember.RegisteredGestureList",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        }
+    ]
+}

@@ -1,27 +1,22 @@
-abort "Please use Ruby 1.9 to build Ember-Touch.js!" if RUBY_VERSION !~ /^1\.9/
+abort "Please use Ruby 1.9!" if RUBY_VERSION !~ /^1\.9/
 
 require "bundler/setup"
-require "erb"
-require 'rake-pipeline'
-require "colored"
 
-def pipeline
-  Rake::Pipeline::Project.new("Assetfile")
+def generate_docs
+  print "Generating docs .. "
+
+  Dir.chdir("app/submodules/sproutcore-touch/docs") do
+    system("npm install") unless File.exist?('node_modules')
+    system("./node_modules/.bin/yuidoc -q")
+  end
+  
+  rm_rf 'public/api'
+  mkdir 'public/api'
+  cp_r 'app/submodules/sproutcore-touch/docs/build/.', 'public/api'
+
 end
 
-
-desc "Build app.js"
-task :dist do
-  puts "Building app.js"
-  pipeline.invoke
-  puts "Done"
+desc "Generate API Docs"
+task :generate_docs do
+  generate_docs
 end
-
-desc "Clean build artifacts from previous builds"
-task :clean do
-  puts "Cleaning build..."
-  pipeline.clean
-  puts "Done"
-end
-
-task :default => :dist

@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ember.Gesture - Ember&#x2F;Sprouctore Touch API</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.5.1&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.5.1&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..&#x2F;assets/css/logo.png" title="Ember&#x2F;Sprouctore Touch API"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/Ember.ApplicationGestureManager.html">Ember.ApplicationGestureManager</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.DelegateRule.html">Ember.DelegateRule</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.Gesture.html">Ember.Gesture</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.GestureDelegate.html">Ember.GestureDelegate</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.GestureDelegates.html">Ember.GestureDelegates</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.GestureManager.html">Ember.GestureManager</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.PanGestureRecognizer.html">Ember.PanGestureRecognizer</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.PinchGestureRecognizer.html">Ember.PinchGestureRecognizer</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.PressGestureRecognizer.html">Ember.PressGestureRecognizer</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.RegisteredGestureList.html">Ember.RegisteredGestureList</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.SwipeGestureRecognizer.html">Ember.SwipeGestureRecognizer</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
+            
+                <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="..&#x2F;modules/ember.html">ember</a></li>
+            
+                <li><a href="..&#x2F;modules/ember-touch.html">ember-touch</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>Ember.Gesture Class</h1>
+<div class="box meta">
+    
+
+    
+        <div class="extends">
+            Extends Ember.Object
+        </div>
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l8"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:8</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/ember-touch.html">ember-touch</a><br>
+            Parent Module: <a href="../modules/ember.html">ember</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>Base class for all gesture recognizers. Handles low-level touch and state
+management, and provides some utility methods and some required methods all
+gesture recognizers are expected to implement.</p>
+
+<h1>Overview</h1>
+
+<p>Gestures coalesce multiple touch events to a single higher-level gesture
+event. For example, a tap gesture recognizer takes information about a
+touchstart event, a few touchmove events, and a touchend event and uses
+some heuristics to decide whether or not that sequence of events qualifies
+as a tap event. If it does, then it will notify the view of the higher-level
+tap events.</p>
+
+<p>Gesture events follow the format:</p>
+
+<ul>
+<li><p><em>[GESTURE_NAME]</em> Start - Sent when a gesture has gathered enough information
+  to begin tracking the gesture</p></li>
+<li><p><em>[GESTURE_NAME]</em> Change - Sent when a gesture has already started and has
+  received touchmove events that cause its state to change</p></li>
+<li><p><em>[GESTURE_NAME]</em> End - Sent when a touchend event is received and the gesture
+  recognizer decides that the gesture is finished.</p></li>
+<li><p><em>[GESTURE_NAME]</em> Cancel - Sent when a touchcancel event is received.</p></li>
+</ul>
+
+<p>There are two types of gestures: Discrete and Continuous gestures. In contrast
+to continuous gestures, discrete gestures don't have any change events. Rather,
+the end event is the only one that gets sent to the view.</p>
+
+<h2>Usage</h2>
+
+<p>While you wouldn't use Em.Gesture directly, all its subclasses implement the 
+same API. For example, to implement pinch on a view, you implement one or more 
+of the pinch events. For example:</p>
+
+<pre class="code"><code class="prettyprint">var myView = Em.View.create({
+  pinchStart: function(recognizer, evt) {
+    this.$().css('background','red');
+  },
+
+  pinchChange: function(recognizer, evt) {
+    var scale = recognizer.get('scale');
+    this.$().css('scale',function(index, value) {
+      return recognizer.get('scale') * value
+    });
+  },
+
+  pinchEnd: function(recognizer, evt) {
+    this.$().css('background','blue');
+  },
+
+  pinchCancel: function(recognizer, evt) {
+    this.$().css('background','blue');
+  }
+});
+</code></pre>
+
+<p>pinchStart(), pinchEnd() and pinchCancel() will only get called once per
+gesture, but pinchChange() will get called repeatedly called every time
+one of the touches moves.</p>
+
+<h2>Customizing Gesture Recognizers</h2>
+
+<p>Some of the gesture recognizers include properties that can be customized by 
+the user for a specific instance of a view. For example, a pan gesture defaults 
+to being a one-finger gesture, but in some scenarios, it must be defined as a 
+two-finger gesture. In that case, you can override defaults by specifying an 
+Options hash. </p>
+
+<pre class="code"><code class="prettyprint">var myView = Em.View.create({
+  panOptions: {
+    numberOfRequiredTouches: 2
+  }
+});      
+</code></pre>
+
+<h2>Creating Custom Gesture Recognizers</h2>
+
+<p>Em.Gesture also defines an API which its subclasses can implement to build
+custom gestures. The methods are:</p>
+
+<ul>
+<li><p><strong>didBecomePossible</strong> - Called when a gesture enters a possible state. This
+  means the gesture recognizer has accepted enough touches to match 
+  the number of required touches. You would usually initialize your state
+  in this callback.</p></li>
+<li><p><strong>eventWasRejected</strong> - Called if a view returns false from a gesture event.
+  This callback allows you to reset internal state if the user rejects
+  an event.</p></li>
+<li><p><strong>shouldBegin</strong> - Allows a gesture to block itself from entering a began state.
+  This callback will continuously be called as touches move until it begins.</p></li>
+<li><p><strong>shouldEnd</strong> - Allows a gesture to block itself from entering an ended state.
+  This callback gets called whenever a tracked touch gets a touchEnd event.</p></li>
+<li><p><strong>didBegin</strong> - Called when the gesture enters a began state. Called before the
+ view receives the Start event on continuous gestures.</p></li>
+<li><p><strong>didChange</strong> - Called when the gesture enters a changed state, and when one of the
+  touches moves. Called before the view receives the Change event on continuos gestures.</p></li>
+<li><p><strong>didEnd</strong> - Called when the gesture enters an ended state. Called before the
+ view receives the End event.</p></li>
+<li><p><strong>didCancel</strong> - Called when the gesture enters a cancelled state. Called before the
+ view receives the Cancel event on continuos gestures.</p></li>
+</ul>
+
+<p>In all the callbacks, you can use the <code>touches</code> protected property to access the
+touches hash. The touches hash is keyed on the identifiers of the touches, and the
+values are the jQuery.Event objects. You can also access the length property to inspect 
+how many touches are active, this is mostly useful in shouldBegin since every other 
+callback can assume that there are as many active touches as specified in the 
+numberOfRequiredTouches property.</p>
+
+<h2>Discrete vs Continuous Gestures</h2>
+
+<p>There are two main classes of gesture recognizers: Discrete and Continuous 
+gestures. Discrete gestures do not get Start, Change nor Cancel events sent, 
+since they represent a single, instantaneous event, rather than a continuous 
+motion. If you are implementing your own discrete gesture recognizer, you must 
+set the gestureIsDiscrete property to yes, and Em.Gesture will adapt its behavior.</p>
+
+<p>Discrete gestures use the shouldEnd callback to either accept or decline the gesture
+event. If it is declined, then the gesture will enter a Cancelled state.</p>
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                        
+                            <li class="index-item method private">
+                                <a href="#method__notifyViewOfGestureEvent">_notifyViewOfGestureEvent</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method__resetState">_resetState</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_attemptGestureEventDelivery">attemptGestureEventDelivery</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_blockApplicationGestureManagerIfSimultaneously">blockApplicationGestureManagerIfSimultaneously</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_centerPointForTouches">centerPointForTouches</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method_didBecomePossible">didBecomePossible</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method_didBegin">didBegin</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method_didCancel">didCancel</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method_didChange">didChange</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method_didEnd">didEnd</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_distance">distance</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method_eventWasRejected">eventWasRejected</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method_shouldBegin">shouldBegin</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method_shouldEnd">shouldEnd</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_toString">toString</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_touchCancel">touchCancel</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_touchEnd">touchEnd</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_touchMove">touchMove</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_touchStart">touchStart</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties extends">
+                        
+                            <li class="index-item property">
+                                <a href="#property_delegate">delegate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_delegateName">delegateName</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_gestureIsDiscrete">gestureIsDiscrete</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_isEnabled">isEnabled</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_name">name</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private">
+                                <a href="#property_numberOfActiveTouches">numberOfActiveTouches</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private">
+                                <a href="#property_numberOfRequiredTouches">numberOfRequiredTouches</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_simultaneously">simultaneously</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_state">state</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property private">
+                                <a href="#property_touches">touches</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__notifyViewOfGestureEvent" class="method item private">
+    <h3 class="name"><code>_notifyViewOfGestureEvent</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l415"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:415</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Allows the gesture to notify the view it's associated with of a gesture
+event.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__resetState" class="method item private">
+    <h3 class="name"><code>_resetState</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l440"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:440</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_attemptGestureEventDelivery" class="method item private">
+    <h3 class="name"><code>attemptGestureEventDelivery</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l350"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:350</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Notify the View of the event and trigger eventWasRejected if the view doesn't implement the API 
+or return false</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_blockApplicationGestureManagerIfSimultaneously" class="method item private">
+    <h3 class="name"><code>blockApplicationGestureManagerIfSimultaneously</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l331"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:331</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Block AppGestureManager, if simultaneously is true.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_centerPointForTouches" class="method item private">
+    <h3 class="name"><code>centerPointForTouches</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l390"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:390</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Given two Touch objects, this method returns the midpoint between them.</p>
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    Number
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_didBecomePossible" class="method item protected">
+    <h3 class="name"><code>didBecomePossible</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l273"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:273</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_didBegin" class="method item protected">
+    <h3 class="name"><code>didBegin</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l287"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:287</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_didCancel" class="method item protected">
+    <h3 class="name"><code>didCancel</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l319"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:319</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_didChange" class="method item protected">
+    <h3 class="name"><code>didChange</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l293"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:293</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_didEnd" class="method item protected">
+    <h3 class="name"><code>didEnd</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l313"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:313</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_distance" class="method item private">
+    <h3 class="name"><code>distance</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l367"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:367</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Given two Touch objects, this method returns the distance between them.</p>
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                    Number
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_eventWasRejected" class="method item protected">
+    <h3 class="name"><code>eventWasRejected</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l299"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:299</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_shouldBegin" class="method item protected">
+    <h3 class="name"><code>shouldBegin</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l279"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:279</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_shouldEnd" class="method item protected">
+    <h3 class="name"><code>shouldEnd</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l305"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:305</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_toString" class="method item">
+    <h3 class="name"><code>toString</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l433"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:433</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_touchCancel" class="method item">
+    <h3 class="name"><code>touchCancel</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l609"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:609</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handles touchCancel events.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_touchEnd" class="method item">
+    <h3 class="name"><code>touchEnd</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l553"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:553</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handles touchEnd events.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_touchMove" class="method item">
+    <h3 class="name"><code>touchMove</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l498"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:498</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handles touchMove events.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_touchStart" class="method item">
+    <h3 class="name"><code>touchStart</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l451"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:451</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handles touchStart events.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_delegate" class="property item">
+    <h3 class="name"><code>delegate</code></h3>
+    <span class="type">Em.GestureDelegate</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l197"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:197</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Apply a delegate to customize an application's gesture-recognition behavior.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_delegateName" class="property item">
+    <h3 class="name"><code>delegateName</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l189"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:189</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Used to assign a gesture delegate on init process.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_gestureIsDiscrete" class="property item">
+    <h3 class="name"><code>gestureIsDiscrete</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l169"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:169</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Specifies whether a gesture is discrete or continuous.</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_isEnabled" class="property item">
+    <h3 class="name"><code>isEnabled</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l205"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:205</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Use this property to disable gesture recognition. 
+Use isEnabledBinding to global or view properties.</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_name" class="property item">
+    <h3 class="name"><code>name</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l149"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:149</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>A string of the gesture recognizer's name. This value is set automatically
+but Em.Gestures when a gesture is registered.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_numberOfActiveTouches" class="property item private">
+    <h3 class="name"><code>numberOfActiveTouches</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l227"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:227</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>You can also use the numberOfActiveTouches property to inspect how many touches
+are active, this is mostly useful in shouldBegin since every other callback can
+assume that there are as many active touches as specified in the 
+numberOfRequiredTouches property.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_numberOfRequiredTouches" class="property item private">
+    <h3 class="name"><code>numberOfRequiredTouches</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l239"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:239</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Used to specify the number of touches required for the gesture to enter a possible 
+state</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_simultaneously" class="property item">
+    <h3 class="name"><code>simultaneously</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l179"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:179</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>When true is guaranteed to allow simultaneous recognition. When false, the gesture <br />
+should not be recognized when there is other active gesture whose simultaneously is disabled.</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> true</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_state" class="property item">
+    <h3 class="name"><code>state</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l140"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:140</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The current state of the gesture recognizer. This value can be any one
+of the states defined at the end of this file.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_touches" class="property item private">
+    <h3 class="name"><code>touches</code></h3>
+    <span class="type">Hash</span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;.._packages_ember-touch_lib_system_gesture.js.html#l216"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:216</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>You can use the <code>touches</code> protected property to access the touches hash. The touches 
+hash is keyed on the identifiers of the touches, and the values are the jQuery.Event 
+objects.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>
