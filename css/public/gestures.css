@@ -9,3 +9,8 @@
 .is-green {
   background-color: lightgreen;
 }
+
+.pan-pinch-view {
+  height: 300px;
+  width: 300px;
+}

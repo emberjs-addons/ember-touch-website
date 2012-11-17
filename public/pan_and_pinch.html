@@ -1,0 +1,63 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]--> <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]--> <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]--> <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../source/app.css">
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="span10">
+
+        <h2>Gestures</h2>
+
+        <script type="text/x-handlebars">
+
+          {{#view App.TapView}}
+            Tap Once
+          {{/view}}
+
+          {{#view App.DoubleTapView}}
+            Tap Twice
+          {{/view}}
+
+          <div class="clearfix"></div>
+
+          {{#view App.TouchHoldView}}
+            Touch and hold for 2 seconds with one finger
+          {{/view}}
+
+          {{#view App.DoubleTouchHoldView}}
+            Touch and hold for 1 second with two fingers
+          {{/view}}
+
+          {{view App.TestView elementId="test-view"}}
+
+        </script>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+<script src="../source/app.js"></script>
+<script type="text/javascript">
+
+	minispade.require('app');
+	minispade.require('app/public/gestures');
+
+</script>
