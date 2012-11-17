@@ -34,6 +34,14 @@
 
           <div class="clearfix"></div>
 
+          {{#view App.TouchHoldView}}
+            Touch and hold for 2 seconds with one finger
+          {{/view}}
+
+          {{#view App.DoubleTouchHoldView}}
+            Touch and hold for 1 second with two fingers
+          {{/view}}
+
           {{view App.TestView elementId="test-view"}}
 
         </script>

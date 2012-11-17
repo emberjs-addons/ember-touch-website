@@ -37,6 +37,33 @@ App.DoubleTapView = Em.View.extend({
 
 });
 
+App.TouchHoldView = Em.View.extend({
+  classNameBindings: ['isGreen'],
+  classNames: ['tap-view'],
+  isGreen: false,
+
+  touchHoldEnd: function (recognizer, event) {
+    set(this, 'isGreen', !get(this, 'isGreen') );
+  }
+
+});
+
+App.DoubleTouchHoldView = Em.View.extend({
+  classNameBindings: ['isGreen'],
+  classNames: ['tap-view'],
+  isGreen: false,
+
+  touchHoldOptions: {
+    holdPeriod: 1000,
+    numberOfRequiredTouches: 2
+  },
+
+  touchHoldEnd: function (recognizer, event) {
+    set(this, 'isGreen', !get(this, 'isGreen') );
+  }
+
+});
+
 App.TestView = Em.View.extend({
   templateName: 'test'
 });
