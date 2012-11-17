@@ -22,7 +22,7 @@ class HandlebarsFilter < Rake::Pipeline::Filter
 end
 
 
-output "source"
+output "public/source"
 
 
 input "css"  do
