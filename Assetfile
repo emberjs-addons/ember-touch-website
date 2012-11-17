@@ -1,0 +1,79 @@
+require "rake-pipeline-web-filters"
+require "json"
+require "uglifier"
+require "execjs"
+
+
+output "source"
+
+
+input "css"  do
+
+  match "**/*.css" do
+    concat "app.css"
+	end
+
+end
+
+
+input "app" do
+
+	match "app/lib/**/*.js" do
+		minispade :rewrite_requires => true, :string=> false, :module_id_generator => proc { |input|
+			id = input.path.dup
+			id.sub!('/lib/', '/')
+			id.sub!(/\.js$/, '')
+			id.sub!(/\/main$/, '')
+			id
+		}
+
+		concat "app.js"
+	end
+
+	match "submodules/sproutcore-touch/packages/ember-touch/lib/**/.js" do
+		minispade :rewrite_requires => true, :string=> false, :module_id_generator => proc { |input|
+			id = input.path.dup
+			id.sub!('submodules/', '')
+			id.sub!(/[a-z\-\.]+\//, '')
+			id.sub!('packages/', '')
+			id.sub!('/lib/', '/')
+			id.sub!(/\.js$/, '')
+			id.sub!(/\/main$/, '')
+			id
+		}
+
+	 concat "app.js"
+	end
+
+	match "submodules/ember.js/packages/*/lib/**/.js" do
+		minispade :rewrite_requires => true, :string=> false, :module_id_generator => proc { |input|
+			id = input.path.dup
+			id.sub!('submodules/', '')
+			id.sub!(/[a-z\-\.]+\//, '')
+			id.sub!('packages/', '')
+			id.sub!('/lib/', '/')
+			id.sub!(/\.js$/, '')
+			id.sub!(/\/main$/, '')
+			id
+		}
+
+	 concat "app.js"
+	end
+
+
+	match "vendor/handlebars-1.0.rc.1.js" do
+		filter ConcatFilter, "app.js"
+	end
+
+	match "vendor/minispade.js" do
+		filter ConcatFilter, "app.js"
+	end
+
+	match "vendor/jquery-1.8.2.js" do
+		filter ConcatFilter, "app.js"
+	end
+
+end
+
+
+# vim: filetype=ruby

@@ -1,0 +1,41 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]--> <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]--> <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]--> <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<body>
+
+    <h1>Gestures</h1>
+    <script type="text/x-handlebars">
+
+      {{#view Em.View elementId="hola"}}
+            hola hola
+      {{/view}}
+
+      {{#view App.TapView elementId="tap1"}}
+        Tap One
+      {{/view}}
+
+    </script>
+</body>
+</html>
+
+
+<link rel="stylesheet" href="../source/app.css">
+<script src="../source/app.js"></script>
+<script type="text/javascript">
+
+	minispade.require('app'); 
+	minispade.require('app/app/gestures'); 
+
+</script>
