@@ -11,31 +11,41 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="../source/app.css">
 
 </head>
 <body>
 
-    <h1>Gestures</h1>
-    <script type="text/x-handlebars">
+  <div class="container">
+    <div class="row">
+      <div class="span10">
 
-      {{#view Em.View elementId="hola"}}
-            hola hola
-      {{/view}}
+        <h2>Gestures</h2>
 
-      {{#view App.TapView elementId="tap1"}}
-        Tap One
-      {{/view}}
+        <script type="text/x-handlebars">
 
-    </script>
+          {{#view Em.View elementId="hola"}}
+                hola hola
+          {{/view}}
+
+          {{#view App.TapView elementId="tap1"}}
+            Tap One
+          {{/view}}
+
+        </script>
+
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
 
 
-<link rel="stylesheet" href="../source/app.css">
 <script src="../source/app.js"></script>
 <script type="text/javascript">
 
-	minispade.require('app'); 
-	minispade.require('app/app/gestures'); 
+	minispade.require('app');
+	minispade.require('app/app/gestures');
 
 </script>
