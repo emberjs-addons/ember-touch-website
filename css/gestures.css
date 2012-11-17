@@ -1,11 +1,11 @@
-#tap1 {
+.tap-view {
   height: 200px;
   width: 200px;
-  background-color: blue;
-
+  background-color: lightblue;
+  float: left;
+  margin: 10px;
 }
 
-#tap1.is-green {
-
-  background-color: green;
+.is-green {
+  background-color: lightgreen;
 }

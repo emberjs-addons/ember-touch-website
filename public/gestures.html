@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 
   <link rel="stylesheet" href="../source/app.css">
 
@@ -24,12 +24,12 @@
 
         <script type="text/x-handlebars">
 
-          {{#view Em.View elementId="hola"}}
-                hola hola
+          {{#view App.TapView}}
+            Tap Once
           {{/view}}
 
-          {{#view App.TapView elementId="tap1"}}
-            Tap One
+          {{#view App.DoubleTapView}}
+            Tap Twice
           {{/view}}
 
         </script>
