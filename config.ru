@@ -19,7 +19,7 @@ use Rake::Pipeline::Middleware, Rake::Pipeline::Project.new("Assetfile")
 
 
 use Rack::Static, 
-  :urls => ["source"],
+  :urls => ["source", "api"],
   :root => "public"
 
 @root = File.expand_path(File.dirname(__FILE__)) + "/public"
