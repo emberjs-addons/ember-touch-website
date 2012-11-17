@@ -11948,6 +11948,7 @@ Ember.Application.registerInjection({
 
 Ember.runLoadHooks('Ember.Application', Ember.Application);
 
+
 });minispade.register('ember-application/system/dag', function() {function visit(vertex, fn, visited, path) {
   var name = vertex.name,
     vertices = vertex.incoming,
@@ -36679,11 +36680,13 @@ App.TapView = Em.View.extend({
   isGreen: false,
 
   tapEnd: function () {
-
     set(this, 'isGreen', !get(this, 'isGreen') );
-    console.log('tappable');
   }
 
+});
+
+App.TestView = Em.View.extend({
+  templateName: 'test'
 });
 App.initialize();
 
@@ -36698,5 +36701,12 @@ minispade.require('ember-handlebars');
 minispade.require('ember-states');
 minispade.require('ember-debug');
 minispade.require('ember-touch');
+
+// load all the templates
+minispade.require('app/templates');
+
+});minispade.register('app/templates', function() {minispade.require('templates/test');
+
+});minispade.register('templates/test', function() {Ember.TEMPLATES['test'] =  Ember.Handlebars.compile("This is a test view\n");
 
 });

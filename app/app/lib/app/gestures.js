@@ -20,4 +20,8 @@ App.TapView = Em.View.extend({
   }
 
 });
+
+App.TestView = Em.View.extend({
+  templateName: 'test'
+});
 App.initialize();

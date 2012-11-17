@@ -4,19 +4,45 @@ require "uglifier"
 require "execjs"
 
 
+class HandlebarsFilter < Rake::Pipeline::Filter
+
+  def initialize(&block)
+    block ||= proc { |input| input.sub(/\.handlebars$/, '.js') }
+    super(&block)
+  end
+
+  def generate_output(inputs, output)
+
+    inputs.each do |input|
+      name = File.basename(input.path, '.handlebars')
+      output.write "Ember.TEMPLATES['#{name}'] =  Ember.Handlebars.compile(#{input.read.to_json});\n"
+    end
+
+  end
+end
+
+
 output "source"
 
 
 input "css"  do
-
   match "**/*.css" do
     concat "app.css"
 	end
-
 end
 
 
 input "app" do
+
+	match "templates/**/*.handlebars" do
+		filter HandlebarsFilter
+		minispade :rewrite_requires => true, :string=> false, :module_id_generator => proc { |input|
+			id = input.path.dup
+			id.sub!(/\.js$/, '')
+			id
+		}
+		filter ConcatFilter, "app.js"
+	end
 
 	match "app/lib/**/*.js" do
 		minispade :rewrite_requires => true, :string=> false, :module_id_generator => proc { |input|
