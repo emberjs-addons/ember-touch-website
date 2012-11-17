@@ -26,11 +26,20 @@ output "source"
 
 
 input "css"  do
-  match "**/*.css" do
+
+  match "public/*.css" do
     concat "app.css"
 	end
-end
 
+  match "common/*.css" do
+    concat "app.css"
+	end
+
+  match "externals/*.css" do
+    concat "app.css"
+	end
+
+end
 
 input "app" do
 
