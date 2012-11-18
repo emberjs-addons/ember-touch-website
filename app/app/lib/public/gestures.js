@@ -70,8 +70,9 @@ App.PanAndPinchView = Em.View.extend({
   canvasHeight: 250,
   imageWidth: null,
   imageHeight: null,
-  xCenter: null,
-  yCenter: null,
+  xPos: null,
+  yPos: null,
+  scale: 1,
   canvas: null,
   image: null,
 
@@ -93,11 +94,11 @@ App.PanAndPinchView = Em.View.extend({
       set(self, 'image', image);
       set(self, 'imageWidth', image.width);
       set(self, 'imageHeight', image.height);
-      set(self, 'xCenter', 0);
-      set(self, 'yCenter', 0);
-      get(self, 'canvas').drawImage(image, 0, 0);
+      set(self, 'xPos', 0);
+      set(self, 'yPos', 0);
+      self.refreshImage();
     };
-    //image.src = "http://farm9.staticflickr.com/8300/7856113180_91accb0d1b_b.jpg";
+
     image.src = "/assets/images/demo_picture.jpg";
   },
 
@@ -111,42 +112,75 @@ App.PanAndPinchView = Em.View.extend({
 
   panChange: function(rec, evt) {
     var val,
-        canvas,
-        image,
         x,
         y,
         canvasWidth,
         canvasHeight;
 
-    var SCALE = 5;
+    var SMOOTH_FACTOR = 5;
 
     val = rec.get('translation');
-    canvas = get(this, 'canvas');
-    image = get(this, 'image');
 
     canvasWidth = get(this, 'canvasWidth');
     canvasHeight = get(this, 'canvasHeight');
 
-    x = Math.min(get(this, 'xCenter') + SCALE * val.x,
-      get(this, 'imageWidth') - canvasWidth);
+    x = Math.min(get(this, 'xPos') + SMOOTH_FACTOR * val.x,
+      get(this, 'imageWidth') - canvasWidth * get(this, 'scale'));
 
-    y = Math.min(get(this, 'yCenter') + SCALE * val.y,
-      get(this, 'imageHeight') - canvasHeight);
+    y = Math.min(get(this, 'yPos') + SMOOTH_FACTOR * val.y,
+      get(this, 'imageHeight') - canvasHeight * get(this, 'scale'));
 
     x = Math.max(x, 0);
     y = Math.max(y, 0);
 
-    set(this, 'xCenter', x);
-    set(this, 'yCenter', y);
+    set(this, 'xPos', x);
+    set(this, 'yPos', y);
+
+    this.refreshImage();
+  },
+
+  pinchStart: function(rec, evt) {
+    var scale,
+        newScale,
+        previousScale,
+        scaleFactorX,
+        scaleFactorY;
+
+    scale = rec.get('scale');
+    previousScale = get(this, 'scale');
+    newScale = scale * previousScale;
+    scaleFactorX = newScale * get(this, 'canvasWidth');
+    scaleFactorY = newScale * get(this, 'canvasHeight');
+
+    // Only update if the values are valid
+    if (newScale > 0.25 && scaleFactorX < get(this, 'imageWidth') && scaleFactorY < get(this, 'imageHeight')) {
+      set(this, 'scale', scale * get(this, 'scale'));
+      this.refreshImage();
+    }
+  },
+
+  refreshImage: function() {
+    var val,
+      canvas,
+      image,
+      x,
+      y,
+      scale,
+      canvasWidth,
+      canvasHeight;
+
+    canvasWidth = get(this, 'canvasWidth');
+    canvasHeight = get(this, 'canvasHeight');
+
+    canvas = get(this, 'canvas');
+    image = get(this, 'image');
+    x = get(this, 'xPos');
+    y = get(this, 'yPos');
+    scale = get(this, 'scale');
 
     canvas.clearRect(0, 0, canvasWidth, canvasHeight);
 
-    canvas.drawImage(image, x, y, canvasWidth, canvasHeight, 0, 0, canvasWidth, canvasHeight);
-  },
-
-  pinchChange: function(rec, evt) {
-    var scale = rec.get('scale');
-    console.log("SCALE", scale);
+    canvas.drawImage(image, x, y, canvasWidth * scale, canvasHeight * scale, 0, 0, canvasWidth, canvasHeight);
   }
 });
 
