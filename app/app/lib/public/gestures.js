@@ -64,10 +64,6 @@ App.DoubleTouchHoldView = Em.View.extend({
 
 });
 
-App.SwipeController = Em.Object.extend({
-  value: 'A'
-});
-
 App.SwipeView = Em.View.extend({
   letter: 'A',
   swipeOptions: {
