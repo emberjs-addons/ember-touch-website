@@ -1,8 +1,10 @@
 
-{{#with view}}
-<div class="navbar-inner">
-  <div class="container-fluid">
-    <a id="home-link" class="brand" href="/">Ember-Touch</a>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a id="home-link" class="brand" href="/">Ember-Touch</a>
+    </div>
   </div>
 </div>
 
@@ -11,4 +13,12 @@
 <div class="page-header">
   <h2>{{title}}<small>{{subtitle}}</small></h2>
 </div>
-{{/with}}
+
+<div class="container-fluid">
+  <div class="row-fluid">
+
+    <div class="span10">
+      {{outlet}}
+    </div>
+  </div>
+</div>

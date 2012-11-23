@@ -14,7 +14,12 @@ require('ember-touch');
 
 
 require('app/system/application');
+
+require('app/routes');
+require('app/controllers');
 require('app/views');
 
 // load all the templates
 require('app/templates');
+
+App.initialize();

@@ -2,7 +2,7 @@
 var get = Em.get, set = Em.set;
 
 
-App.SwipeView = Em.View.extend({
+App.LetterSwipeView = Em.View.extend({
   letter: 'A',
   swipeOptions: {
     direction: Em.OneGestureDirection.Left | Em.OneGestureDirection.Right,
@@ -38,8 +38,6 @@ App.SwipeView = Em.View.extend({
 });
 
 
-App.SwipeExampleView = App.ExampleView.extend({
-  headerTitle: 'Swipe Gesture',
-  headerSubtitle: null,
+App.SwipeView = Em.View.extend({
   templateName: 'swipe'
 });

@@ -2,7 +2,7 @@
 var get = Em.get, set = Em.set;
 
 
-App.PanAndPinchView = Em.View.extend({
+App.ExamplePanAndPinchView = Em.View.extend({
   classNames: ['pan-pinch-view'],
   canvasWidth: 280,
   canvasHeight: 250,
@@ -123,8 +123,6 @@ App.PanAndPinchView = Em.View.extend({
 });
 
 
-App.PanAndPinchExampleView = App.ExampleView.extend({
-  headerTitle: 'Pan and Pinch Gestures',
-  headerSubtitle: null,
+App.PanAndPinchView = Em.View.extend({
   templateName: 'pan_and_pinch'
 });

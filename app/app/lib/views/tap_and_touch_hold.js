@@ -55,9 +55,6 @@ App.DoubleTouchHoldView = Em.View.extend({
 
 });
 
-
-App.TapAndTouchHoldExampleView = App.ExampleView.extend({
-  headerTitle: 'Tap & TouchHold Gestures',
-  headerSubtitle: null,
+App.TapAndTouchHoldView = Em.View.extend({
   templateName: 'tap_and_touch_hold'
 });
