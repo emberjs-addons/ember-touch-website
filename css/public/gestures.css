@@ -10,10 +10,20 @@
   background-color: lightgreen;
 }
 
-.huge-letter {
-  font-size: 300px;
-  margin: 10px auto;
-  line-height: 300px;
-  background-color: lightblue;
+.letter-swipe-view {
+
+  font-size: 100px;
+  line-height: 100px;
   text-align: center;
+  background-color: lightblue;
+}
+
+.letter-swipe-view.is-big {
+  font-size: 300px;
+  line-height: 300px;
+
+}
+
+.letter-swipe-view.is-green {
+  background-color: lightgreen;
 }

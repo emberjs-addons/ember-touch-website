@@ -48,6 +48,9 @@ App.Router = Ember.Router.extend({
     emberTouch:  App.BaseRoute.extend({
     }),
     objectResponsabilities:  App.BaseRoute.extend({
+    }),
+
+    simultaneously:  App.BaseRoute.extend({
     })
 
   })

@@ -6,8 +6,12 @@ require('templates/application');
 require('templates/tap_and_touch_hold');
 require('templates/swipe');
 require('templates/pan_and_pinch');
+require('templates/simultaneously');
 
 require('templates/ember_touch');
 require('templates/handling_events');
 require('templates/object_responsabilities');
 require('templates/index');
+
+
+require('templates/common/letter_swipe');
