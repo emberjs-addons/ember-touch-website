@@ -6,7 +6,7 @@ App.LetterSwipeView = Em.View.extend({
   letter: 'A',
   swipeOptions: {
     direction: Em.OneGestureDirection.Left | Em.OneGestureDirection.Right,
-    canelPeriod: 100,
+    cancelPeriod: 100,
     swipeThreshold: 10
   },
 

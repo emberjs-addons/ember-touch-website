@@ -1,3 +1,6 @@
+
+var get = Em.get, set = Em.set;
+
 App.BaseRoute = Em.Route.extend({
 
   init: function() {
@@ -7,8 +10,8 @@ App.BaseRoute = Em.Route.extend({
         templateName = this.name.decamelize(),
         viewName = this.name.charAt(0).toUpperCase() + this.name.substr(1)+'View';
 
-    if ( !this.get('route') ) {
-      this.set('route', route );
+    if ( !get(this, 'route') ) {
+      set(this, 'route', route );
     }
 
     // Define automatically the outlet templateView 
@@ -18,7 +21,7 @@ App.BaseRoute = Em.Route.extend({
   },
 
   connectOutlets:  function(router, context){
-    router.get('applicationController').connectOutlet( this.get('name') );
+    router.get('applicationController').connectOutlet( get(this, 'name') );
   },
   enter: function ( router ){
     //router.get('applicationController').setProperties({title: this.title, subtitle:null});
