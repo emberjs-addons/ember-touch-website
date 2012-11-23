@@ -54,7 +54,3 @@ App.DoubleTouchHoldView = Em.View.extend({
   }
 
 });
-
-App.TapAndTouchHoldView = Em.View.extend({
-  templateName: 'tap_and_touch_hold'
-});

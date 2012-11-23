@@ -10,14 +10,32 @@
 
 <a href="https://github.com/emberjs-addons/sproutcore-touch"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
-<div class="page-header">
-  <h2>{{title}}<small>{{subtitle}}</small></h2>
-</div>
-
 <div class="container-fluid">
+
   <div class="row-fluid">
 
-    <div class="span10">
+      <div class="span3">
+
+          <div class="well side-bar">
+              <ul class="nav nav-list">
+                <li class="nav-header">Docs</li>
+
+                {{view App.NavItemView linkState="emberTouch" content="Ember Touch"}}
+                {{view App.NavItemView linkState="objectResponsabilities" content="Object Responsabilities"}}
+                {{view App.NavItemView linkState="handlingEvents" content="Handling Events"}}
+                <li class="nav-header">Examples</li>
+                {{view App.NavItemView linkState="panAndPinch" content="Pan & Pinch"}}
+                {{view App.NavItemView linkState="swipe" content="Tap & TouchHold"}}
+                {{view App.NavItemView linkState="tapAndTouchHold" content="Swipe"}}
+
+                <li class="nav-header">API</li>
+                <li><a href="/api/index.html">YuiDoc</a></li>
+              </ul>
+          </div>
+
+      </div>
+
+    <div class="span9">
       {{outlet}}
     </div>
   </div>

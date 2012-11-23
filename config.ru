@@ -28,11 +28,6 @@ run Proc.new { |env|
 
   path = Rack::Utils.unescape(env['PATH_INFO'])
 
-  # if matching gestures redirect to gestures/index.html
-  if path.match /\/gestures\//
-    path = '/gestures'
-  end
-
   index_file = @root + "#{path}/index.html"
 
   if File.exists?(index_file)

@@ -121,8 +121,3 @@ App.ExamplePanAndPinchView = Em.View.extend({
     canvas.drawImage(image, x, y, canvasWidth * scale, canvasHeight * scale, 0, 0, canvasWidth, canvasHeight);
   }
 });
-
-
-App.PanAndPinchView = Em.View.extend({
-  templateName: 'pan_and_pinch'
-});

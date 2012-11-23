@@ -36,8 +36,3 @@ App.LetterSwipeView = Em.View.extend({
   }
 
 });
-
-
-App.SwipeView = Em.View.extend({
-  templateName: 'swipe'
-});
