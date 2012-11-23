@@ -33,6 +33,10 @@ App.TouchHoldView = Em.View.extend({
   classNames: ['tap-view'],
   isGreen: false,
 
+  touchStart: function(event) {
+    event.preventDefault();
+  },
+
   touchHoldEnd: function (recognizer, event) {
     set(this, 'isGreen', !get(this, 'isGreen') );
   }
@@ -47,6 +51,10 @@ App.DoubleTouchHoldView = Em.View.extend({
   touchHoldOptions: {
     holdPeriod: 1000,
     numberOfRequiredTouches: 2
+  },
+
+  touchStart: function(event) {
+    event.preventDefault();
   },
 
   touchHoldEnd: function (recognizer, event) {

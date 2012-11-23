@@ -97,6 +97,10 @@ App.ExamplePanAndPinchView = Em.View.extend({
     }
   },
 
+  touchMove: function(event) {
+    event.preventDefault();
+  },
+
   refreshImage: function() {
     var val,
       canvas,
