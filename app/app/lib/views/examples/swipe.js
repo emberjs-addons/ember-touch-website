@@ -23,6 +23,12 @@ App.LetterSwipeView = Em.View.extend({
     this.set('letter', String.fromCharCode(asciiCode));
   },
 
+  touchMove: function(event) {
+
+    event.preventDefault();
+
+  },
+
   swipeEnd: function(recognizer, evt) {
     var direction = recognizer.get('swipeDirection');
 

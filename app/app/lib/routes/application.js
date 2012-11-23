@@ -31,7 +31,7 @@ App.BaseRoute = Em.Route.extend({
 
 App.Router = Ember.Router.extend({ 
 
-  enableLogging: true,
+  enableLogging: false,
   root:  Ember.Route.extend({
     location: 'hash',
     index:  App.BaseRoute.extend({
