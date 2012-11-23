@@ -1,103 +1,6 @@
+
 var get = Em.get, set = Em.set;
 
-console.log('Init gestures module');
-
-App = Ember.Application.create({
-  rootElement: 'body',
-  ready: function() {
-    this._super();
-    console.log('ready');
-  }
-});
-
-App.TapView = Em.View.extend({
-  classNameBindings: ['isGreen'],
-  classNames: ['tap-view'],
-  isGreen: false,
-
-  tapEnd: function () {
-    set(this, 'isGreen', !get(this, 'isGreen') );
-  }
-
-});
-
-App.DoubleTapView = Em.View.extend({
-  classNameBindings: ['isGreen'],
-  classNames: ['tap-view'],
-  isGreen: false,
-
-  tapOptions: {
-    numberOfTaps: 2,
-    delayBetweenTaps: 300
-  },
-
-  tapEnd: function () {
-    set(this, 'isGreen', !get(this, 'isGreen') );
-  }
-
-});
-
-App.TouchHoldView = Em.View.extend({
-  classNameBindings: ['isGreen'],
-  classNames: ['tap-view'],
-  isGreen: false,
-
-  touchHoldEnd: function (recognizer, event) {
-    set(this, 'isGreen', !get(this, 'isGreen') );
-  }
-
-});
-
-App.DoubleTouchHoldView = Em.View.extend({
-  classNameBindings: ['isGreen'],
-  classNames: ['tap-view'],
-  isGreen: false,
-
-  touchHoldOptions: {
-    holdPeriod: 1000,
-    numberOfRequiredTouches: 2
-  },
-
-  touchHoldEnd: function (recognizer, event) {
-    set(this, 'isGreen', !get(this, 'isGreen') );
-  }
-
-});
-
-App.SwipeView = Em.View.extend({
-  letter: 'A',
-  swipeOptions: {
-    direction: Em.OneGestureDirection.Left | Em.OneGestureDirection.Right,
-    canelPeriod: 100,
-    swipeThreshold: 10
-  },
-
-  changeChar: function(offset) {
-    var asciiCode;
-
-    asciiCode = this.get('letter').charCodeAt(0);
-    asciiCode += offset;
-
-    // Keep it betweet A and Z
-    if (asciiCode < 65) asciiCode = 90;
-    if (asciiCode > 90) asciiCode = 65;
-
-    this.set('letter', String.fromCharCode(asciiCode));
-  },
-
-  swipeEnd: function(recognizer, evt) {
-    var direction = recognizer.get('swipeDirection');
-
-    // Right
-    if (direction === 1) {
-      this.changeChar(1);
-    // Left
-    } else if (direction === 2) {
-      this.changeChar(-1);
-    }
-  }
-
-});
 
 App.PanAndPinchView = Em.View.extend({
   classNames: ['pan-pinch-view'],
@@ -219,7 +122,9 @@ App.PanAndPinchView = Em.View.extend({
   }
 });
 
-App.TestView = Em.View.extend({
-  templateName: 'test'
+
+App.PanAndPinchExampleView = App.ExampleView.extend({
+  headerTitle: 'Pan and Pinch Gestures',
+  headerSubtitle: null,
+  templateName: 'pan_and_pinch'
 });
-App.initialize();

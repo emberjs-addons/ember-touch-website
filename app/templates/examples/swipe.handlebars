@@ -1,0 +1,28 @@
+
+{{#with view}}
+
+{{view App.HeaderView 
+  titleBinding="headerTitle" 
+  subtitleBinding="subheaderTitle" }}
+
+<div class="container-fluid">
+  <div class="row-fluid">
+
+    <div class="span10">
+
+        {{#view App.SwipeView}}
+          <div class="huge-letter">
+            {{ view.letter }}
+          </div>
+
+          <div class="alert alert-info">
+            Swipe left and right on the letter
+          </div>
+
+        {{/view}}
+
+    </div>
+  </div>
+</div>
+
+{{/with}}

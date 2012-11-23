@@ -16,31 +16,9 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="row">
-      <div class="span10">
-
-        <div class="alert alert-info">
-        	<p>Pan with one finger. Pinch with two</p>
-        </div>
-
-        <script type="text/x-handlebars">
-
-          {{#view App.PanAndPinchView}}
-            <canvas id="canvas"></canvas>
-            <div class="row">
-              <div class="span10">
-                Picture source: <a href="http://www.flickr.com/photos/albaras/7856113180/">@albaras</a>
-              </div>
-            </div>
-          {{/view}}
-
-        </script>
-
-      </div>
-    </div>
-
-  </div>
+    <script type="text/x-handlebars">
+        {{view App.PanAndPinchExampleView}}
+    </script>
 
 </body>
 </html>
@@ -50,6 +28,5 @@
 <script type="text/javascript">
 
 	minispade.require('app');
-	minispade.require('app/public/gestures');
 
 </script>

@@ -12,5 +12,9 @@ require('ember-debug');
 
 require('ember-touch');
 
+
+require('app/system/application');
+require('app/views');
+
 // load all the templates
 require('app/templates');

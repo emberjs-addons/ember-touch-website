@@ -16,39 +16,9 @@
 </head>
 <body>
 
-  <div class="container">
-    <div class="row">
-      <div class="span10">
-
-        <h2>Gestures</h2>
-
-        <script type="text/x-handlebars">
-
-          {{#view App.TapView}}
-            Tap Once
-          {{/view}}
-
-          {{#view App.DoubleTapView}}
-            Tap Twice
-          {{/view}}
-
-          <div class="clearfix"></div>
-
-          {{#view App.TouchHoldView}}
-            Touch and hold for 2 seconds with one finger
-          {{/view}}
-
-          {{#view App.DoubleTouchHoldView}}
-            Touch and hold for 1 second with two fingers
-          {{/view}}
-
-          {{view App.TestView elementId="test-view"}}
-
-        </script>
-
-      </div>
-    </div>
-  </div>
+    <script type="text/x-handlebars">
+        {{view App.TapAndTouchHoldExampleView}}
+    </script>
 
 </body>
 </html>
@@ -56,8 +26,5 @@
 
 <script src="../source/app.js"></script>
 <script type="text/javascript">
-
 	minispade.require('app');
-	minispade.require('app/public/gestures');
-
 </script>
