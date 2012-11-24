@@ -1,0 +1,44 @@
+
+<div class="alert alert-info">
+  Gesture Delegate logic can be composed based on reusable <b>GestureDelegateRule</b> instances. The gesture delegate will iterate the rule list executing the <b>shouldReceiveTouch</b> for each rule, 
+  whenever the first rule response with a true/false value, this response will decide to allow/deny redirect the touchEvent to the gesture for being recognized. 
+</div>
+
+
+<div class="row-fluid">
+  {{#view App.GestureDelegateRulesButtonView class="span6"
+    ruleStateBinding="rule1State"}}
+    Rule 1 --> {{view.ruleValue}}
+  {{/view}}
+  {{view App.GestureDelegateRulesLetterSwipeView class="span6"}}
+</div>
+
+<div class="row-fluid">
+  {{#view App.GestureDelegateRulesButtonView class="span6"
+    ruleStateBinding="rule2State"}}
+    Rule 2 --> {{view.ruleValue}}
+  {{/view}}
+  <div class="alert span6">
+    The gesture delegate has applied 4 rules.
+  </div> 
+</div>
+
+<div class="space"></div>
+
+<div class="row-fluid">
+  {{#view App.GestureDelegateRulesButtonView class="span6"
+    ruleStateBinding="rule3State"}}
+    Rule 3 --> {{view.ruleValue}}
+  {{/view}}
+  {{view App.GestureDelegateRulesPanPhotoCanvasView class="span6"}}
+</div>
+
+<div class="row-fluid">
+  {{#view App.GestureDelegateRulesButtonView class="span6"
+    ruleStateBinding="rule4State"}}
+    Rule 4 --> {{view.ruleValue}}
+  {{/view}}
+  <div class="alert span6">
+    The gesture delegate has applied 2 rules (rule3 and rule4).
+  </div> 
+</div>

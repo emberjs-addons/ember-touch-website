@@ -46,7 +46,8 @@ App.Router = Ember.Router.extend({
     simultaneously:  App.BaseRoute.extend({}),
     applicationGestureManager:  App.BaseRoute.extend(),
     isEnabled:  App.BaseRoute.extend(),
-    gestureDelegate:  App.BaseRoute.extend()
+    gestureDelegate:  App.BaseRoute.extend(),
+    gestureDelegateRules:  App.BaseRoute.extend()
 
   })
 });

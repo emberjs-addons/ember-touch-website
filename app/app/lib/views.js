@@ -15,4 +15,5 @@ require('app/views/examples/tap_and_touch_hold');
 require('app/views/examples/application_gesture_manager');
 require('app/views/examples/is_enabled');
 require('app/views/examples/gesture_delegate');
+require('app/views/examples/gesture_delegate_rules');
 
