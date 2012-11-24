@@ -1,16 +1,17 @@
 
 
 <div class="alert alert-info">
-  <p>Pan with one finger. Pinch with two</p>
+  <p>Pan in the left, pinch in the right.</p>
 </div>
 
 
-{{#view App.ExamplePanAndPinchView}}
-  <canvas id="canvas"></canvas>
-  <div class="row">
-    <div class="span10">
-      Picture source: <a href="http://www.flickr.com/photos/albaras/7856113180/">@albaras</a>
-    </div>
-  </div>
-{{/view}}
+<div class="row-fluid">
+
+    {{view App.PanPhotoCanvasView class="span6"}}
+
+    {{view App.PinPhotoCanvasView class="span6"
+      scale="0.5"}}
+
+</div>
+
 
