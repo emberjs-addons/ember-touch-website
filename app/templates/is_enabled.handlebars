@@ -1,0 +1,39 @@
+
+<div class="alert alert-info">
+  <p>You could manage a gesture recognation based on its <b>isEnabled</b> property. Change the isEnabled value based on button state and test the views at the right side.</p>
+</div>
+
+
+<div class="row-fluid">
+
+  {{#view App.ApplicationGestureManagerButtonView class="span6" }}
+
+    {{#if view.isEnabled}}
+      Swipe gesture is enabled
+    {{else}}
+      Swipe gesture is disabled
+    {{/if}}
+
+  {{/view}}
+
+  {{view App.LetterSwipeView class="span6"}}
+
+</div>
+
+<div class="space"></div>
+
+<div class="row-fluid">
+
+    {{#view App.ApplicationGestureManagerButtonView class="span6" }}
+
+      {{#if view.isEnabled}}
+        Pan gesture is enabled
+      {{else}}
+        Pan gesture is disabled
+      {{/if}}
+
+    {{/view}}
+
+  {{view App.PanPhotoCanvasView class="offset6 span6"}}
+</div>
+

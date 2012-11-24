@@ -37,23 +37,15 @@ App.Router = Ember.Router.extend({
     index:  App.BaseRoute.extend({
       route: '/'
     }),
-    swipe:  App.BaseRoute.extend({
-    }),
-    tapAndTouchHold:  App.BaseRoute.extend({
-    }),
-    panAndPinch:  App.BaseRoute.extend({
-    }),
-    handlingEvents:  App.BaseRoute.extend({
-    }),
-    emberTouch:  App.BaseRoute.extend({
-    }),
-    objectResponsabilities:  App.BaseRoute.extend({
-    }),
-
-    simultaneously:  App.BaseRoute.extend({
-    }),
-    applicationGestureManager:  App.BaseRoute.extend({
-    })
+    swipe:  App.BaseRoute.extend(),
+    tapAndTouchHold:  App.BaseRoute.extend(),
+    panAndPinch:  App.BaseRoute.extend(),
+    handlingEvents:  App.BaseRoute.extend(),
+    emberTouch:  App.BaseRoute.extend(),
+    objectResponsabilities:  App.BaseRoute.extend(),
+    simultaneously:  App.BaseRoute.extend({}),
+    applicationGestureManager:  App.BaseRoute.extend(),
+    isEnabled:  App.BaseRoute.extend()
 
   })
 });

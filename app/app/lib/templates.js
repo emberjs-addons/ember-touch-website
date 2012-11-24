@@ -8,6 +8,7 @@ require('templates/swipe');
 require('templates/pan_and_pinch');
 require('templates/simultaneously');
 require('templates/application_gesture_manager');
+require('templates/is_enabled');
 
 require('templates/ember_touch');
 require('templates/handling_events');
