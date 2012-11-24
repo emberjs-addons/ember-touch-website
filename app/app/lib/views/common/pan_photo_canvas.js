@@ -44,7 +44,6 @@ App.NonSimultaneouslyPanPhotoCanvasView = App.PanPhotoCanvasView.extend({
   },
 
   panEnd: function(recognizer, evt) {
-    this._super(recognizer, evt);
     App.get('gestureManager').unblock(this);
   },
 
