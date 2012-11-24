@@ -1,22 +1,23 @@
 
 <div class="alert alert-info">
-  <p>You could manage a gesture recognation based on its <b>isEnabled</b> property. Change the isEnabled value based on button state and test the views at the right side.</p>
+  <p>You could manage a gesture recognation based on its <b>isEnabled</b> property. Toggle the button to change the <b>isEnabled</b> value and test the views at the right side.</p>
 </div>
 
 
 <div class="row-fluid">
 
-  {{#view App.ApplicationGestureManagerButtonView class="span6" }}
+  {{#view App.IsEnabledButtonView class="span6"
+    isEnabledBinding="swipeIsEnabled"}}
 
     {{#if view.isEnabled}}
       Swipe gesture is enabled
     {{else}}
       Swipe gesture is disabled
     {{/if}}
-
   {{/view}}
 
-  {{view App.LetterSwipeView class="span6"}}
+  {{view App.IsEnabledLetterSwipeView class="span6"
+    swipeIsEnabledBinding="swipeIsEnabled" }}
 
 </div>
 
@@ -24,16 +25,19 @@
 
 <div class="row-fluid">
 
-    {{#view App.ApplicationGestureManagerButtonView class="span6" }}
 
-      {{#if view.isEnabled}}
-        Pan gesture is enabled
-      {{else}}
-        Pan gesture is disabled
-      {{/if}}
 
-    {{/view}}
+  {{#view App.IsEnabledButtonView class="span6" 
+    isEnabledBinding="panIsEnabled"}}
+    {{#if view.isEnabled}}
+      Pan gesture is enabled
+    {{else}}
+      Pan gesture is disabled
+    {{/if}}
+  {{/view}}
 
-  {{view App.PanPhotoCanvasView class="offset6 span6"}}
+  {{view App.IsEnabledPanPhotoCanvasView class="span6"
+    panIsEnabledBinding="panIsEnabled" }}
+
 </div>
 
