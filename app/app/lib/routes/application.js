@@ -51,6 +51,8 @@ App.Router = Ember.Router.extend({
     }),
 
     simultaneously:  App.BaseRoute.extend({
+    }),
+    applicationGestureManager:  App.BaseRoute.extend({
     })
 
   })

@@ -1,0 +1,30 @@
+
+<div class="alert alert-info">
+  <p>You could block gestures recognation at the Application level. Toggle the button and test the views at the right side.</p>
+</div>
+
+
+<div class="row-fluid">
+
+
+    {{#view App.ApplicationGestureManagerButtonView class="span6" }}
+
+      {{#if view.isGesturesBlocked}}
+        Blocking all the gestures
+      {{else}}
+        Gestures can be recognized
+      {{/if}}
+
+    {{/view}}
+
+  {{view App.LetterSwipeView class="span6"}}
+
+</div>
+
+<div class="space"></div>
+
+<div class="row-fluid">
+
+  {{view App.PanPhotoCanvasView class="offset6 span6"}}
+</div>
+

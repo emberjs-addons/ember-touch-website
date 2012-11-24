@@ -13,7 +13,7 @@ App.disabledClassNameBinding = Em.Mixin.create({
 
 });
 
-App.TapView = Em.View.extend(App.disabledClassNameBinding, {
+App.TapDisabledView = Em.View.extend(App.disabledClassNameBinding, {
 
   tapEnd: function () {
     this.toogleDisabled();
@@ -21,7 +21,7 @@ App.TapView = Em.View.extend(App.disabledClassNameBinding, {
 
 });
 
-App.DoubleTapView = Em.View.extend(App.disabledClassNameBinding,{
+App.DoubleTapDisabledView = Em.View.extend(App.disabledClassNameBinding,{
 
   tapOptions: {
     numberOfTaps: 2,
@@ -34,7 +34,7 @@ App.DoubleTapView = Em.View.extend(App.disabledClassNameBinding,{
 
 });
 
-App.TouchHoldView = Em.View.extend(App.disabledClassNameBinding,{
+App.TouchHoldDisabledView = Em.View.extend(App.disabledClassNameBinding,{
 
   touchStart: function(event) {
     event.preventDefault();
@@ -46,7 +46,7 @@ App.TouchHoldView = Em.View.extend(App.disabledClassNameBinding,{
 
 });
 
-App.DoubleTouchHoldView = Em.View.extend(App.disabledClassNameBinding,{
+App.DoubleTouchHoldDisabledView = Em.View.extend(App.disabledClassNameBinding,{
 
   touchHoldOptions: {
     holdPeriod: 1000,
