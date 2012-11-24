@@ -1,21 +1,27 @@
 
 var get = Em.get, set = Em.set;
 
-App.TapView = Em.View.extend({
-  classNameBindings: ['isGreen'],
-  classNames: ['tap-view'],
-  isGreen: false,
+App.disabledClassNameBinding = Em.Mixin.create({
+  classNameBindings: ['disabled'],
+  disabled: false,
 
-  tapEnd: function () {
-    set(this, 'isGreen', !get(this, 'isGreen') );
+  toogleDisabled: function() {
+
+    set(this, 'disabled', !get(this,'disabled') );
+
   }
 
 });
 
-App.DoubleTapView = Em.View.extend({
-  classNameBindings: ['isGreen'],
-  classNames: ['tap-view'],
-  isGreen: false,
+App.TapView = Em.View.extend(App.disabledClassNameBinding, {
+
+  tapEnd: function () {
+    this.toogleDisabled();
+  }
+
+});
+
+App.DoubleTapView = Em.View.extend(App.disabledClassNameBinding,{
 
   tapOptions: {
     numberOfTaps: 2,
@@ -23,30 +29,24 @@ App.DoubleTapView = Em.View.extend({
   },
 
   tapEnd: function () {
-    set(this, 'isGreen', !get(this, 'isGreen') );
+    this.toogleDisabled();
   }
 
 });
 
-App.TouchHoldView = Em.View.extend({
-  classNameBindings: ['isGreen'],
-  classNames: ['tap-view'],
-  isGreen: false,
+App.TouchHoldView = Em.View.extend(App.disabledClassNameBinding,{
 
   touchStart: function(event) {
     event.preventDefault();
   },
 
   touchHoldEnd: function (recognizer, event) {
-    set(this, 'isGreen', !get(this, 'isGreen') );
+    this.toogleDisabled();
   }
 
 });
 
-App.DoubleTouchHoldView = Em.View.extend({
-  classNameBindings: ['isGreen'],
-  classNames: ['tap-view'],
-  isGreen: false,
+App.DoubleTouchHoldView = Em.View.extend(App.disabledClassNameBinding,{
 
   touchHoldOptions: {
     holdPeriod: 1000,
@@ -58,7 +58,7 @@ App.DoubleTouchHoldView = Em.View.extend({
   },
 
   touchHoldEnd: function (recognizer, event) {
-    set(this, 'isGreen', !get(this, 'isGreen') );
+    this.toogleDisabled();
   }
 
 });

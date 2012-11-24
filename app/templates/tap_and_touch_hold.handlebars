@@ -1,19 +1,37 @@
 
+<div class="alert alert-info">
+  <p>Perform button gestures and check how the <b>button disabled state</b> is toggled.</p>
+</div>
 
-{{#view App.TapView}}
-  Tap Once
-{{/view}}
+<div class="row-fluid">
 
-{{#view App.DoubleTapView}}
-  Tap Twice
-{{/view}}
+  <div class="span6">
+    {{#view App.TapView class="btn btn-primary btn-large" }}
+      Tap Once
+    {{/view}}
+  </div>
 
-<div class="clearfix"></div>
+  <div class="span6">
+    {{#view App.DoubleTapView class="btn btn-danger btn-large" }}
+      Tap Twice
+    {{/view}}
+  </div>
 
-{{#view App.TouchHoldView}}
-  Touch and hold for 2 seconds with one finger
-{{/view}}
+</div>
 
-{{#view App.DoubleTouchHoldView}}
-  Touch and hold for 1 second with two fingers
-{{/view}}
+<div class="space"></div>
+
+<div class="row-fluid">
+
+  <div class="span6">
+    {{#view App.TouchHoldView class="btn btn-info btn-large"}}
+      Touch and hold for 2 seconds with one finger
+    {{/view}}
+  </div>
+
+  <div class="span6">
+    {{#view App.DoubleTouchHoldView class="btn btn-warning btn-large"}}
+      Touch and hold for 1 second with two fingers
+    {{/view}}
+  </div>
+</div>
