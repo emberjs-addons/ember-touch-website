@@ -46,25 +46,3 @@ App.LetterSwipeView = Em.View.extend({
   }
 
 });
-
-App.NonSimultaneouslyLetterSwipeView = App.LetterSwipeView.extend({
-
-  classNames: ['non-simultaneously'],
-
-  swipeOptions: {
-    direction: Em.OneGestureDirection.Left | Em.OneGestureDirection.Right,
-    cancelPeriod: 100,
-    swipeThreshold: 10,
-    simultaneously: false
-  },
-
-  swipeEnd: function(recognizer, evt) {
-    this._super(recognizer, evt);
-    App.get('gestureManager').unblock(this);
-  },
-
-  swipeCancel: function(recognizer) {
-    App.get('gestureManager').unblock(this);
-  }
-
-});

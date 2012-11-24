@@ -41,6 +41,15 @@ App.NonSimultaneouslyPanPhotoCanvasView = App.PanPhotoCanvasView.extend({
   panOptions: {
     numberOfRequiredTouches: 1,
     simultaneously: false
+  },
+
+  panEnd: function(recognizer, evt) {
+    this._super(recognizer, evt);
+    App.get('gestureManager').unblock(this);
+  },
+
+  panCancel: function(recognizer) {
+    App.get('gestureManager').unblock(this);
   }
 
 });
