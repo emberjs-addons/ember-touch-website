@@ -45,11 +45,6 @@ App.PhotoCanvas = Em.ContainerView.extend({
         canvasWidth = canvasContext.canvas.width,
         canvasHeight = canvasContext.canvas.height;
 
-    console.log('scale ' + this.get('elementId') );
-    console.log('scale ' + this.scale);
-    console.log('scale ' + canvasWidth * this.scale );
-    console.log('scale ' + canvasHeight * this.scale );
-
     canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
     canvasContext.drawImage(this.image, this.x, this.y, canvasWidth, canvasHeight, 0, 0, canvasWidth*this.scale, canvasHeight*this.scale);
 
