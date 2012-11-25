@@ -1,9 +1,17 @@
 
 <div class="alert alert-info">
-  <p>Swipe left and right on the letter. <code>SwipeGestureRecognizer</code></p>
+  <p>Swipe left and right on the letter and press the button. <code>SwipeGestureRecognizer</code> & <code>PressGestureRecognizer</code></p>
 </div>
 
-{{view App.LetterSwipeView class="is-big"}}
+<div class="row-fluid">
+
+  {{view App.LetterSwipeView class="span6"}}
+
+  {{#view App.PressButtonView class="btn btn-primary btn-large pull-right"}}
+    Press Button (minimum 1 s)
+  {{/view}}
+
+</div>
 
 <div class="space is-code"></div>
 
@@ -34,6 +42,19 @@ App.LetterSwipeView = Em.View.extend({
       this.changeChar(-1);
     }
   }
+
+});
+
+App.PressButtonView = Em.View.extend({
+
+  <b>pressOptions</b>: {
+    pressPeriodThreshold: 1000
+  },
+
+  <b>pressEnd</b>: function () {
+    this.toogleDisabled();
+  }
+
 
 });
     </pre>

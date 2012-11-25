@@ -37,7 +37,7 @@ App.Router = Ember.Router.extend({
     index:  App.BaseRoute.extend({
       route: '/'
     }),
-    swipe:  App.BaseRoute.extend(),
+    swipeAndPress:  App.BaseRoute.extend(),
     tapAndTouchHold:  App.BaseRoute.extend(),
     panAndPinch:  App.BaseRoute.extend(),
     handlingEvents:  App.BaseRoute.extend(),
