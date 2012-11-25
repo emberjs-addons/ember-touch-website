@@ -1,0 +1,35 @@
+
+<div class="row-fluid">
+  <h2>Create own gestures</h2>
+  <div class="span11">
+    <p><code>Em.Gesture</code> also defines an API which its subclasses can implement to build custom gestures. The methods are:</p>
+
+    <dl>
+      <dt><code>didBecomePossible</code></dt> 
+      <dd>Called when a gesture enters a possible state. This means the gesture recognizer has accepted enough touches to match the number of required touches. You would usually initialize your state in this callback.</dd>
+      <dt><code>eventWasRejected</code></dt> 
+      <dd>Called if a view returns false from a gesture event. This callback allows you to reset internal state if the user rejects an event.</dd>
+      <dt><code>shouldBegin</code></dt> 
+      <dd>Allows a gesture to block itself from entering a began state. This callback will continuously be called as touches move until it begins.</dd>
+      <dt><code>shouldEnd</code></dt> 
+      <dd>Allows a gesture to block itself from entering an ended state. This callback gets called whenever a tracked touch gets a touchEnd event.</dd>
+      <dt><code>didBegin</code></dt> 
+      <dd>Called when the gesture enters a began state. Called before the view receives the Start event.</dd>
+      <dt><code>didChange</code></dt> 
+      <dd>Called when the gesture enters a began state, and when one of the touches moves. Called before the view receives the Change event.</dd>
+      <dt><code>didEnd</code></dt> 
+      <dd>Called when the gesture enters an ended state. Called before the view receives the End event.</dd>
+      <dt><code>didCancel</code></dt> 
+      <dd>Called when the gesture enters a cancelled state. Called before the view receives the Cancel event.</dd>
+    </dl>
+
+    <p>In all the callbacks, you can use the touches protected property to access the touches hash. The touches hash is keyed on the identifiers of the touches, and the values are the <code>jQuery.Event</code> objects. You can also access the length property to inspect how many touches are active, this is mostly useful in shouldBegin since every other callback can assume that there are as many active touches as specified in the <code>numberOfRequiredTouches</code> property.</p>
+
+
+    <p><strong>Ember-touch</strong> brings some built-in gestures with <code><a href="/api/classes/Ember.PanGestureRecognizer.html">PanGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.PinchGestureRecognizer.html">PinchGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.TouchHoldGestureRecognizer.html">TouchHoldGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.PressGestureRecognizer.html">PressGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.SwipeGestureRecognizer.html">SwipeGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.TapGestureRecognizer.html">TapGestureRecognizer</a></code>.</p>
+  </div>
+
+</div>
+
+
+<div class="space"></div>
