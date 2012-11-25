@@ -2,9 +2,9 @@ YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
         "Ember.ApplicationGestureManager",
-        "Ember.DelegateRule",
         "Ember.Gesture",
         "Ember.GestureDelegate",
+        "Ember.GestureDelegateRule",
         "Ember.GestureDelegates",
         "Ember.GestureManager",
         "Ember.PanGestureRecognizer",

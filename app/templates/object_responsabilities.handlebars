@@ -56,7 +56,7 @@
   <div class="span11">
     <p>A gesture can be setup to use a <code>GestureDelegate</code> instance.</p> <p>The main responsability of a delegate is to either <strong>permit</strong> or <strong>deny</strong> a touch event to be dispatched to the gesture instance based on Application logic.</p>
     <p>Whenever a touch event could be dispatched to a specific gesture, the <code>GestureManager</code> will ask the delegate instance if the touch event can be dispatched.</p>
-    <p>A <code>GestureDelegate</code> can be setup implementing its <code>shouldReceiveTouch</code> method and adding <code>DelegateRule</code> instances.
+    <p>A <code>GestureDelegate</code> can be setup implementing its <code>shouldReceiveTouch</code> method and adding <code>GestureDelegateRule</code> instances.
   </div>
 
 </div>
@@ -65,9 +65,9 @@
 
   <h2>GestureDelegateRule</h2>
   <div class="span11">
-    <p>A <code>GestureDelegate</code> can be setup with 0 or N <code>DelegateRule</code> instances.</p>
-    <p><code>DelegateRule</code> must implement its <code>shouldReceiveTouch</code> method to respond with <strong>true</strong>, <strong>false</strong> or <strong>undefined</strong> value.</p>
-    <p>A condition to dispatch a touch event to a gesture is provided by the <code>DelegateRule</code> list (if present). The <code>GestureDelegate</code> iterates the rule list performing the <code>shouldReceive</code> method and either satisfy or denies the condition whenever a rule responds a non-undefined value.</p>
+    <p>A <code>GestureDelegate</code> can be setup with 0 or N <code>GestureDelegateRule</code> instances.</p>
+    <p><code>GestureDelegateRule</code> must implement its <code>shouldReceiveTouch</code> method to respond with <strong>true</strong>, <strong>false</strong> or <strong>undefined</strong> value.</p>
+    <p>A condition to dispatch a touch event to a gesture is provided by the <code>GestureDelegateRule</code> list (if present). The <code>GestureDelegate</code> iterates the rule list performing the <code>shouldReceive</code> method and either satisfy or denies the condition whenever a rule responds a non-undefined value.</p>
   </div>
 
 </div>

@@ -7,7 +7,7 @@ def generate_docs
 
   Dir.chdir("app/submodules/sproutcore-touch/docs") do
     system("npm install") unless File.exist?('node_modules')
-    system("./node_modules/.bin/yuidoc -q")
+    system("./node_modules/.bin/yuidoc -q -t touch-theme")
   end
   
   rm_rf 'public/api'

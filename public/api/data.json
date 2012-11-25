@@ -1,7 +1,7 @@
 {
     "project": {
-        "name": "Ember/Sprouctore Touch API",
-        "description": "Ember/Sprouctore Touch API: a lightweight library for building and using touch gestures",
+        "name": "Ember Touch API",
+        "description": "Ember Touch API: a lightweight library for building and using touch gestures",
         "version": "0.1"
     },
     "files": {
@@ -84,17 +84,6 @@
                 "Ember": 1
             }
         },
-        "../packages/ember-touch/lib/system/delegate_rule.js": {
-            "name": "../packages/ember-touch/lib/system/delegate_rule.js",
-            "modules": {},
-            "classes": {
-                "Ember.DelegateRule": 1
-            },
-            "fors": {},
-            "namespaces": {
-                "Ember": 1
-            }
-        },
         "../packages/ember-touch/lib/system/gesture.js": {
             "name": "../packages/ember-touch/lib/system/gesture.js",
             "modules": {},
@@ -111,6 +100,17 @@
             "modules": {},
             "classes": {
                 "Ember.GestureDelegate": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Ember": 1
+            }
+        },
+        "../packages/ember-touch/lib/system/gesture_delegate_rule.js": {
+            "name": "../packages/ember-touch/lib/system/gesture_delegate_rule.js",
+            "modules": {},
+            "classes": {
+                "Ember.GestureDelegateRule": 1
             },
             "fors": {},
             "namespaces": {
@@ -190,9 +190,9 @@
                 "Ember.TapGestureRecognizer": 1,
                 "Ember.TouchHoldGestureRecognizer": 1,
                 "Ember.ApplicationGestureManager": 1,
-                "Ember.DelegateRule": 1,
                 "Ember.Gesture": 1,
                 "Ember.GestureDelegate": 1,
+                "Ember.GestureDelegateRule": 1,
                 "Ember.GestureManager": 1,
                 "Ember.GestureDelegates": 1,
                 "Ember.RegisteredGestureList": 1,
@@ -216,9 +216,9 @@
                 "Ember.TapGestureRecognizer": 1,
                 "Ember.TouchHoldGestureRecognizer": 1,
                 "Ember.ApplicationGestureManager": 1,
-                "Ember.DelegateRule": 1,
                 "Ember.Gesture": 1,
                 "Ember.GestureDelegate": 1,
+                "Ember.GestureDelegateRule": 1,
                 "Ember.GestureManager": 1,
                 "Ember.GestureDelegates": 1,
                 "Ember.RegisteredGestureList": 1,
@@ -352,21 +352,6 @@
             "extends": "Em.Object",
             "static": 1
         },
-        "Ember.DelegateRule": {
-            "name": "Ember.DelegateRule",
-            "shortname": "Ember.DelegateRule",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "ember",
-            "submodule": "ember-touch",
-            "namespace": "Ember",
-            "file": "../packages/ember-touch/lib/system/delegate_rule.js",
-            "line": 6,
-            "extends": "Ember.Object"
-        },
         "Ember.Gesture": {
             "name": "Ember.Gesture",
             "shortname": "Ember.Gesture",
@@ -397,6 +382,21 @@
             "file": "../packages/ember-touch/lib/system/gesture_delegate.js",
             "line": 6,
             "description": "Delegate implements the logic of your application's gesture-recognition behavior.\n\nSet up your gestures to use a GestureDelegate to coordinate the gesture recognition based  on the current status of your Application.",
+            "extends": "Ember.Object"
+        },
+        "Ember.GestureDelegateRule": {
+            "name": "Ember.GestureDelegateRule",
+            "shortname": "Ember.GestureDelegateRule",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember",
+            "file": "../packages/ember-touch/lib/system/gesture_delegate_rule.js",
+            "line": 6,
             "extends": "Ember.Object"
         },
         "Ember.GestureManager": {
@@ -831,26 +831,6 @@
             "namespace": "Ember"
         },
         {
-            "file": "../packages/ember-touch/lib/system/delegate_rule.js",
-            "line": 13,
-            "itemtype": "property",
-            "name": "gestureDelegate",
-            "class": "Ember.DelegateRule",
-            "module": "ember",
-            "submodule": "ember-touch",
-            "namespace": "Ember"
-        },
-        {
-            "file": "../packages/ember-touch/lib/system/delegate_rule.js",
-            "line": 19,
-            "itemtype": "method",
-            "name": "shouldReceiveTouch",
-            "class": "Ember.DelegateRule",
-            "module": "ember",
-            "submodule": "ember-touch",
-            "namespace": "Ember"
-        },
-        {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 140,
             "description": "The current state of the gesture recognizer. This value can be any one\nof the states defined at the end of this file.",
@@ -1272,6 +1252,26 @@
                 "description": "Boolen"
             },
             "class": "Ember.GestureDelegate",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_delegate_rule.js",
+            "line": 13,
+            "itemtype": "property",
+            "name": "gestureDelegate",
+            "class": "Ember.GestureDelegateRule",
+            "module": "ember",
+            "submodule": "ember-touch",
+            "namespace": "Ember"
+        },
+        {
+            "file": "../packages/ember-touch/lib/system/gesture_delegate_rule.js",
+            "line": 19,
+            "itemtype": "method",
+            "name": "shouldReceiveTouch",
+            "class": "Ember.GestureDelegateRule",
             "module": "ember",
             "submodule": "ember-touch",
             "namespace": "Ember"

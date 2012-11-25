@@ -20,7 +20,7 @@ App.GestureDelegateRulesButtonView = Em.View.extend({
 
 });
 
-App.DelegateRule = Em.DelegateRule.extend({
+App.GestureDelegateRule = Em.GestureDelegateRule.extend({
   state: 0,
   shouldReceiveTouch: function(gesture, view, event) {
     var state = this.get('state');
@@ -28,29 +28,29 @@ App.DelegateRule = Em.DelegateRule.extend({
   }
 });
 
-App.DelegateRule1 = App.DelegateRule.create({
+App.GestureDelegateRule1 = App.GestureDelegateRule.create({
   stateBinding: 'App.router.gestureDelegateRulesController.rule1State'
 });
-App.DelegateRule2 = App.DelegateRule.create({
+App.GestureDelegateRule2 = App.GestureDelegateRule.create({
   stateBinding: 'App.router.gestureDelegateRulesController.rule2State'
 });
 
-App.DelegateRule3 = App.DelegateRule.create({
+App.GestureDelegateRule3 = App.GestureDelegateRule.create({
   stateBinding: 'App.router.gestureDelegateRulesController.rule3State'
 });
 
-App.DelegateRule4 = App.DelegateRule.create({
+App.GestureDelegateRule4 = App.GestureDelegateRule.create({
   stateBinding: 'App.router.gestureDelegateRulesController.rule4State'
 });
 
 
 
 var delegate1 = Em.GestureDelegate.create({
-  rules: [App.DelegateRule1, App.DelegateRule2, App.DelegateRule3, App.DelegateRule4]
+  rules: [App.GestureDelegateRule1, App.GestureDelegateRule2, App.GestureDelegateRule3, App.GestureDelegateRule4]
 });
 
 var delegate2 = Em.GestureDelegate.create({
-  rules: [App.DelegateRule3, App.DelegateRule4]
+  rules: [App.GestureDelegateRule3, App.GestureDelegateRule4]
 });
 
 

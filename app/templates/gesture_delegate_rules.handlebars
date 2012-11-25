@@ -1,6 +1,6 @@
 
 <div class="alert alert-info">
-  Gesture Delegate logic can be composed based on reusable <code>DelegateRule</code> instances. The gesture delegate will iterate the rule list executing the <code>shouldReceiveTouch</code> for each rule, 
+  Gesture Delegate logic can be composed based on reusable <code>GestureDelegateRule</code> instances. The gesture delegate will iterate the rule list executing the <code>shouldReceiveTouch</code> for each rule, 
   whenever the first rule response with a true/false value, this response will decide to allow/deny redirect the touchEvent to the gesture for being recognized. 
 </div>
 
@@ -48,7 +48,7 @@
   <div class="span12">
     <span class="label label-info">Code</span>
     <pre>
-App.DelegateRule = Em.DelegateRule.extend({
+App.GestureDelegateRule = Em.GestureDelegateRule.extend({
   state: 0,
   shouldReceiveTouch: function(gesture, view, event) {
     var state = this.get('state');
@@ -56,29 +56,29 @@ App.DelegateRule = Em.DelegateRule.extend({
   }
 });
 
-App.DelegateRule1 = App.DelegateRule.create({
+App.GestureDelegateRule1 = App.GestureDelegateRule.create({
   stateBinding: 'App.router.gestureDelegateRulesController.rule1State'
 });
-App.DelegateRule2 = App.DelegateRule.create({
+App.GestureDelegateRule2 = App.GestureDelegateRule.create({
   stateBinding: 'App.router.gestureDelegateRulesController.rule2State'
 });
 
-App.DelegateRule3 = App.DelegateRule.create({
+App.GestureDelegateRule3 = App.GestureDelegateRule.create({
   stateBinding: 'App.router.gestureDelegateRulesController.rule3State'
 });
 
-App.DelegateRule4 = App.DelegateRule.create({
+App.GestureDelegateRule4 = App.GestureDelegateRule.create({
   stateBinding: 'App.router.gestureDelegateRulesController.rule4State'
 });
 
 
 
 var delegate1 = Em.GestureDelegate.create({
-  <b>rules</b>: [App.DelegateRule1, App.DelegateRule2, App.DelegateRule3, App.DelegateRule4]
+  <b>rules</b>: [App.GestureDelegateRule1, App.GestureDelegateRule2, App.GestureDelegateRule3, App.GestureDelegateRule4]
 });
 
 var delegate2 = Em.GestureDelegate.create({
-  <b>rules</b>: [App.DelegateRule3, App.DelegateRule4]
+  <b>rules</b>: [App.GestureDelegateRule3, App.GestureDelegateRule4]
 });
 
 
