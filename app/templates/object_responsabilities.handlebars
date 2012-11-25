@@ -1,1 +1,88 @@
-Object responsabilities
+
+<div class="row-fluid">
+
+  <h2 name="gesture">Gesture</h2>
+  <div class="span11">
+    <p>Gestures coalesce multiple touch events to a <strong>single higher-level gesture event</strong>.</p>
+    <p>For example, a tap gesture recognizer takes information about a touchstart event, a few touchmove events, and a touchend event and uses some heuristics to decide whether or not that sequence of events qualifies as a tap event. If it does, then it will notify the view of the higher-level tap events.</p>
+    <p>Gesture events follow the format:</p>
+
+    <dl>
+      <dt><code>[GESTURE_NAME]Start</code></dt> 
+      <dd>Sent when a gesture has gathered enough information to begin tracking the gesture.</dd>
+      <dt><code>[GESTURE_NAME]Change</code></dt> 
+      <dd>Sent when a gesture has already started and has received touchmove events that cause its state to change.</dd>
+      <dt><code>[GESTURE_NAME]End</code></dt> 
+      <dd>Sent when a touchend event is received and the gesture recognizer decides that the gesture is finished.</dd>
+      <dt><code>[GESTURE_NAME]Cancel</code></dt> 
+      <dd>Sent when a touchcancel event is received.</dd>
+    </dl>
+
+    <p>There are two types of gestures: <strong>Discrete</strong> and <strong>Continuous</strong> gestures. In contrast
+    to continuous gestures, discrete gestures do not have any change events. Rather, the end event is the only one that gets sent to the view.</p>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+
+  <h2>ApplicationGestureManager</h2>
+  <div class="span11">
+    <p>An <code>ApplicationGestureManager</code> instance is injected at the Application namespace to inform to <code>GestureManager</code> instances if touch events can be dispatched.</p>
+    <p>At runtime, the <code>isAllBlocked</code> property can be updated to block/unblock all the gesture recognizers at the Application level.</p>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+
+  <h2>GestureManager</h2>
+  <div class="span11">
+    <p>It manages touchstart, touchmove, touchend and touchcancel events which are dispatched by the <code>EventDispatcher</code>.</p>
+    <p>Loading <strong>ember-touch</strong> to your project, automatically extends the view <code>init</code> method to assign a <code>GestureManager</code> instance for each view.</p>
+    <p>The <code>GestureManager</code> responsabilities are:</p>
+    <ol>
+      <li>Receives touch events.</li>
+      <li>It <strong>always</strong> dispatch the event to its view touch event handlers, whenever its view implements these handlers.</li>
+      <li>Dispatch the event to the multiple view gesture instances, whenever all different coordination rules are satified.</li>
+      <li>Handling event bubbling.</li>
+    </ol>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+
+  <h2>GestureDelegate</h2>
+  <div class="span11">
+    <p>A gesture can be setup to use a <code>GestureDelegate</code> instance.</p> <p>The main responsability of a delegate is to either <strong>permit</strong> or <strong>deny</strong> a touch event to be dispatched to the gesture instance based on Application logic.</p>
+    <p>Whenever a touch event could be dispatched to a specific gesture, the <code>GestureManager</code> will ask the delegate instance if the touch event can be dispatched.</p>
+    <p>A <code>GestureDelegate</code> can be setup implementing its <code>shouldReceiveTouch</code> method and adding <code>DelegateRule</code> instances.
+  </div>
+
+</div>
+
+<div class="row-fluid">
+
+  <h2>GestureDelegateRule</h2>
+  <div class="span11">
+    <p>A <code>GestureDelegate</code> can be setup with 0 or N <code>DelegateRule</code> instances.</p>
+    <p><code>DelegateRule</code> must implement its <code>shouldReceiveTouch</code> method to respond with <strong>true</strong>, <strong>false</strong> or <strong>undefined</strong> value.</p>
+    <p>A condition to dispatch a touch event to a gesture, is when present, provided by the <code>DelegateRule</code> list. The <code>GestureDelegate</code> iterates the rule list performing the <code>shouldReceive</code> method and either satisfy or denies the condition whenever a rule responds a non-undefined value.</p>
+  </div>
+
+</div>
+
+<div class="space is-code"></div>
+
+<div class="row-fluid">
+
+  <div class="span10">
+    <span class="label label-info">Diagram</span>
+    <img src="assets/images/ember-touch-classes.png" class="img-polaroid">
+  </div>
+
+
+</div>
+
+<div class="space"></div>
