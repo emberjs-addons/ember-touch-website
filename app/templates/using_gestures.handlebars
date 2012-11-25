@@ -1,0 +1,84 @@
+<div class="row-fluid">
+
+  <h2 name="gesture">Gesture</h2>
+  <div class="span11">
+    <p>Gestures coalesce multiple touch events to a <strong>single higher-level gesture event</strong>.</p>
+    <p>For example, a tap gesture recognizer takes information about a touchstart event, a few touchmove events, and a touchend event and uses some heuristics to decide whether or not that sequence of events qualifies as a tap event. If it does, then it will notify the view of the higher-level tap events.</p>
+    <p>Gesture events follow the format:</p>
+
+    <dl>
+      <dt><code>[GESTURE_NAME]Start</code></dt> 
+      <dd>Sent when a gesture has gathered enough information to begin tracking the gesture.</dd>
+      <dt><code>[GESTURE_NAME]Change</code></dt> 
+      <dd>Sent when a gesture has already started and has received touchmove events that cause its state to change.</dd>
+      <dt><code>[GESTURE_NAME]End</code></dt> 
+      <dd>Sent when a touchend event is received and the gesture recognizer decides that the gesture is finished.</dd>
+      <dt><code>[GESTURE_NAME]Cancel</code></dt> 
+      <dd>Sent when a touchcancel event is received.</dd>
+    </dl>
+
+    <p>There are two types of gestures: <strong>Discrete</strong> and <strong>Continuous</strong> gestures. In contrast
+    to continuous gestures, discrete gestures do not have any change events. Rather, the end event is the only one that gets sent to the view.</p>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+
+  <h2 name="gesture">Usage</h2>
+  <div class="span11">
+    <p>While you wouldn't use <code>Gesture</code> directly, all its subclasses implement the same API. For example, to implement pinch on a view, you implement one or more of the pinch events. For example:.</p>
+
+    <pre>
+var myView = Em.View.create({
+  pinchStart: function(recognizer, evt) {
+    this.$().css('background','red');
+  },
+
+  pinchChange: function(recognizer, evt) {
+    var scale = recognizer.get('scale');
+    this.$().css('scale',function(index, value) {
+      return recognizer.get('scale') * value
+    });
+  },
+
+  pinchEnd: function(recognizer, evt) {
+    this.$().css('background','blue');
+  },
+
+  pinchCancel: function(recognizer, evt) {
+    this.$().css('background','blue');
+  }
+});
+    </pre>
+
+    <p>pinchStart(), pinchEnd() and pinchCancel() will only get called once per gesture, but pinchChange() will get called repeatedly called every time one of the touches moves.</p>
+
+
+    <p><strong>Ember-touch</strong> brings some built-in gestures with <code><a href="/api/classes/Ember.PanGestureRecognizer.html">PanGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.PinchGestureRecognizer.html">PinchGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.TouchHoldGestureRecognizer.html">TouchHoldGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.PressGestureRecognizer.html">PressGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.SwipeGestureRecognizer.html">SwipeGestureRecognizer</a></code>, <code><a href="/api/classes/Ember.TapGestureRecognizer.html">TapGestureRecognizer</a></code>.</p>
+  </div>
+
+</div>
+
+<div class="space"></div>
+
+
+<div class="row-fluid">
+
+  <h2 name="gesture">Customizing Gesture Recognizers</h2>
+  <div class="span11">
+    <p>Some of the gesture recognizers include properties that can be customized by the user for a specific instance of a view. For example, a pan gesture defaults to being a one-finger gesture, but in some scenarios, it must be defined as a two-finger gesture. In that case, you can override defaults by specifying an Options hash..</p>
+
+    <pre>
+var myView = Em.View.create({
+  panOptions: {
+    numberOfRequiredTouches: 2
+  }
+});
+    </pre>
+
+  </div>
+
+</div>
+
+<div class="space"></div>
