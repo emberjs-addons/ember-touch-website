@@ -7,7 +7,7 @@ App.PinchPhotoView = Em.View.extend({
     numberOfRequiredTouches: 2
   },
 
-  pinchStart: function(rec, evt) {
+  pinchChange: function(rec, evt) {
     var width,
         image,
         scale;
@@ -15,9 +15,7 @@ App.PinchPhotoView = Em.View.extend({
     image = this.$('img');
     scale = rec.get('scale');
     width = image.width();
-    image.animate({
-      width: width*scale
-    }, 500, "linear");
+    image.width(width*scale);
   },
 
   touchMove: function(event) {
