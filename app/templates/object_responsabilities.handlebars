@@ -3,23 +3,22 @@
 
   <h2 name="gesture">Gesture</h2>
   <div class="span11">
-    <p>Gestures coalesce multiple touch events to a <strong>single higher-level gesture event</strong>.</p>
-    <p>For example, a tap gesture recognizer takes information about a touchstart event, a few touchmove events, and a touchend event and uses some heuristics to decide whether or not that sequence of events qualifies as a tap event. If it does, then it will notify the view of the higher-level tap events.</p>
+    <p><code>Gesture</code> coalesces multiple touch events into a <strong>single higher-level gesture event</strong>.</p>
+    <p>For example, a tap gesture recognizer takes information about a touchstart event, a few touchmove events, and a touchend event and uses some heuristics to decide whether or not that sequence of events qualifies as a tap event. If it does, it will notify the view with a higher-level tap event.</p>
     <p>Gesture events follow the format:</p>
 
     <dl>
-      <dt><code>[GESTURE_NAME]Start</code></dt> 
-      <dd>Sent when a gesture has gathered enough information to begin tracking the gesture.</dd>
-      <dt><code>[GESTURE_NAME]Change</code></dt> 
+      <dt><code>[GESTURE_NAME]Start</code></dt>
+      <dd>Sent when a gesture has gathered enough information to begin tracking it.</dd>
+      <dt><code>[GESTURE_NAME]Change</code></dt>
       <dd>Sent when a gesture has already started and has received touchmove events that cause its state to change.</dd>
-      <dt><code>[GESTURE_NAME]End</code></dt> 
+      <dt><code>[GESTURE_NAME]End</code></dt>
       <dd>Sent when a touchend event is received and the gesture recognizer decides that the gesture is finished.</dd>
-      <dt><code>[GESTURE_NAME]Cancel</code></dt> 
+      <dt><code>[GESTURE_NAME]Cancel</code></dt>
       <dd>Sent when a touchcancel event is received.</dd>
     </dl>
 
-    <p>There are two types of gestures: <strong>Discrete</strong> and <strong>Continuous</strong> gestures. In contrast
-    to continuous gestures, discrete gestures do not have any change events. Rather, the end event is the only one that gets sent to the view.</p>
+    <p>There are two types of gestures: <strong>Discrete</strong> and <strong>Continuous</strong>. Unlike continuous gestures, discrete ones do not have change events. In fact, the end event is the only one that gets sent to the view.</p>
   </div>
 
 </div>
@@ -28,7 +27,7 @@
 
   <h2>ApplicationGestureManager</h2>
   <div class="span11">
-    <p>An <code>ApplicationGestureManager</code> instance is injected at the Application namespace to inform to <code>GestureManager</code> instances if touch events can be dispatched.</p>
+    <p>An <code>ApplicationGestureManager</code> instance is injected at the Application namespace to inform <code>GestureManager</code> instances if touch events can be dispatched.</p>
     <p>At runtime, the <code>isAllBlocked</code> property can be updated to block/unblock all the gesture recognizers at the Application level.</p>
   </div>
 
@@ -39,12 +38,12 @@
   <h2>GestureManager</h2>
   <div class="span11">
     <p>It manages touchstart, touchmove, touchend and touchcancel events which are dispatched by the <code>EventDispatcher</code>.</p>
-    <p>Loading <strong>ember-touch</strong> to your project, automatically extends the view <code>init</code> method to assign a <code>GestureManager</code> instance for each view.</p>
+    <p>Including <strong>ember-touch</strong> in your project automatically extends the view <code>init</code> method to assign a <code>GestureManager</code> instance to each view.</p>
     <p>The <code>GestureManager</code> responsabilities are:</p>
     <ol>
-      <li>Receives touch events.</li>
-      <li>It <strong>always</strong> dispatch the event to its view touch event handlers, whenever its view implements these handlers.</li>
-      <li>Dispatch the event to the multiple view gesture instances, whenever all different coordination rules are satified.</li>
+      <li>Receiving touch events.</li>
+      <li>Dispatching the event to its view if it implements the given touch event handler.</li>
+      <li>Dispatching the event to the multiple view gesture instances, whenever all different coordination rules are satified.</li>
       <li>Handling event bubbling.</li>
     </ol>
   </div>
@@ -68,7 +67,7 @@
   <div class="span11">
     <p>A <code>GestureDelegate</code> can be setup with 0 or N <code>DelegateRule</code> instances.</p>
     <p><code>DelegateRule</code> must implement its <code>shouldReceiveTouch</code> method to respond with <strong>true</strong>, <strong>false</strong> or <strong>undefined</strong> value.</p>
-    <p>A condition to dispatch a touch event to a gesture, is when present, provided by the <code>DelegateRule</code> list. The <code>GestureDelegate</code> iterates the rule list performing the <code>shouldReceive</code> method and either satisfy or denies the condition whenever a rule responds a non-undefined value.</p>
+    <p>A condition to dispatch a touch event to a gesture is provided by the <code>DelegateRule</code> list (if present). The <code>GestureDelegate</code> iterates the rule list performing the <code>shouldReceive</code> method and either satisfy or denies the condition whenever a rule responds a non-undefined value.</p>
   </div>
 
 </div>
