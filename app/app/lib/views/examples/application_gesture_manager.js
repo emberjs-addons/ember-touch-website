@@ -25,10 +25,7 @@ App.ApplicationGestureManagerButtonView = Em.View.extend({
 
 
   willDestroyElement: function() {
-    // whenever it dissapears gestures are unblocked
-    // otherwise the user can be confused in the other examples
-    // OJO: applying change to binding cannot work because the view instance
-    // will be destroyed before the binding get updated
+
     App.gestureManager.set('isAllBlocked', false);
 
   }

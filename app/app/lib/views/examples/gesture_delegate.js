@@ -27,7 +27,6 @@ App.GestureDelegateCounterButtonView = Em.View.extend({
 
 
 var delegate = Em.GestureDelegate.create({
-    name: 'button_state_delegate',
     counterBinding: 'App.router.gestureDelegateController.counter',
     shouldReceiveTouch: function(gesture, view, event) {
       return this.get('counter') === 0 ? false : ( this.get('counter') % 3 ) === 0;

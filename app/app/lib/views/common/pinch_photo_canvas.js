@@ -1,7 +1,7 @@
 
 var get = Em.get, set = Em.set;
 
-App.PinPhotoCanvasView = App.PhotoCanvas.extend({
+App.PinchPhotoCanvasView = App.PhotoCanvas.extend({
 
   pinchOptions: {
     numberOfRequiredTouches: 2

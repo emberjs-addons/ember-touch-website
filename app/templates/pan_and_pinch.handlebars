@@ -1,7 +1,7 @@
 
 
 <div class="alert alert-info">
-  <p>Pan in the left, pinch in the right.</p>
+  <p>Pan in the left, pinch in the right. <code>PanGestureRecognizer</code> & <code>PinchGestureRecognizer</code></p>
 </div>
 
 
@@ -9,9 +9,88 @@
 
     {{view App.PanPhotoCanvasView class="span6"}}
 
-    {{view App.PinPhotoCanvasView class="span6"
+    {{view App.PinchPhotoCanvasView class="span6"
       scale="0.5"}}
 
 </div>
 
+
+<div class="space is-code"></div>
+
+<div class="row-fluid">
+
+  <div class="span12">
+    <span class="label label-info">Code</span>
+    <pre>
+App.PinchPhotoCanvasView = App.PhotoCanvas.extend({
+
+  <b>pinchOptions</b>: {
+    numberOfRequiredTouches: 2
+  },
+
+  <b>pinchStart</b>: function(rec, evt) {
+
+    var newScale,
+        scaleFactorX,
+        scaleFactorY,
+        canvasContext = this.get('canvasContext'),
+        canvasWidth = canvasContext.canvas.width,
+        canvasHeight = canvasContext.canvas.height;
+
+    newScale = rec.get('scale') * this.scale;
+    scaleFactorX = newScale * canvasWidth;
+    scaleFactorY = newScale * canvasHeight;
+
+    // Only update if the values are valid
+    if (newScale > 0.25 && scaleFactorX < this.image.width && scaleFactorY < this.image.height) {
+      this.scale =  newScale;
+      this.refreshImage();
+    }
+  },
+
+  touchMove: function(event) {
+    event.preventDefault();
+  }
+
+
+});
+
+App.PanPhotoCanvasView = App.PhotoCanvas.extend({
+
+  <b>panOptions</b>: {
+    numberOfRequiredTouches: 1
+  },
+
+  <b>panChange</b>: function(rec, evt) {
+
+    var SMOOTH_FACTOR = 5,
+        x, y, 
+        val = rec.get('translation'),
+        canvasContext = this.get('canvasContext'),
+        image = this.image;
+
+    x = Math.min(this.x + SMOOTH_FACTOR * val.x,
+      image.width - canvasContext.canvas.width * this.scale);
+
+    y = Math.min(this.y + SMOOTH_FACTOR * val.y,
+      image.height - canvasContext.canvas.height * this.scale);
+
+    x = Math.max(x, 0);
+    y = Math.max(y, 0);
+
+    this.x = x;
+    this.y = y;
+
+    this.refreshImage();
+  },
+
+  touchMove: function(event) {
+    event.preventDefault();
+  }
+
+});
+
+    </pre>
+  </div>
+</div>
 

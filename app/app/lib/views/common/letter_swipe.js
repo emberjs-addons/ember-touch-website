@@ -28,19 +28,15 @@ App.LetterSwipeView = Em.View.extend({
   },
 
   touchMove: function(event) {
-
     event.preventDefault();
-
   },
 
   swipeEnd: function(recognizer, evt) {
     var direction = recognizer.get('swipeDirection');
 
-    // Right
-    if (direction === 1) {
+    if (direction === Em.OneGestureDirection.Right) {
       this.changeChar(1);
-    // Left
-    } else if (direction === 2) {
+    } else if (direction === Em.OneGestureDirection.Left) {
       this.changeChar(-1);
     }
   }

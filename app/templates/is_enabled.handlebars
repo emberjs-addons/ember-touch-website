@@ -1,6 +1,6 @@
 
 <div class="alert alert-info">
-  <p>You could manage a gesture recognition based on its <b>isEnabled</b> property. Toggle the button to change the <b>isEnabled</b> value and test the views at the right side.</p>
+  <p>You could manage a gesture recognition based on its <code>isEnabled</code> property. Toggle the button to change their values and test the views at the right side.</p>
 </div>
 
 
@@ -39,4 +39,37 @@
   {{view App.IsEnabledPanPhotoCanvasView class="span6"
     panIsEnabledBinding="panIsEnabled" }}
 
+</div>
+
+
+<div class="space is-code"></div>
+
+<div class="row-fluid">
+
+  <div class="span12">
+    <span class="label label-info">Code</span>
+    <pre>
+App.IsEnabledLetterSwipeView = App.LetterSwipeView.extend({
+  swipeIsEnabled: null,
+
+  swipeOptions: {
+    direction: Em.OneGestureDirection.Left | Em.OneGestureDirection.Right,
+    cancelPeriod: 100,
+    swipeThreshold: 10,
+    <b>isEnabledBinding</b>: 'swipeIsEnabled'
+  }
+
+});
+
+App.IsEnabledPanPhotoCanvasView = App.PanPhotoCanvasView.extend({
+  panIsEnabled: null,
+
+  panOptions: {
+    numberOfRequiredTouches: 1,
+    <b>isEnabledBinding</b>: 'panIsEnabled'
+  }
+
+});
+    </pre>
+  </div>
 </div>

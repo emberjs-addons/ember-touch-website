@@ -13,6 +13,10 @@
   height: 20px;
 }
 
+.space.is-code {
+  height: 30px;
+}
+
 
 /* views */
 .letter-swipe-view {

@@ -1,6 +1,6 @@
 
 <div class="alert alert-info">
-  <p>Perform button gestures and check how the <b>button disabled state</b> is toggled.</p>
+  <p>Tap and TouchHold buttons and check how the button disabled state is toggled. <br/> <code>TapGestureRecognizer</code> & <code>TouchHoldGestureRecognizer</code></p>
 </div>
 
 <div class="row-fluid">
@@ -35,3 +35,64 @@
     {{/view}}
   </div>
 </div>
+
+<div class="space is-code"></div>
+
+<div class="row-fluid">
+
+  <div class="span12">
+    <span class="label label-info">Code</span>
+    <pre>
+App.TapDisabledView = Em.View.extend(App.disabledClassNameBinding, {
+
+  <b>tapEnd</b>: function () {
+    this.toogleDisabled();
+  }
+
+});
+
+App.DoubleTapDisabledView = Em.View.extend(App.disabledClassNameBinding,{
+
+  <b>tapOptions</b>: {
+    numberOfTaps: 2,
+    delayBetweenTaps: 300
+  },
+
+  <b>tapEnd</b>: function () {
+    this.toogleDisabled();
+  }
+
+});
+
+App.TouchHoldDisabledView = Em.View.extend(App.disabledClassNameBinding,{
+
+  touchStart: function(event) {
+    event.preventDefault();
+  },
+
+  <b>touchHoldEnd</b>: function (recognizer, event) {
+    this.toogleDisabled();
+  }
+
+});
+
+App.DoubleTouchHoldDisabledView = Em.View.extend(App.disabledClassNameBinding,{
+
+  <b>touchHoldOptions</b>: {
+    holdPeriod: 1000,
+    numberOfRequiredTouches: 2
+  },
+
+  touchStart: function(event) {
+    event.preventDefault();
+  },
+
+  <b>touchHoldEnd</b>: function (recognizer, event) {
+    this.toogleDisabled();
+  }
+
+});
+    </pre>
+  </div>
+</div>
+

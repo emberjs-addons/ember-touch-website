@@ -1,6 +1,6 @@
 
 <div class="alert alert-info">
-  <p>You could configure your gestures to be able to be recognized simultaneously with other gestures or being the only one recognized at the same time. Try it with  the <b>PanGesture of the red box</b>.</p>
+  <p>You could configure your gestures to be able to be recognized simultaneously with other gestures or being the only one recognized at the same time with its <code>simultaneously</code> property. Test it in the PanGesture of the red box.</p>
 </div>
 
 
@@ -16,4 +16,32 @@
       {{view App.LetterSwipeView class="span6"}}
 
       {{view App.LetterSwipeView class="span6"}}
+</div>
+
+<div class="space is-code"></div>
+
+<div class="row-fluid">
+
+  <div class="span12">
+
+    <span class="label label-info">Code</span>
+    <pre>
+App.NonSimultaneouslyPanPhotoCanvasView = App.PanPhotoCanvasView.extend({
+
+  panOptions: {
+    numberOfRequiredTouches: 1,
+    <b>simultaneously</b>: false
+  },
+
+  panEnd: function(recognizer, evt) {
+    App.get('gestureManager').<b>unblock</b>(this);
+  },
+
+  panCancel: function(recognizer) {
+    App.get('gestureManager').<b>unblock</b>(this);
+  }
+
+});
+    </pre>
+  </div>
 </div>
