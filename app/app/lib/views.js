@@ -9,7 +9,7 @@ require('app/views/common/disabled_class');
 require('app/views/common/letter_swipe');
 require('app/views/common/photo_canvas');
 require('app/views/common/pan_photo_canvas');
-require('app/views/common/pinch_photo_canvas');
+require('app/views/common/pinch_photo');
 
 
 require('app/views/examples/swipe_and_press');

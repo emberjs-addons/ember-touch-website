@@ -1,7 +1,7 @@
 
 
 <div class="alert alert-info">
-  <p>Pan in the left, pinch in the right. <code>PanGestureRecognizer</code> & <code>PinchGestureRecognizer</code></p>
+  <p>Pan the first image, pinch the second one. <code>PanGestureRecognizer</code> & <code>PinchGestureRecognizer</code></p>
 </div>
 
 
@@ -9,8 +9,11 @@
 
     {{view App.PanPhotoCanvasView class="span6"}}
 
-    {{view App.PinchPhotoCanvasView class="span6"
-      scale="0.5"}}
+    <div class="clearfix"></div>
+
+    {{#view App.PinchPhotoView class="span6"}}
+      <img src="/assets/images/ember-productivity-sm.png"/>
+    {{/view}}
 
 </div>
 
@@ -22,30 +25,23 @@
   <div class="span12">
     <span class="label label-info">Code</span>
     <pre>
-App.PinchPhotoCanvasView = App.PhotoCanvas.extend({
+App.PinchPhotoView = Em.View.extend({
 
   <b>pinchOptions</b>: {
     numberOfRequiredTouches: 2
   },
 
   <b>pinchStart</b>: function(rec, evt) {
+    var width,
+        image,
+        scale;
 
-    var newScale,
-        scaleFactorX,
-        scaleFactorY,
-        canvasContext = this.get('canvasContext'),
-        canvasWidth = canvasContext.canvas.width,
-        canvasHeight = canvasContext.canvas.height;
-
-    newScale = rec.get('scale') * this.scale;
-    scaleFactorX = newScale * canvasWidth;
-    scaleFactorY = newScale * canvasHeight;
-
-    // Only update if the values are valid
-    if (newScale > 0.25 && scaleFactorX < this.image.width && scaleFactorY < this.image.height) {
-      this.scale =  newScale;
-      this.refreshImage();
-    }
+    image = this.$('img');
+    scale = rec.get('scale');
+    width = image.width();
+    image.animate({
+      width: width*scale
+    }, 500, "linear");
   },
 
   touchMove: function(event) {
@@ -64,7 +60,7 @@ App.PanPhotoCanvasView = App.PhotoCanvas.extend({
   <b>panChange</b>: function(rec, evt) {
 
     var SMOOTH_FACTOR = 5,
-        x, y, 
+        x, y,
         val = rec.get('translation'),
         canvasContext = this.get('canvasContext'),
         image = this.image;
