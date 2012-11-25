@@ -1,7 +1,7 @@
 
 <div class="row-fluid">
 
-  <h2 name="gesture">Gesture</h2>
+  <h2 name="gesture">ApplicationGestureManager</h2>
   <div class="span11">
     <p><code>Gesture</code> coalesces multiple touch events into a <strong>single higher-level gesture event</strong>.</p>
     <p>For example, a tap gesture recognizer takes information about a touchstart event, a few touchmove events, and a touchend event and uses some heuristics to decide whether or not that sequence of events qualifies as a tap event. If it does, it will notify the view with a higher-level tap event.</p>
@@ -38,12 +38,12 @@
   <h2>GestureManager</h2>
   <div class="span11">
     <p>It manages touchstart, touchmove, touchend and touchcancel events which are dispatched by the <code>EventDispatcher</code>.</p>
-    <p>Including <strong>ember-touch</strong> in your project automatically extends the view <code>init</code> method to assign a <code>GestureManager</code> instance to each view.</p>
+    <p>Including <strong>ember-touch</strong> in your project, automatically extends the view <code>init</code> method to assign a <code>GestureManager</code> instance to each view.</p>
     <p>The <code>GestureManager</code> responsabilities are:</p>
     <ol>
-      <li>Receiving touch events.</li>
+      <li>Receives touch events.</li>
       <li>Dispatching the event to its view if it implements the given touch event handler.</li>
-      <li>Dispatching the event to the multiple view gesture instances, whenever all different coordination rules are satified.</li>
+      <li>Dispatch the event to the multiple view gesture instances, whenever all different coordination rules are satified.</li>
       <li>Handling event bubbling.</li>
     </ol>
   </div>

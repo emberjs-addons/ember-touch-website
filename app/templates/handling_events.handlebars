@@ -1,1 +1,49 @@
-Handling events
+<div class="row-fluid">
+  <h2>Disabling gesture recognition</h2>
+  <div class="span11">
+    <p><strong>Ember-touch</strong> allows to disable specific gesture recognition based on Application state. This ability allows to create and coordinate complex user interactions.</p>
+    <p>The main responsability of the <code>GestureManager</code> is to decide if a touch event will be dispatched to a gesture recognizer or not. For this purpose, it checks a group of conditions at different API level to determine the result.</p>
+    <p>The <code>GestureManager</code> won't dispatch the event to a <i>view gesture</i> whenever any of the following conditions is satisfied.</p>
+    <ol>
+      <li>The <code>ApplicationGestureManager</code> instance is blocked.</li>
+      <li>A non-simultaneously gesture different than the <i>view gesture</i> is being recognized.</li>
+      <li>The <i>view gesture</i> is not enabled.</li>
+      <li>The <code>GestureDelegate</code> of the <i>view gesture</i> has assigned at least one <code>DelegateRule</code> whose <code>shouldReceiveTouch</code> response is false.</li>
+      <li>The <code>GestureDelegate</code> hasn't rules whose responses affect the result and its <code>shouldReceiveTouch</code> response is false.</li>
+    </ol>
+  </div>
+</div>
+
+
+<div class="row-fluid">
+  <h2>Bubbling Events</h2>
+  <div class="span11">
+    <p>Events will bubble up the view hierarchy until the event reaches the root view.</p>
+    <p>Currently, there isn't a defined convention to stop event propagation.</p>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+  <h2>View touch handlers</h2>
+  <div class="span11">
+    <p>Views can define touch handlers (<code>touchStart</code>, <code>touchMove</code>, <code>touchCancel</code>, <code>touchEnd</code>) in the same way than other event handlers, these events will be always dispatched to the views.</p>
+    <blockquote>
+      <p>Normally, you will use these methods to prevent default event behaviour in gesturable views.</p>
+    </blockquote>
+
+    <pre>
+Em.View.extend({
+  <b>touchMove</b>: function(evt) {
+    // disallow browser elastic scrolling when the panGesture is recognized
+    evt.preventDefault();
+  },
+  panEnd: function() {
+
+  }
+});
+    </pre>
+  </div>
+</div>
+  
+<div class="space"></div>

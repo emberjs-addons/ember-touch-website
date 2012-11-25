@@ -41,13 +41,14 @@ App.Router = Ember.Router.extend({
     tapAndTouchHold:  App.BaseRoute.extend(),
     panAndPinch:  App.BaseRoute.extend(),
     handlingEvents:  App.BaseRoute.extend(),
-    emberTouch:  App.BaseRoute.extend(),
+    usingGestures:  App.BaseRoute.extend(),
     objectResponsabilities:  App.BaseRoute.extend(),
     simultaneously:  App.BaseRoute.extend({}),
     applicationGestureManager:  App.BaseRoute.extend(),
     isEnabled:  App.BaseRoute.extend(),
     gestureDelegate:  App.BaseRoute.extend(),
-    gestureDelegateRules:  App.BaseRoute.extend()
+    gestureDelegateRules:  App.BaseRoute.extend(),
+    createOwnGestures:  App.BaseRoute.extend()
 
   })
 });

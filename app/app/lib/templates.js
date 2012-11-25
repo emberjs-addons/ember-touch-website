@@ -14,9 +14,10 @@ require('templates/is_enabled');
 require('templates/gesture_delegate');
 require('templates/gesture_delegate_rules');
 
-require('templates/ember_touch');
+require('templates/using_gestures');
 require('templates/handling_events');
 require('templates/object_responsabilities');
+require('templates/create_own_gestures');
 require('templates/index');
 
 
