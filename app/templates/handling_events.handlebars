@@ -1,8 +1,8 @@
 <div class="row-fluid">
   <h2>Disabling gesture recognition</h2>
   <div class="span11">
-    <p><strong>Ember-touch</strong> allows to disable specific gesture recognition based on Application state. This ability allows to create and coordinate complex user interactions.</p>
-    <p>The main responsability of the <code>GestureManager</code> is to decide if a touch event will be dispatched to a gesture recognizer or not. For this purpose, it checks a group of conditions at different API level to determine the result.</p>
+    <p><strong>Ember-touch</strong> allows to disable specific gesture recognition based on Application state. With this ability it is possible to create and coordinate complex user interactions.</p>
+    <p>The main responsability of the <code>GestureManager</code> is to decide if a touch event will be dispatched to a gesture recognizer. For this purpose, it checks a group of conditions at a different API level to determine the result.</p>
     <p>The <code>GestureManager</code> won't dispatch the event to a <i>view gesture</i> whenever any of the following conditions is satisfied.</p>
     <ol>
       <li>The <code>ApplicationGestureManager</code> instance is blocked.</li>
@@ -27,7 +27,7 @@
 <div class="row-fluid">
   <h2>View touch handlers</h2>
   <div class="span11">
-    <p>Views can define touch handlers (<code>touchStart</code>, <code>touchMove</code>, <code>touchCancel</code>, <code>touchEnd</code>) in the same way than other event handlers, these events will be always dispatched to the views.</p>
+    <p>Views can define touch handlers (<code>touchStart</code>, <code>touchMove</code>, <code>touchCancel</code>, <code>touchEnd</code>) in the same way than other event handlers. These events will be always dispatched to the views.</p>
     <blockquote>
       <p>Normally, you will use these methods to prevent default event behaviour in gesturable views.</p>
     </blockquote>
@@ -45,5 +45,5 @@ Em.View.extend({
     </pre>
   </div>
 </div>
-  
+
 <div class="space"></div>
