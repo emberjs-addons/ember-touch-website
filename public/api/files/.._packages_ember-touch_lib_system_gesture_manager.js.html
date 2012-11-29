@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -124,10 +126,17 @@ var get = Em.get; var set = Em.set;
 *&#x2F;
 
 &#x2F;**
-Manages multiplegesture recognizers that are associated with a view. This class is instantiated automatically by Em.View and you wouldn&#x27;t
+&#x60;Em.GestureManager&#x60; mainly acts as a composite for the multiple gesture 
+recognizers associated with a view. 
+
+This class is instantiated automatically by Em.View and you wouldn&#x27;t
 interact with it yourself.
 
-Em.GestureManager mainly acts as a composite for the multiple gesture recognizers associated with a view. Whenever it gets a touch event, it relays it to the gestures. The other main resposibility of Em.GestureManager is to handle re-dispatching of events to the view.
+Whenever it gets a touch event, it relays it to the gestures when 
+coordination conditions are satisfied.
+
+The other main resposibility of &#x60;Em.GestureManager&#x60; is to manage
+event bubbling.
 
 @class GestureManager
 @namespace Ember
@@ -137,7 +146,7 @@ Em.GestureManager = Em.Object.extend({
 
   &#x2F;**
     An array containing all the gesture recognizers associated with a
-    view. This is set automatically by Em.View.
+    view. This is set automatically by &#x60;Em.View&#x60;.
 
 
     @property gestures
@@ -146,11 +155,14 @@ Em.GestureManager = Em.Object.extend({
   *&#x2F;
   gestures: null,
 
-
+  &#x2F;**
+    @type Em.ApplicationGestureManager
+    @property applicationGestureManager
+  *&#x2F;
   applicationGestureManager: null,
 
   &#x2F;**
-    The Em.View which belongs this GestureManager instance.
+    The Em.View which belongs this &#x60;GestureManager&#x60; instance.
 
     @property view
     @type Em.View
@@ -159,7 +171,7 @@ Em.GestureManager = Em.Object.extend({
 
   &#x2F;**
     Relays touchStart events to all the gesture recognizers to the
-    specified view
+    specified view when coordination conditions are satisfied.
 
     @method touchStart
     @return Boolen
@@ -170,7 +182,7 @@ Em.GestureManager = Em.Object.extend({
 
   &#x2F;**
     Relays touchMove events to all the gesture recognizers to the
-    specified view
+    specified view when coordination conditions are satisfied.
 
     @method touchMove
     @return Boolen
@@ -181,7 +193,7 @@ Em.GestureManager = Em.Object.extend({
 
   &#x2F;**
     Relays touchEnd events to all the gesture recognizers to the
-    specified view
+    specified view when coordination conditions are satisfied.
 
     @method touchEnd
     @return Boolen
@@ -192,7 +204,7 @@ Em.GestureManager = Em.Object.extend({
 
   &#x2F;**
     Relays touchCancel events to all the gesture recognizers to the
-    specified view
+    specified view when coordination conditions are satisfied.
 
     @method touchCancel
     @return Boolen
@@ -283,7 +295,9 @@ Em.GestureManager = Em.Object.extend({
   },
 
   &#x2F;**
-    Iterates all gestureDelegate DelegateRule instances executing its shouldReceiveTouch method and return the value whenever a rule respond with a defined value .
+    Iterates all &#x60;GestureDelegateRule&#x60; instances of the gestureDelegate parameter
+    executing its shouldReceiveTouch method and return the value whenever 
+    a rule respond with a defined value.
 
     @private
     @method _applyDelegateRules

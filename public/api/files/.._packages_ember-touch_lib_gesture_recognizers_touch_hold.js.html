@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -125,22 +127,29 @@ var get = Em.get, set = Em.set;
  @submodule ember-touch
 *&#x2F;
 &#x2F;**
-Recognizes a multi-touch touch and hold gesture. 
+Recognizes a multi-touch touch and hold gesture.
 
-Touch and Hold gestures  allow move the finger on the same view, and after the user leaves its finger motionless during a specific period the end view event is automatically triggered. 
+Touch and Hold gestures allow move the finger on the same view, and after
+the user leaves its finger motionless during a specific period the end view
+event is automatically triggered.
 
 TouchHold are discrete gestures so only _touchHoldEnd_ will get fired.
 
     var myview = Em.View.create({
       elementId: &#x27;gestureTest&#x27;,
-      
+
       touchHoldEnd: function(recognizer, evt) {
 
       }
     });
 
-You can specify how many touches the gesture requires to start using the _numberOfRequiredTouches_  a minimum _period_ the finger must be held to automatically trigger the end event  and _moveThreshold_ which allows to move the finger a specific number of pixels.
 
+The number of touches required to start the gesture can be specified with the
+following properties:
+- _numberOfRequiredTouches_
+- a minimum _holdPeriod_ the finger must be held to trigger the end event
+- _modeThreshold_ which allows to move the finger a specific number of pixels
+This properties can be set in the touchHoldOptions
 
     var myview = Em.View.create({
       touchHoldOptions: {
@@ -186,7 +195,7 @@ Em.TouchHoldGestureRecognizer = Em.Gesture.extend({
     this._initialLocation = this.centerPointForTouches(get(this.touches,&#x27;touches&#x27;));
 
     var target = get(this.touches,&#x27;touches&#x27;)[0].target;
-    set(this,&#x27;_target&#x27;, target ); 
+    set(this,&#x27;_target&#x27;, target );
 
     var that = this;
     this._endTimeout = window.setTimeout( function() {
@@ -224,7 +233,7 @@ Em.TouchHoldGestureRecognizer = Em.Gesture.extend({
   &#x2F;&#x2F; disable interval action trigger and block end state
   &#x2F;&#x2F; this event is responsable for gesture cancel
   shouldEnd: function() {
-    
+
     this._disableEndFired();
     set(this, &#x27;state&#x27;, Em.Gesture.CANCELLED);
     this.didCancel();
@@ -236,7 +245,7 @@ Em.TouchHoldGestureRecognizer = Em.Gesture.extend({
   _endFired: function() {
 
     this._disableEndFired();
-    
+
     if ( this.state === Em.Gesture.BEGAN || this.state === Em.Gesture.CHANGED ) {
 
       set(this, &#x27;state&#x27;, Em.Gesture.ENDED);
@@ -247,7 +256,7 @@ Em.TouchHoldGestureRecognizer = Em.Gesture.extend({
       this.attemptGestureEventDelivery(eventName, evt);
 
       &#x2F;&#x2F;this._resetState(); &#x2F;&#x2F; let be executed on touchEnd
-      
+
     }
 
   },

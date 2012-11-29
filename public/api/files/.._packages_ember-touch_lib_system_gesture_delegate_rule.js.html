@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -116,23 +118,19 @@
 
 <div class="file">
     <pre class="code prettyprint linenums">
-
 &#x2F;**
 @module ember
 @submodule ember-touch
 *&#x2F;
 &#x2F;**
+  Defines a rule on its &#x60;shouldReceiveTouch&#x60; method 
+  to be used by a &#x60;GestureDelegate&#x60; instance.
+
   @class GestureDelegateRule
   @namespace Ember
   @extends Ember.Object
 *&#x2F;
 Em.GestureDelegateRule = Em.Object.extend({
-
-  &#x2F;**
-    @property gestureDelegate
-  *&#x2F;
-  gestureDelegate: null,
-
 
   &#x2F;**
     @method shouldReceiveTouch

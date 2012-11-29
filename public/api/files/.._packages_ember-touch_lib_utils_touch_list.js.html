@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -123,15 +125,24 @@ var get = Em.get; var set = Em.set;
 @submodule ember-touch
 *&#x2F;
 &#x2F;**
-Used to manage and maintain a list of active touches related to a gesture  recognizer.
+  Used to manage and maintain a list of active touches related to a gesture recognizer.
+
   @class TouchList
   @namespace Ember
   @extends Ember.Object
   @private
 *&#x2F;
 Em.TouchList = Em.Object.extend({
+
+  &#x2F;**
+    @property touches
+    @type Array
+  *&#x2F;
   touches: null,
 
+  &#x2F;**
+    @property timestamp
+  *&#x2F;
   timestamp: null,
 
   init: function() {
@@ -140,12 +151,18 @@ Em.TouchList = Em.Object.extend({
     set(this, &#x27;touches&#x27;, []);
   },
 
+  &#x2F;**
+    @method addTouch
+  *&#x2F;
   addTouch: function(touch) {
     var touches = get(this, &#x27;touches&#x27;);
     touches.push(touch);
     this.notifyPropertyChange(&#x27;touches&#x27;);
   },
 
+  &#x2F;**
+    @method updateTouch
+  *&#x2F;
   updateTouch: function(touch) {
     var touches = get(this, &#x27;touches&#x27;);
 
@@ -160,6 +177,9 @@ Em.TouchList = Em.Object.extend({
     }
   },
 
+  &#x2F;**
+    @method removeTouch
+  *&#x2F;
   removeTouch: function(touch) {
     var touches = get(this, &#x27;touches&#x27;);
 
@@ -174,10 +194,16 @@ Em.TouchList = Em.Object.extend({
     }
   },
 
+  &#x2F;**
+    @method removeAllTouches
+  *&#x2F;
   removeAllTouches: function() {
     set(this, &#x27;touches&#x27;, []);
   },
 
+  &#x2F;**
+    @method touchWithId
+  *&#x2F;
   touchWithId: function(id) {
     var ret = null,
         touches = get(this, &#x27;touches&#x27;);

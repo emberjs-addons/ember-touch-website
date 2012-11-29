@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -142,9 +144,11 @@
 
 
 <div class="box intro">
-    <p>Recognizes a multi-touch pinch gesture. Pinch gestures require a specified number of fingers to move and will record and update the scale.</p>
+    <p>Recognizes a multi-touch pinch gesture. Pinch gestures require a specified
+number of fingers to move and will record and update the scale.</p>
 
-<p>For pinchChange events, the pinch gesture recognizer includes a scale property which can be applied as a CSS transform directly.</p>
+<p>For pinchChange events, the pinch gesture recognizer includes a scale property
+which can be applied as a CSS transform directly.</p>
 
 <pre class="code"><code class="prettyprint">var myview = Em.View.create({
   elementId: 'gestureTest',
@@ -157,7 +161,9 @@
 });
 </code></pre>
 
-<p>You can specify how many touches the gesture requires to start using the <em>numberOfRequiredTouches</em> property, which you can set in the pinchOptions hash:</p>
+<p>The number of touches required to start the gesture can be specified with the
+<em>numberOfRequiredTouches</em> property. This property can be set in the
+pinchOptions hash.</p>
 
 <pre class="code"><code class="prettyprint">var myview = Em.View.create({
   pinchOptions: {

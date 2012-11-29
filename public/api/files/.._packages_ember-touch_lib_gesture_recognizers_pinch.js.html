@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -125,13 +127,15 @@ var get = Em.get, set = Em.set;
  @submodule ember-touch
 *&#x2F;
 &#x2F;**
-Recognizes a multi-touch pinch gesture. Pinch gestures require a specified number of fingers to move and will record and update the scale.
+Recognizes a multi-touch pinch gesture. Pinch gestures require a specified
+number of fingers to move and will record and update the scale.
 
-For pinchChange events, the pinch gesture recognizer includes a scale property which can be applied as a CSS transform directly.
+For pinchChange events, the pinch gesture recognizer includes a scale property
+which can be applied as a CSS transform directly.
 
     var myview = Em.View.create({
       elementId: &#x27;gestureTest&#x27;,
-      
+
       pinchChange: function(rec, evt) {
         this.$().css(&#x27;scale&#x27;,function(index, value) {
           return rec.get(&#x27;scale&#x27;) * value
@@ -139,7 +143,9 @@ For pinchChange events, the pinch gesture recognizer includes a scale property w
       }
     });
 
-You can specify how many touches the gesture requires to start using the _numberOfRequiredTouches_ property, which you can set in the pinchOptions hash:
+The number of touches required to start the gesture can be specified with the
+_numberOfRequiredTouches_ property. This property can be set in the
+pinchOptions hash.
 
     var myview = Em.View.create({
       pinchOptions: {
@@ -154,9 +160,8 @@ You can specify how many touches the gesture requires to start using the _number
 Em.PinchGestureRecognizer = Em.Gesture.extend({
 
   &#x2F;**
-    The scale value which represents the current amount of scaling that has been applied
-    to the view. You would normally apply this value directly to your element as a 3D
-    scale.
+    The scale value which represents the current amount of scaling that has
+    been applied to the view.
 
     @type Number
   *&#x2F;
@@ -188,7 +193,7 @@ Em.PinchGestureRecognizer = Em.Gesture.extend({
 
     @private
     @type Number
-  *&#x2F;  
+  *&#x2F;
   _previousDistance: 0,
 
   &#x2F;**
@@ -231,7 +236,7 @@ Em.PinchGestureRecognizer = Em.Gesture.extend({
 
     set(this, &#x27;velocity&#x27;, distanceDifference &#x2F; timeDifference);
     set(this, &#x27;scale&#x27;, currentDistanceBetweenTouches &#x2F; this._previousDistance);
-    
+
     this._previousTimestamp = get(this.touches,&#x27;timestamp&#x27;);
     this._previousDistance = currentDistanceBetweenTouches;
   },

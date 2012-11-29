@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -142,9 +144,12 @@
 
 
 <div class="box intro">
-    <p>Recognizes a multi-touch press gesture. Press gestures  allow for a certain amount of wiggle-room between a start and end of a touch, and requires a minimum hold period to be triggered. </p>
+    <p>Recognizes a multi-touch press gesture. Press gestures allow for a certain
+amount of wiggle-room between a start and end of a touch, and requires a
+minimum hold period to be triggered. The press gesture also requires to
+stop touching the screen to be triggered.</p>
 
-<p>Presss are discrete gestures so only <em>pressEnd</em> event will get fired.</p>
+<p>Press gestures are discrete so only <em>pressEnd</em> will get fired.</p>
 
 <pre class="code"><code class="prettyprint">var myview = Em.View.create({
   elementId: 'gestureTest',
@@ -155,7 +160,9 @@
 });
 </code></pre>
 
-<p>You can specify how many touches the gesture requires to start using the <em>numberOfRequiredTouches</em> property, and a minimum <em>pressPeriodThreshold</em> which you can set in the <em>pressHoldOptions</em> hash:</p>
+<p>The number of touches required to start the gesture can be specified with the
+<em>numberOfRequiredTouches</em> and <em>pressPeriodThreshold</em> properties.
+This properties can be set in the <em>pressHoldOptions</em> hash:</p>
 
 <pre class="code"><code class="prettyprint">var myview = Em.View.create({
   pressOptions: {

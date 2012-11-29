@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;gesture_delegates.js - Ember Touch API</title>
+    <title>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;timeout_touch_event.js - Ember Touch API</title>
     <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.5.1&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
@@ -114,61 +114,27 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: ..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;gesture_delegates.js</h1>
+                        <h1 class="file-heading">File: ..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;timeout_touch_event.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
+Em.TimeoutTouchEventType = {
+  Cancel: &#x27;cancel&#x27;,
+  End: &#x27;end&#x27;
+};
 
 &#x2F;**
-@module ember
-@submodule ember-touch
+Based on your gesture implementation, a TimeoutTouchEvent event is 
+normally created to fire automatically after a period of time a 
+view [gesture]Event which must be executed without being generated 
+by a user touch event.
+
+@class TimeoutTouchEvent
+@namespace Ember
 *&#x2F;
-
-&#x2F;**
-   A instance of this class is injected in the Application namespace 
-   to registry &#x60;GestureDelegate&#x60; instances in your application.
-
-   Whenever a &#x60;Gesture&#x60; setup its &#x60;delegateName&#x60; property, 
-   assigns its &#x60;gestureDelegate&#x60; instance calling the &#x60;find&#x60; method of the 
-   &#x60;GestureDelegates&#x60; instance.
-  
-  @class GestureDelegates
-  @namespace Ember
-  @extends Em.Object
-  @private
-*&#x2F;
-
-Em.GestureDelegates = Em.Object.extend({
-
-  &#x2F;**
-    @method _delegates
-    @private
-  *&#x2F;
-  _delegates: {},
-
-  &#x2F;**
-    @method add
-  *&#x2F;
-  add: function(delegate) {
-    this._delegates[ delegate.get(&#x27;name&#x27;) ] = delegate;
-  },
-
-  &#x2F;**
-    @method find
-  *&#x2F;
-  find: function( name ) {
-    return this._delegates[name];
-  },
-
-  &#x2F;**
-    @method clear
-  *&#x2F;
-  clear: function() {
-    this._delegates = {};
-  }
-
-
-});
+Em.TimeoutTouchEvent = function(options){
+	this.type = options.type;
+};
 
     </pre>
 </div>

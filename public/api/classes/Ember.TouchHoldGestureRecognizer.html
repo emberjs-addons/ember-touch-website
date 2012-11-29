@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -142,9 +144,11 @@
 
 
 <div class="box intro">
-    <p>Recognizes a multi-touch touch and hold gesture. </p>
+    <p>Recognizes a multi-touch touch and hold gesture.</p>
 
-<p>Touch and Hold gestures  allow move the finger on the same view, and after the user leaves its finger motionless during a specific period the end view event is automatically triggered. </p>
+<p>Touch and Hold gestures allow move the finger on the same view, and after
+the user leaves its finger motionless during a specific period the end view
+event is automatically triggered.</p>
 
 <p>TouchHold are discrete gestures so only <em>touchHoldEnd</em> will get fired.</p>
 
@@ -157,7 +161,12 @@
 });
 </code></pre>
 
-<p>You can specify how many touches the gesture requires to start using the <em>numberOfRequiredTouches</em>  a minimum <em>period</em> the finger must be held to automatically trigger the end event  and <em>moveThreshold</em> which allows to move the finger a specific number of pixels.</p>
+<p>The number of touches required to start the gesture can be specified with the
+following properties:
+- <em>numberOfRequiredTouches</em>
+- a minimum <em>holdPeriod</em> the finger must be held to trigger the end event
+- <em>modeThreshold</em> which allows to move the finger a specific number of pixels
+This properties can be set in the touchHoldOptions</p>
 
 <pre class="code"><code class="prettyprint">var myview = Em.View.create({
   touchHoldOptions: {

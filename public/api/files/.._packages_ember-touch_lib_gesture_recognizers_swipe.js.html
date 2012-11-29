@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -146,8 +148,10 @@ Swipes are continuous gestures that will get fired on a view.
       }
     });
 
-SwipeGestureRecognizer recognizes a swipe when the touch has moved to a (direction)  far enough (swipeThreshold) in a period (cancelPeriod). 
-The current implementation will only recognize a direction on swipeEnd on (recognizer.swipeDirection).
+SwipeGestureRecognizer recognizes a swipe when the touch has moved to a
+(direction) far enough (swipeThreshold) in a period (cancelPeriod).
+The current implementation will only recognize a direction on swipeEnd on
+(recognizer.swipeDirection).
 
     var myview = Em.View.create({
       swipeOptions: {
@@ -162,9 +166,9 @@ The current implementation will only recognize a direction on swipeEnd on (recog
 @extends Em.Gesture
 *&#x2F;
 Em.SwipeGestureRecognizer = Em.Gesture.extend({
-  
+
   &#x2F;**
-    The period (ms) in which the gesture should have been recognized. 
+    The period (ms) in which the gesture should have been recognized.
 
     @private
     @type Number
@@ -173,9 +177,9 @@ Em.SwipeGestureRecognizer = Em.Gesture.extend({
   swipeThreshold: 50,
 
   &#x2F;*
-    You should set up depending on your device factor and view behaviors.
-    Distance is calculated separately on vertical and horizontal directions depending 
-    on the direction property.
+    It should be set up depending of the device factor and view behaviors.
+    Distance is calculated separately on vertical and horizontal directions
+    depending on the direction property.
   *&#x2F;
   initThreshold: 5,
 
@@ -192,7 +196,8 @@ Em.SwipeGestureRecognizer = Em.Gesture.extend({
 
 
   &#x2F;**
-    The pixel distance that the fingers need to move before this gesture is recognized.
+    The pixel distance that the fingers need to move before this gesture is
+    recognized.
 
     @private
     @type Number
@@ -219,13 +224,13 @@ Em.SwipeGestureRecognizer = Em.Gesture.extend({
 
     if ( this.direction &amp; Em.OneGestureDirection.Right ) {
       shouldBegin = ( (x0-x) &gt; this.initThreshold);
-    } 
+    }
     if ( !shouldBegin &amp;&amp; ( this.direction &amp; Em.OneGestureDirection.Left )  ) {
       shouldBegin = ( (x-x0) &gt; this.initThreshold);
-    } 
+    }
     if ( !shouldBegin &amp;&amp; ( this.direction &amp; Em.OneGestureDirection.Down )  ) {
       shouldBegin = ( (y0-y) &gt; this.initThreshold);
-    } 
+    }
     if ( !shouldBegin &amp;&amp; ( this.direction &amp; Em.OneGestureDirection.Up ) ) {
       shouldBegin = ( (y-y0) &gt; this.initThreshold);
     }
@@ -257,27 +262,27 @@ Em.SwipeGestureRecognizer = Em.Gesture.extend({
     var isValidMovement = false;
 
     if ( this.direction &amp; Em.OneGestureDirection.Right ) {
-      
+
       isValidMovement = ( (x0-x) &gt; this.swipeThreshold);
-      this.swipeDirection = Em.OneGestureDirection.Right; 
+      this.swipeDirection = Em.OneGestureDirection.Right;
 
-    } 
+    }
     if ( !isValidMovement &amp;&amp; ( this.direction &amp; Em.OneGestureDirection.Left )  ) {
-      
-      isValidMovement = ( (x-x0) &gt; this.swipeThreshold);
-      this.swipeDirection = Em.OneGestureDirection.Left; 
 
-    } 
+      isValidMovement = ( (x-x0) &gt; this.swipeThreshold);
+      this.swipeDirection = Em.OneGestureDirection.Left;
+
+    }
     if ( !isValidMovement &amp;&amp; ( this.direction &amp; Em.OneGestureDirection.Down )  ) {
 
       isValidMovement = ( (y0-y) &gt; this.swipeThreshold);
-      this.swipeDirection = Em.OneGestureDirection.Down; 
+      this.swipeDirection = Em.OneGestureDirection.Down;
 
-    } 
+    }
     if ( !isValidMovement &amp;&amp; ( this.direction &amp; Em.OneGestureDirection.Up ) ) {
 
       isValidMovement = ( (y-y0) &gt; this.swipeThreshold);
-      this.swipeDirection = Em.OneGestureDirection.Up; 
+      this.swipeDirection = Em.OneGestureDirection.Up;
 
     }
 
@@ -288,15 +293,15 @@ Em.SwipeGestureRecognizer = Em.Gesture.extend({
 
       var eventName = this.name+&#x27;End&#x27;;
       this.attemptGestureEventDelivery(eventName, evt);
-      this._resetState(); 
-      
+      this._resetState();
+
     }
 
   },
 
   &#x2F;&#x2F; touch end should cancel the gesture
   shouldEnd: function() {
-    
+
     this._cancelFired();
 
     return  false;
@@ -311,8 +316,8 @@ Em.SwipeGestureRecognizer = Em.Gesture.extend({
     var eventName = this.name+&#x27;Cancel&#x27;;
     var evt = new Em.TimeoutTouchEvent({type: Em.TimeoutTouchEventType.Cancel});
     this.attemptGestureEventDelivery(eventName, evt);
-    this._resetState(); 
-    
+    this._resetState();
+
   },
 
   _disableCancelFired: function() {

@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -142,10 +144,17 @@
 
 
 <div class="box intro">
-    <p>Manages multiplegesture recognizers that are associated with a view. This class is instantiated automatically by Em.View and you wouldn't
+    <p><code>Em.GestureManager</code> mainly acts as a composite for the multiple gesture 
+recognizers associated with a view. </p>
+
+<p>This class is instantiated automatically by Em.View and you wouldn't
 interact with it yourself.</p>
 
-<p>Em.GestureManager mainly acts as a composite for the multiple gesture recognizers associated with a view. Whenever it gets a touch event, it relays it to the gestures. The other main resposibility of Em.GestureManager is to handle re-dispatching of events to the view.</p>
+<p>Whenever it gets a touch event, it relays it to the gestures when 
+coordination conditions are satisfied.</p>
+
+<p>The other main resposibility of <code>Em.GestureManager</code> is to manage
+event bubbling.</p>
 </div>
 
 
@@ -227,6 +236,13 @@ interact with it yourself.</p>
                     <ul class="index-list properties extends">
                         
                             <li class="index-item property">
+                                <a href="#property_applicationGestureManager">applicationGestureManager</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
                                 <a href="#property_gestures">gestures</a>
 
                                 
@@ -292,7 +308,7 @@ interact with it yourself.</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L167"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:167</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L177"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:177</code></a>
         
         </p>
 
@@ -303,7 +319,9 @@ interact with it yourself.</p>
     </div>
 
     <div class="description">
-        <p>Iterates all gestureDelegate DelegateRule instances executing its shouldReceiveTouch method and return the value whenever a rule respond with a defined value .</p>
+        <p>Iterates all <code>GestureDelegateRule</code> instances of the gestureDelegate parameter
+executing its shouldReceiveTouch method and return the value whenever 
+a rule respond with a defined value.</p>
     </div>
 
     
@@ -363,7 +381,7 @@ interact with it yourself.</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L86"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:86</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L96"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:96</code></a>
         
         </p>
 
@@ -433,7 +451,7 @@ by the touch event listeners. Propagates the event to the parentViews.</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L75"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:75</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L85"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:85</code></a>
         
         </p>
 
@@ -445,7 +463,7 @@ by the touch event listeners. Propagates the event to the parentViews.</p>
 
     <div class="description">
         <p>Relays touchCancel events to all the gesture recognizers to the
-specified view</p>
+specified view when coordination conditions are satisfied.</p>
     </div>
 
     
@@ -503,7 +521,7 @@ specified view</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L64"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:64</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L74"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:74</code></a>
         
         </p>
 
@@ -515,7 +533,7 @@ specified view</p>
 
     <div class="description">
         <p>Relays touchEnd events to all the gesture recognizers to the
-specified view</p>
+specified view when coordination conditions are satisfied.</p>
     </div>
 
     
@@ -573,7 +591,7 @@ specified view</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L53"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:53</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L63"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:63</code></a>
         
         </p>
 
@@ -585,7 +603,7 @@ specified view</p>
 
     <div class="description">
         <p>Relays touchMove events to all the gesture recognizers to the
-specified view</p>
+specified view when coordination conditions are satisfied.</p>
     </div>
 
     
@@ -643,7 +661,7 @@ specified view</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L42"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:42</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L52"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:52</code></a>
         
         </p>
 
@@ -655,7 +673,7 @@ specified view</p>
 
     <div class="description">
         <p>Relays touchStart events to all the gesture recognizers to the
-specified view</p>
+specified view when coordination conditions are satisfied.</p>
     </div>
 
     
@@ -686,6 +704,51 @@ specified view</p>
 
                 
                     
+<div id="property_applicationGestureManager" class="property item">
+    <h3 class="name"><code>applicationGestureManager</code></h3>
+    <span class="type">Em.ApplicationGestureManager</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L38"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:38</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    
 <div id="property_gestures" class="property item">
     <h3 class="name"><code>gestures</code></h3>
     <span class="type">Array</span>
@@ -709,7 +772,7 @@ specified view</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L20"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:20</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L27"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:27</code></a>
         
         </p>
 
@@ -720,7 +783,7 @@ specified view</p>
 
     <div class="description">
         <p>An array containing all the gesture recognizers associated with a
-view. This is set automatically by Em.View.</p>
+view. This is set automatically by <code>Em.View</code>.</p>
     </div>
 
     
@@ -757,7 +820,7 @@ view. This is set automatically by Em.View.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L34"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:34</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture_manager.js#L44"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture_manager.js:44</code></a>
         
         </p>
 
@@ -767,7 +830,7 @@ view. This is set automatically by Em.View.</p>
     </div>
 
     <div class="description">
-        <p>The Em.View which belongs this GestureManager instance.</p>
+        <p>The Em.View which belongs this <code>GestureManager</code> instance.</p>
     </div>
 
     

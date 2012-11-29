@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -126,20 +128,25 @@ var set = Em.set;
 
 &#x2F;**
 
-  Registry of known gestures in the system to be used on view creation to find which gestures are implemented in the view class. A instance of this class is injected in the Application namespace.
+  Registry of known gestures in the system which is used in the view &#x60;init&#x60;
+  method to find which gestures are supported by the initialized view.
 
-  You must be responsable to register your own gestures when you want to make the system aware of them.
+  A instance of this class is injected in the Application namespace and
+  add default built-in gestures provided in the &#x60;ember-touch&#x60; package.
+
+  You must be responsable to register your own gestures when you want 
+  to make the system aware of them.
 
   @class RegisteredGestureList
   @namespace Ember
   @extends Em.Object
   @private
-  @static
 *&#x2F;
 Em.RegisteredGestures = Em.Object.extend({
 
   &#x2F;**
-    @method _registeredGestures
+    @property _registeredGestures
+    @type Hash
     @private
   *&#x2F;
   _registeredGestures: null,
@@ -151,7 +158,8 @@ Em.RegisteredGestures = Em.Object.extend({
   },
 
   &#x2F;**
-    Registers a gesture recognizer to the system. The gesture recognizer is identified by the name parameter, which must be globally unique.
+    Registers a gesture recognizer to the system. 
+    The gesture recognizer is identified by the name parameter, which must be globally unique.
 
     @method register
   *&#x2F;
@@ -166,6 +174,7 @@ Em.RegisteredGestures = Em.Object.extend({
   },
 
   &#x2F;**
+    Unregister a gesture.
     @method unregister
   *&#x2F;
   unregister: function(name) {
@@ -177,7 +186,9 @@ Em.RegisteredGestures = Em.Object.extend({
   },
 
   &#x2F;**
-    Registers a gesture recognizer to the system. The gesture recognizer is identified by the name parameter, which must be unique across the system.
+    Registers a gesture recognizer to the system. 
+    The gesture recognizer is identified by the name parameter 
+    which must be unique in your application.
 
     @method knownGestures
   *&#x2F;

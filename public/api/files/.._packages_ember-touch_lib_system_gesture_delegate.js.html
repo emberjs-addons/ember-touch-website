@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -122,9 +124,11 @@
 @submodule ember-touch
 *&#x2F;
 &#x2F;**
-Delegate implements the logic of your application&#x27;s gesture-recognition behavior.
+GestureDelegate allows to &#x60;GestureManager&#x60; instances decide 
+if a touch event can be dispatched to a view gesture.
 
-Set up your gestures to use a GestureDelegate to coordinate the gesture recognition based  on the current status of your Application. 
+Set up your gestures to use a &#x60;GestureDelegate&#x60; to coordinate 
+the gesture recognition based on application logic.
 
 @class GestureDelegate
 @namespace Ember
@@ -133,7 +137,9 @@ Set up your gestures to use a GestureDelegate to coordinate the gesture recognit
 Em.GestureDelegate = Em.Object.extend({
 
   &#x2F;**
-    Name of the gestureDelegate. It will be used on gestureOptions to assign a gestureDelegate to a specific gesture.
+    Name of the gestureDelegate. 
+    This optional property can be used on gestureOptions 
+    to assign a gestureDelegate to a specific gesture.
 
     @property name
     @type Array
@@ -141,8 +147,10 @@ Em.GestureDelegate = Em.Object.extend({
   name: null,
 
   &#x2F;**
-    Rules can be setup with string path, extended classes or instances.
-    They are intented to be executed before shouldReceiveTouch method.
+    Array of &#x60;GestureDelegateRule&#x60; which can be setup 
+    with string path, extended classes or instances.
+    In runtime, they are intented to be checked before
+    &#x60;GestureDelegate.shouldReceiveTouch&#x60; call.
 
     @property rules
     @type Array
@@ -174,8 +182,6 @@ Em.GestureDelegate = Em.Object.extend({
           rule = rule.create();
         }
 
-
-        rule.gestureDelegate = this;
         current.push( rule );
       }
 

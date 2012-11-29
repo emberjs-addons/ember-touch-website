@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -124,130 +126,8 @@ var get = Em.get, set = Em.set;
 *&#x2F;
 
 &#x2F;**
-Base class for all gesture recognizers. Handles low-level touch and state
-management, and provides some utility methods and some required methods all
-gesture recognizers are expected to implement.
-
-# Overview
-
-Gestures coalesce multiple touch events to a single higher-level gesture
-event. For example, a tap gesture recognizer takes information about a
-touchstart event, a few touchmove events, and a touchend event and uses
-some heuristics to decide whether or not that sequence of events qualifies
-as a tap event. If it does, then it will notify the view of the higher-level
-tap events.
-
-Gesture events follow the format:
-
-  * *[GESTURE_NAME]* Start - Sent when a gesture has gathered enough information
-      to begin tracking the gesture
-
-  * *[GESTURE_NAME]* Change - Sent when a gesture has already started and has
-      received touchmove events that cause its state to change
-
-  * *[GESTURE_NAME]* End - Sent when a touchend event is received and the gesture
-      recognizer decides that the gesture is finished.
-
-  * *[GESTURE_NAME]* Cancel - Sent when a touchcancel event is received.
-
-There are two types of gestures: Discrete and Continuous gestures. In contrast
-to continuous gestures, discrete gestures don&#x27;t have any change events. Rather,
-the end event is the only one that gets sent to the view.
-
-## Usage
-
-While you wouldn&#x27;t use Em.Gesture directly, all its subclasses implement the 
-same API. For example, to implement pinch on a view, you implement one or more 
-of the pinch events. For example:
-
-    var myView = Em.View.create({
-      pinchStart: function(recognizer, evt) {
-        this.$().css(&#x27;background&#x27;,&#x27;red&#x27;);
-      },
-
-      pinchChange: function(recognizer, evt) {
-        var scale = recognizer.get(&#x27;scale&#x27;);
-        this.$().css(&#x27;scale&#x27;,function(index, value) {
-          return recognizer.get(&#x27;scale&#x27;) * value
-        });
-      },
-
-      pinchEnd: function(recognizer, evt) {
-        this.$().css(&#x27;background&#x27;,&#x27;blue&#x27;);
-      },
-
-      pinchCancel: function(recognizer, evt) {
-        this.$().css(&#x27;background&#x27;,&#x27;blue&#x27;);
-      }
-    });
-
-pinchStart(), pinchEnd() and pinchCancel() will only get called once per
-gesture, but pinchChange() will get called repeatedly called every time
-one of the touches moves.
-
-## Customizing Gesture Recognizers
-
-Some of the gesture recognizers include properties that can be customized by 
-the user for a specific instance of a view. For example, a pan gesture defaults 
-to being a one-finger gesture, but in some scenarios, it must be defined as a 
-two-finger gesture. In that case, you can override defaults by specifying an 
-Options hash. 
-
-    var myView = Em.View.create({
-      panOptions: {
-        numberOfRequiredTouches: 2
-      }
-    });      
-
-## Creating Custom Gesture Recognizers
-
-Em.Gesture also defines an API which its subclasses can implement to build
-custom gestures. The methods are:
-
-  * **didBecomePossible** - Called when a gesture enters a possible state. This
-      means the gesture recognizer has accepted enough touches to match 
-      the number of required touches. You would usually initialize your state
-      in this callback.
-
-  * **eventWasRejected** - Called if a view returns false from a gesture event.
-      This callback allows you to reset internal state if the user rejects
-      an event.
-
-  * **shouldBegin** - Allows a gesture to block itself from entering a began state.
-      This callback will continuously be called as touches move until it begins.
-
-  * **shouldEnd** - Allows a gesture to block itself from entering an ended state.
-      This callback gets called whenever a tracked touch gets a touchEnd event.
-
-  * **didBegin** - Called when the gesture enters a began state. Called before the
-     view receives the Start event on continuous gestures.
-
-  * **didChange** - Called when the gesture enters a changed state, and when one of the
-      touches moves. Called before the view receives the Change event on continuos gestures.
-
-  * **didEnd** - Called when the gesture enters an ended state. Called before the
-     view receives the End event.
-
-  * **didCancel** - Called when the gesture enters a cancelled state. Called before the
-     view receives the Cancel event on continuos gestures.
-
-In all the callbacks, you can use the &#x60;touches&#x60; protected property to access the
-touches hash. The touches hash is keyed on the identifiers of the touches, and the
-values are the jQuery.Event objects. You can also access the length property to inspect 
-how many touches are active, this is mostly useful in shouldBegin since every other 
-callback can assume that there are as many active touches as specified in the 
-numberOfRequiredTouches property.
-
-## Discrete vs Continuous Gestures
-
-There are two main classes of gesture recognizers: Discrete and Continuous 
-gestures. Discrete gestures do not get Start, Change nor Cancel events sent, 
-since they represent a single, instantaneous event, rather than a continuous 
-motion. If you are implementing your own discrete gesture recognizer, you must 
-set the gestureIsDiscrete property to yes, and Em.Gesture will adapt its behavior.
-
-Discrete gestures use the shouldEnd callback to either accept or decline the gesture
-event. If it is declined, then the gesture will enter a Cancelled state.
+Base class to be extended to define specific gesture recognizer. Handles low-level touch, 
+state management and provides some utility methods to the extended classes.
 
   @class Gesture
   @namespace Ember
@@ -257,7 +137,14 @@ Em.Gesture = Em.Object.extend({
 
   &#x2F;**
     The current state of the gesture recognizer. This value can be any one
-    of the states defined at the end of this file.
+    of these states:
+
+      WAITING_FOR_TOUCHES
+      POSSIBLE
+      BEGAN
+      CHANGED
+      ENDED
+      CANCELLED 
 
     @property state
     @type Number
@@ -295,8 +182,9 @@ Em.Gesture = Em.Object.extend({
 
 
   &#x2F;**
-    When true is guaranteed to allow simultaneous recognition. When false, the gesture  
-    should not be recognized when there is other active gesture whose simultaneously is disabled.
+    This property enables to recognize gestures simultaneously. Whenever a gesture
+    is being recognized and its &#x60;simultaneously&#x60; property is false, it denies other 
+    gestures to be recognized at the same time.
 
     @property simultaneously
     @type Boolean
@@ -305,7 +193,8 @@ Em.Gesture = Em.Object.extend({
   simultaneously: true,
 
 	&#x2F;**
-    Used to assign a gesture delegate on init process.
+    Used this property to assign &#x60;GestureDelegate&#x60; instance to the &#x60;delegate&#x60; property
+    in &#x60;init&#x60; process.
 
     @property delegateName
     @type String
@@ -313,7 +202,7 @@ Em.Gesture = Em.Object.extend({
   delegateName: null,
  
   &#x2F;**	
-    Apply a delegate to customize an application&#x27;s gesture-recognition behavior. 
+    Apply a &#x60;GestureDelegate&#x60; to customize an application&#x27;s gesture-recognition behavior. 
 
     @property delegate
     @type Em.GestureDelegate
@@ -321,8 +210,8 @@ Em.Gesture = Em.Object.extend({
   delegate: null, 
 
   &#x2F;**
-    Use this property to disable gesture recognition. 
-    Use isEnabledBinding to global or view properties.
+    Use this property to disable the gesture recognition.
+    Use isEnabledBinding to bind to global or view properties.
 
     @property isEnabled
     @type Boolean
@@ -344,9 +233,9 @@ Em.Gesture = Em.Object.extend({
 
   &#x2F;** 
     You can also use the numberOfActiveTouches property to inspect how many touches
-    are active, this is mostly useful in shouldBegin since every other callback can
+    are active, this is mostly useful in &#x60;shouldBegin&#x60; since every other callback can
     assume that there are as many active touches as specified in the 
-    numberOfRequiredTouches property.
+    &#x60;numberOfRequiredTouches&#x60; property.
 
     @private 
     @property numberOfActiveTouches
@@ -389,12 +278,26 @@ Em.Gesture = Em.Object.extend({
   &#x2F;&#x2F; Gesture Protected Methods
 
   &#x2F;** 
+    Called when a gesture enters a possible state. This means the gesture 
+    recognizer has accepted enough touches to match the number of required touches. 
+    You would usually initialize your state in this callback.
     @protected 
     @method didBecomePossible
   *&#x2F;
   didBecomePossible: function() { },
 
   &#x2F;** 
+    Called if a view returns false from a gesture event. 
+    This callback allows you to reset internal state if the user 
+    rejects an event.
+    @protected 
+    @method didBegin
+  *&#x2F;
+  eventWasRejected: function() { },
+
+  &#x2F;** 
+    Called if a view returns false from a gesture event. This callback allows 
+    you to reset internal state if the user rejects an event.
     @protected 
     @method shouldBegin
   *&#x2F;
@@ -403,24 +306,24 @@ Em.Gesture = Em.Object.extend({
   },
 
   &#x2F;** 
+    Called when the gesture enters a began state. 
+    Called before the view receives the Start event.
     @protected 
     @method didBegin
   *&#x2F;
   didBegin: function() { },
 
   &#x2F;** 
+    Called when the gesture enters a began state, and when one of the touches moves.
+    Called before the view receives the Change event.
     @protected 
     @method didChange
   *&#x2F;
   didChange: function(evt) { },
 
   &#x2F;** 
-    @protected 
-    @method eventWasRejected
-  *&#x2F;
-  eventWasRejected: function() { },
-
-  &#x2F;** 
+    Allows a gesture to block itself from entering an ended state. 
+    This callback gets called whenever a tracked touch gets a touchEnd event.
     @protected 
     @method shouldEnd
   *&#x2F;
@@ -429,12 +332,16 @@ Em.Gesture = Em.Object.extend({
   },
 
   &#x2F;** 
+    Called when the gesture enters an ended state. 
+    Called before the view receives the End event.
     @protected 
     @method didEnd
   *&#x2F;
   didEnd: function() { },
 
   &#x2F;** 
+    Called when the gesture enters a cancelled state. 
+    Called before the view receives the Cancel event.
     @protected 
     @method didCancel
   *&#x2F;
@@ -447,7 +354,7 @@ Em.Gesture = Em.Object.extend({
 
 
   &#x2F;**
-   Block AppGestureManager, if simultaneously is true.
+   If &#x60;simultaneously&#x60; is true, it blocks the &#x60;ApplicationGestureManager&#x60; instance.
     @private 
     @method blockApplicationGestureManagerIfSimultaneously
    *&#x2F;
@@ -466,8 +373,8 @@ Em.Gesture = Em.Object.extend({
   },
   
   &#x2F;**
-    Notify the View of the event and trigger eventWasRejected if the view doesn&#x27;t implement the API 
-    or return false
+    Notify the event to the view and trigger eventWasRejected if the view doesn&#x27;t implement the API 
+    or return false.
     @private 
     @method attemptGestureEventDelivery
   *&#x2F;
@@ -556,6 +463,7 @@ Em.Gesture = Em.Object.extend({
   },
 
   &#x2F;** 
+    Reset the touches list.
     @private 
     @method _resetState
   *&#x2F;
@@ -567,7 +475,11 @@ Em.Gesture = Em.Object.extend({
   &#x2F;&#x2F; Touch event handlers
   
   &#x2F;** 
-    Handles touchStart events.
+    Given a &#x60;touchstart&#x60; event, updates the list of touches,  
+    if the &#x60;numberOfRequiredTouches&#x60; hasn&#x27;t yet reached, set WAITING_FOR_TOUCHES state,
+    otherwise when the gesture is discrete move to BEGAN state and apply its logic or in the
+    other hand, continous gestures are setup the POSSIBLE state and executes its &#x60;didBecomePossible&#x60; 
+    method.
     @method touchStart
   *&#x2F;
   touchStart: function(evt) {
@@ -614,7 +526,11 @@ Em.Gesture = Em.Object.extend({
   },
 
   &#x2F;** 
-    Handles touchMove events.
+    Given a &#x60;touchmove&#x60; event, updates the list of touches.
+    It changes the currentState to BEGAN and fire [gesture]Start view method if the gesture is discrete, 
+    the state is POSSIBLE and its &#x60;shouldBegin&#x60; implementation response true. 
+    If the current state is BEGAN or CHANGED and the gesture is continuous, apply CHANGED state
+    and fire the [gesture]Change view method.
     @method touchMove
   *&#x2F;
   touchMove: function(evt) {
@@ -669,7 +585,10 @@ Em.Gesture = Em.Object.extend({
   },
 
   &#x2F;** 
-    Handles touchEnd events.
+    Given a &#x60;touchend&#x60; event, updates the list of touches, manages the event and finally
+    reset the &#x60;touch&#x60; list.
+    If current state is either BEGAN or CHANGED and &#x60;shouldEnd&#x60; response is true, 
+    it changes the state to ENDED, performs &#x60;didEnd&#x60; method and fire [gesture]End view method.
     @method touchEnd
   *&#x2F;
   touchEnd: function(evt) {
@@ -687,45 +606,22 @@ Em.Gesture = Em.Object.extend({
       }
     }
 
-    if ( this.gestureIsDiscrete ) {
+    if ( ( state === Em.Gesture.BEGAN || state === Em.Gesture.CHANGED ) &amp;&amp; this.shouldEnd() ) {
 
-      if ( state === Em.Gesture.BEGAN || state === Em.Gesture.CHANGED ) {
-
-
-        &#x2F;&#x2F; Discrete gestures use shouldEnd to either accept or decline the gesture.
-        if ( this.shouldEnd() ) {
-
-          set(this, &#x27;state&#x27;, Em.Gesture.ENDED);
-          this.didEnd();
-          this.attemptGestureEventDelivery(this.name+&#x27;End&#x27;, evt);
-
-        }  
-
-      }
-
-    }  else {
-
-      if ( state === Em.Gesture.BEGAN || state === Em.Gesture.CHANGED ) {
-
-        if ( this.shouldEnd() ) {
-
-
-          set(this, &#x27;state&#x27;, Em.Gesture.ENDED);
-          this.didEnd();
-
-          this.attemptGestureEventDelivery(this.name+&#x27;End&#x27;, evt);
-
-        }
-
-      }
+      &#x2F;&#x2F; Discrete gestures use shouldEnd to either accept or decline the gesture.
+      set(this, &#x27;state&#x27;, Em.Gesture.ENDED);
+      this.didEnd();
+      this.attemptGestureEventDelivery(this.name+&#x27;End&#x27;, evt);
 
     }
-
     this._resetState();
   },
 
   &#x2F;** 
-    Handles touchCancel events.
+    Given a &#x60;touchcancel&#x60; event, reset the &#x60;touch&#x60; list, and when the 
+    current state is different than CANCEL, set the state to CANCEL, performs
+    &#x60;didCancel&#x60; method and if the gesture is continuous fires the [gesture]Cancel
+    view method.
     @method touchCancel
   *&#x2F;
   touchCancel: function(evt) {

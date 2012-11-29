@@ -13,6 +13,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "Ember.RegisteredGestureList",
         "Ember.SwipeGestureRecognizer",
         "Ember.TapGestureRecognizer",
+        "Ember.TimeoutTouchEvent",
         "Ember.TouchHoldGestureRecognizer",
         "Ember.TouchList"
     ],

@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -142,7 +144,12 @@
 
 
 <div class="box intro">
-    <p>Registry of delegates in the system. A instance of this class is injected in the Application namespace.</p>
+    <p>A instance of this class is injected in the Application namespace 
+to registry <code>GestureDelegate</code> instances in your application.</p>
+
+<p>Whenever a <code>Gesture</code> setup its <code>delegateName</code> property, 
+assigns its <code>gestureDelegate</code> instance calling the <code>find</code> method of the 
+<code>GestureDelegates</code> instance.</p>
 </div>
 
 
@@ -151,6 +158,8 @@
     <ul class="api-class-tabs">
         <li class="api-class-tab index"><a href="#index">Index</a></li>
 
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
         
@@ -162,6 +171,42 @@
             <h2 class="off-left">Item Index</h2>
 
             
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                        
+                            <li class="index-item method private">
+                                <a href="#method__delegates">_delegates</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_add">add</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_clear">clear</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_find">find</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
 
             
 
@@ -170,6 +215,230 @@
             
         </div>
 
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__delegates" class="method item private">
+    <h3 class="name"><code>_delegates</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/gesture_delegates.js#L23"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;gesture_delegates.js:23</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_add" class="method item">
+    <h3 class="name"><code>add</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/gesture_delegates.js#L29"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;gesture_delegates.js:29</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_clear" class="method item">
+    <h3 class="name"><code>clear</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/gesture_delegates.js#L43"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;gesture_delegates.js:43</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_find" class="method item">
+    <h3 class="name"><code>find</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/gesture_delegates.js#L36"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;gesture_delegates.js:36</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

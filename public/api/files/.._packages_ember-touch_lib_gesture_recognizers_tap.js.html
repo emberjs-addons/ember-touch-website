@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -125,7 +127,9 @@ var get = Em.get, set = Em.set;
  @submodule ember-touch
 *&#x2F;
 &#x2F;**
-Recognizes a multi-touch tap gesture. Tap gestures allow for a certain amount of wiggle-room between a start and end of a touch. Taps are discrete gestures so only tapEnd() will get fired on a view.
+Recognizes a multi-touch tap gesture. Tap gestures allow for a certain amount
+of wiggle-room between a start and end of a touch. Taps are discrete gestures
+so only tapEnd() will get fired on a view.
 
     var myview = Em.View.create({
       elementId: &#x27;gestureTest&#x27;,
@@ -135,7 +139,8 @@ Recognizes a multi-touch tap gesture. Tap gestures allow for a certain amount of
       }
     });
 
-You can specify how many touches the gesture requires to start using the numberOfRequiredTouches property, which you can set in the panOptions hash:
+The number of touches required to start the gesture can be specified with the
+_numberOfRequiredTouches_ property, which can be set in the tapOptions hash.
 
     var myview = Em.View.create({
       tapOptions: {
@@ -143,7 +148,8 @@ You can specify how many touches the gesture requires to start using the numberO
       }
     });
 
-And you can also specify the number of taps required for the gesture to fire using the numberOfTaps property.
+And the number of taps required to fire the gesture can be specified using the
+_numberOfTaps_ property.
 
     var myview = Em.View.create({
       tapOptions: {
@@ -159,9 +165,8 @@ And you can also specify the number of taps required for the gesture to fire usi
 Em.TapGestureRecognizer = Em.Gesture.extend({
 
   &#x2F;**
-    The translation value which represents the current amount of movement that has been applied
-    to the view. You would normally apply this value directly to your element as a 3D
-    transform.
+    The translation value which represents the current amount of movement that
+    has been applied to the view.
 
     @type Location
   *&#x2F;
@@ -190,7 +195,7 @@ Em.TapGestureRecognizer = Em.Gesture.extend({
 
   init: function(){
     this._super();
-    this._internalTouches = Em.TouchList.create(); 
+    this._internalTouches = Em.TouchList.create();
     Em.assert( get(this, &#x27;numberOfRequiredTouches&#x27;)===1, &#x27;TODO: still not prepared for higher number&#x27; );
   },
 
@@ -214,7 +219,7 @@ Em.TapGestureRecognizer = Em.Gesture.extend({
         that._waitingFired(that);
       }, this.delayBetweenTaps);
 
-    } 
+    }
 
   },
 
@@ -230,7 +235,7 @@ Em.TapGestureRecognizer = Em.Gesture.extend({
     var distance = Math.sqrt((x -= x0) * x + (y -= y0) * y);
 
     return (Math.abs(distance) &lt; this.tapThreshold) &amp;&amp; !this._waitingForMoreTouches;
-    
+
   },
 
 
@@ -257,7 +262,7 @@ Em.TapGestureRecognizer = Em.Gesture.extend({
     var eventName = this.name+&#x27;Cancel&#x27;;
     var evt = new Em.TimeoutTouchEvent({type: Em.TimeoutTouchEventType.Cancel});
     this.attemptGestureEventDelivery(eventName, evt);
-    this._resetState(); 
+    this._resetState();
 
   },
 

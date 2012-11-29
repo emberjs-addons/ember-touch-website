@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -142,9 +144,13 @@
 
 
 <div class="box intro">
-    <p>Recognizes a multi-touch pan gesture. Pan gestures require a specified number of fingers to move and will record and update the center point between the touches.</p>
+    <p>Recognizes a multi-touch pan gesture. Pan gestures require a specified number
+of fingers to move. It will record and update the center point between the
+touches.</p>
 
-<p>For panChange events, the pan gesture recognizer includes a translation property which can be applied as a CSS transform directly. Translation values are hashes which contain an x and a y value.</p>
+<p>For panChange events, the pan gesture recognizer includes a translation
+property which can be applied as a CSS transform directly. Translation values
+are hashes which contain an x and a y value.</p>
 
 <pre class="code"><code class="prettyprint">var myview = Em.View.create({
   elementId: 'gestureTest',
@@ -159,7 +165,9 @@
 });
 </code></pre>
 
-<p>You can specify how many touches the gesture requires to start using the <em>numberOfRequiredTouches</em> property, which you can set in the panOptions hash.</p>
+<p>The number of touches required to start the gesture can be specified with the
+<em>numberOfRequiredTouches</em> property. This property can be set in the panOptions
+hash.</p>
 
 <pre class="code"><code class="prettyprint">var myview = Em.View.create({
   panOptions: {

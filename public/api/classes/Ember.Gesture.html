@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -142,126 +144,8 @@
 
 
 <div class="box intro">
-    <p>Base class for all gesture recognizers. Handles low-level touch and state
-management, and provides some utility methods and some required methods all
-gesture recognizers are expected to implement.</p>
-
-<h1>Overview</h1>
-
-<p>Gestures coalesce multiple touch events to a single higher-level gesture
-event. For example, a tap gesture recognizer takes information about a
-touchstart event, a few touchmove events, and a touchend event and uses
-some heuristics to decide whether or not that sequence of events qualifies
-as a tap event. If it does, then it will notify the view of the higher-level
-tap events.</p>
-
-<p>Gesture events follow the format:</p>
-
-<ul>
-<li><p><em>[GESTURE_NAME]</em> Start - Sent when a gesture has gathered enough information
-  to begin tracking the gesture</p></li>
-<li><p><em>[GESTURE_NAME]</em> Change - Sent when a gesture has already started and has
-  received touchmove events that cause its state to change</p></li>
-<li><p><em>[GESTURE_NAME]</em> End - Sent when a touchend event is received and the gesture
-  recognizer decides that the gesture is finished.</p></li>
-<li><p><em>[GESTURE_NAME]</em> Cancel - Sent when a touchcancel event is received.</p></li>
-</ul>
-
-<p>There are two types of gestures: Discrete and Continuous gestures. In contrast
-to continuous gestures, discrete gestures don't have any change events. Rather,
-the end event is the only one that gets sent to the view.</p>
-
-<h2>Usage</h2>
-
-<p>While you wouldn't use Em.Gesture directly, all its subclasses implement the 
-same API. For example, to implement pinch on a view, you implement one or more 
-of the pinch events. For example:</p>
-
-<pre class="code"><code class="prettyprint">var myView = Em.View.create({
-  pinchStart: function(recognizer, evt) {
-    this.$().css('background','red');
-  },
-
-  pinchChange: function(recognizer, evt) {
-    var scale = recognizer.get('scale');
-    this.$().css('scale',function(index, value) {
-      return recognizer.get('scale') * value
-    });
-  },
-
-  pinchEnd: function(recognizer, evt) {
-    this.$().css('background','blue');
-  },
-
-  pinchCancel: function(recognizer, evt) {
-    this.$().css('background','blue');
-  }
-});
-</code></pre>
-
-<p>pinchStart(), pinchEnd() and pinchCancel() will only get called once per
-gesture, but pinchChange() will get called repeatedly called every time
-one of the touches moves.</p>
-
-<h2>Customizing Gesture Recognizers</h2>
-
-<p>Some of the gesture recognizers include properties that can be customized by 
-the user for a specific instance of a view. For example, a pan gesture defaults 
-to being a one-finger gesture, but in some scenarios, it must be defined as a 
-two-finger gesture. In that case, you can override defaults by specifying an 
-Options hash. </p>
-
-<pre class="code"><code class="prettyprint">var myView = Em.View.create({
-  panOptions: {
-    numberOfRequiredTouches: 2
-  }
-});      
-</code></pre>
-
-<h2>Creating Custom Gesture Recognizers</h2>
-
-<p>Em.Gesture also defines an API which its subclasses can implement to build
-custom gestures. The methods are:</p>
-
-<ul>
-<li><p><strong>didBecomePossible</strong> - Called when a gesture enters a possible state. This
-  means the gesture recognizer has accepted enough touches to match 
-  the number of required touches. You would usually initialize your state
-  in this callback.</p></li>
-<li><p><strong>eventWasRejected</strong> - Called if a view returns false from a gesture event.
-  This callback allows you to reset internal state if the user rejects
-  an event.</p></li>
-<li><p><strong>shouldBegin</strong> - Allows a gesture to block itself from entering a began state.
-  This callback will continuously be called as touches move until it begins.</p></li>
-<li><p><strong>shouldEnd</strong> - Allows a gesture to block itself from entering an ended state.
-  This callback gets called whenever a tracked touch gets a touchEnd event.</p></li>
-<li><p><strong>didBegin</strong> - Called when the gesture enters a began state. Called before the
- view receives the Start event on continuous gestures.</p></li>
-<li><p><strong>didChange</strong> - Called when the gesture enters a changed state, and when one of the
-  touches moves. Called before the view receives the Change event on continuos gestures.</p></li>
-<li><p><strong>didEnd</strong> - Called when the gesture enters an ended state. Called before the
- view receives the End event.</p></li>
-<li><p><strong>didCancel</strong> - Called when the gesture enters a cancelled state. Called before the
- view receives the Cancel event on continuos gestures.</p></li>
-</ul>
-
-<p>In all the callbacks, you can use the <code>touches</code> protected property to access the
-touches hash. The touches hash is keyed on the identifiers of the touches, and the
-values are the jQuery.Event objects. You can also access the length property to inspect 
-how many touches are active, this is mostly useful in shouldBegin since every other 
-callback can assume that there are as many active touches as specified in the 
-numberOfRequiredTouches property.</p>
-
-<h2>Discrete vs Continuous Gestures</h2>
-
-<p>There are two main classes of gesture recognizers: Discrete and Continuous 
-gestures. Discrete gestures do not get Start, Change nor Cancel events sent, 
-since they represent a single, instantaneous event, rather than a continuous 
-motion. If you are implementing your own discrete gesture recognizer, you must 
-set the gestureIsDiscrete property to yes, and Em.Gesture will adapt its behavior.</p>
-
-<p>Discrete gestures use the shouldEnd callback to either accept or decline the gesture
-event. If it is declined, then the gesture will enter a Cancelled state.</p>
+    <p>Base class to be extended to define specific gesture recognizer. Handles low-level touch, 
+state management and provides some utility methods to the extended classes.</p>
 </div>
 
 
@@ -340,6 +224,13 @@ event. If it is declined, then the gesture will enter a Cancelled state.</p>
                             </li>
                         
                             <li class="index-item method protected">
+                                <a href="#method_didBegin">didBegin</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
                                 <a href="#method_didCancel">didCancel</a>
 
                                 
@@ -362,13 +253,6 @@ event. If it is declined, then the gesture will enter a Cancelled state.</p>
                         
                             <li class="index-item method private">
                                 <a href="#method_distance">distance</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method protected">
-                                <a href="#method_eventWasRejected">eventWasRejected</a>
 
                                 
                                 
@@ -551,7 +435,7 @@ event. If it is declined, then the gesture will enter a Cancelled state.</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L415"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:415</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L320"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:320</code></a>
         
         </p>
 
@@ -608,7 +492,7 @@ event.</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L440"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:440</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L345"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:345</code></a>
         
         </p>
 
@@ -619,7 +503,7 @@ event.</p>
     </div>
 
     <div class="description">
-        
+        <p>Reset the touches list.</p>
     </div>
 
     
@@ -664,7 +548,7 @@ event.</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L350"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:350</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L255"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:255</code></a>
         
         </p>
 
@@ -675,8 +559,8 @@ event.</p>
     </div>
 
     <div class="description">
-        <p>Notify the View of the event and trigger eventWasRejected if the view doesn't implement the API 
-or return false</p>
+        <p>Notify the event to the view and trigger eventWasRejected if the view doesn't implement the API 
+or return false.</p>
     </div>
 
     
@@ -721,7 +605,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L331"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:331</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L236"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:236</code></a>
         
         </p>
 
@@ -732,7 +616,7 @@ or return false</p>
     </div>
 
     <div class="description">
-        <p>Block AppGestureManager, if simultaneously is true.</p>
+        <p>If <code>simultaneously</code> is true, it blocks the <code>ApplicationGestureManager</code> instance.</p>
     </div>
 
     
@@ -781,7 +665,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L390"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:390</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L295"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:295</code></a>
         
         </p>
 
@@ -848,7 +732,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L273"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:273</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L160"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:160</code></a>
         
         </p>
 
@@ -859,7 +743,9 @@ or return false</p>
     </div>
 
     <div class="description">
-        
+        <p>Called when a gesture enters a possible state. This means the gesture 
+recognizer has accepted enough touches to match the number of required touches. 
+You would usually initialize your state in this callback.</p>
     </div>
 
     
@@ -904,7 +790,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L287"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:287</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L188"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:188</code></a>
         
         </p>
 
@@ -915,7 +801,66 @@ or return false</p>
     </div>
 
     <div class="description">
+        <p>Called when the gesture enters a began state. 
+Called before the view receives the Start event.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_didBegin" class="method item protected">
+    <h3 class="name"><code>didBegin</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
         
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L169"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:169</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Called if a view returns false from a gesture event. 
+This callback allows you to reset internal state if the user 
+rejects an event.</p>
     </div>
 
     
@@ -960,7 +905,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L319"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:319</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L222"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:222</code></a>
         
         </p>
 
@@ -971,7 +916,8 @@ or return false</p>
     </div>
 
     <div class="description">
-        
+        <p>Called when the gesture enters a cancelled state. 
+Called before the view receives the Cancel event.</p>
     </div>
 
     
@@ -1016,7 +962,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L293"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:293</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L196"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:196</code></a>
         
         </p>
 
@@ -1027,7 +973,8 @@ or return false</p>
     </div>
 
     <div class="description">
-        
+        <p>Called when the gesture enters a began state, and when one of the touches moves.
+Called before the view receives the Change event.</p>
     </div>
 
     
@@ -1072,7 +1019,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L313"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:313</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L214"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:214</code></a>
         
         </p>
 
@@ -1083,7 +1030,8 @@ or return false</p>
     </div>
 
     <div class="description">
-        
+        <p>Called when the gesture enters an ended state. 
+Called before the view receives the End event.</p>
     </div>
 
     
@@ -1132,7 +1080,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L367"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:367</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L272"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:272</code></a>
         
         </p>
 
@@ -1159,62 +1107,6 @@ or return false</p>
                 
             </div>
         </div>
-    
-
-    
-</div>
-
-                
-                    <div id="method_eventWasRejected" class="method item protected">
-    <h3 class="name"><code>eventWasRejected</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-        <span class="flag protected">protected</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L299"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:299</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-
     
 
     
@@ -1255,7 +1147,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L279"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:279</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L178"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:178</code></a>
         
         </p>
 
@@ -1266,7 +1158,8 @@ or return false</p>
     </div>
 
     <div class="description">
-        
+        <p>Called if a view returns false from a gesture event. This callback allows 
+you to reset internal state if the user rejects an event.</p>
     </div>
 
     
@@ -1311,7 +1204,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L305"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:305</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L204"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:204</code></a>
         
         </p>
 
@@ -1322,7 +1215,8 @@ or return false</p>
     </div>
 
     <div class="description">
-        
+        <p>Allows a gesture to block itself from entering an ended state. 
+This callback gets called whenever a tracked touch gets a touchEnd event.</p>
     </div>
 
     
@@ -1365,7 +1259,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L433"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:433</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L338"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:338</code></a>
         
         </p>
 
@@ -1419,7 +1313,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L609"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:609</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L500"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:500</code></a>
         
         </p>
 
@@ -1430,7 +1324,10 @@ or return false</p>
     </div>
 
     <div class="description">
-        <p>Handles touchCancel events.</p>
+        <p>Given a <code>touchcancel</code> event, reset the <code>touch</code> list, and when the 
+current state is different than CANCEL, set the state to CANCEL, performs
+<code>didCancel</code> method and if the gesture is continuous fires the [gesture]Cancel
+view method.</p>
     </div>
 
     
@@ -1473,7 +1370,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L553"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:553</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L467"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:467</code></a>
         
         </p>
 
@@ -1484,7 +1381,10 @@ or return false</p>
     </div>
 
     <div class="description">
-        <p>Handles touchEnd events.</p>
+        <p>Given a <code>touchend</code> event, updates the list of touches, manages the event and finally
+reset the <code>touch</code> list.
+If current state is either BEGAN or CHANGED and <code>shouldEnd</code> response is true, 
+it changes the state to ENDED, performs <code>didEnd</code> method and fire [gesture]End view method.</p>
     </div>
 
     
@@ -1527,7 +1427,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L498"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:498</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L408"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:408</code></a>
         
         </p>
 
@@ -1538,7 +1438,11 @@ or return false</p>
     </div>
 
     <div class="description">
-        <p>Handles touchMove events.</p>
+        <p>Given a <code>touchmove</code> event, updates the list of touches.
+It changes the currentState to BEGAN and fire [gesture]Start view method if the gesture is discrete, 
+the state is POSSIBLE and its <code>shouldBegin</code> implementation response true. 
+If the current state is BEGAN or CHANGED and the gesture is continuous, apply CHANGED state
+and fire the [gesture]Change view method.</p>
     </div>
 
     
@@ -1581,7 +1485,7 @@ or return false</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L451"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:451</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L357"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:357</code></a>
         
         </p>
 
@@ -1592,7 +1496,11 @@ or return false</p>
     </div>
 
     <div class="description">
-        <p>Handles touchStart events.</p>
+        <p>Given a <code>touchstart</code> event, updates the list of touches, <br />
+if the <code>numberOfRequiredTouches</code> hasn't yet reached, set WAITING<em>FOR</em>TOUCHES state,
+otherwise when the gesture is discrete move to BEGAN state and apply its logic or in the
+other hand, continous gestures are setup the POSSIBLE state and executes its <code>didBecomePossible</code> 
+method.</p>
     </div>
 
     
@@ -1635,7 +1543,7 @@ or return false</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L197"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:197</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L84"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:84</code></a>
         
         </p>
 
@@ -1645,7 +1553,7 @@ or return false</p>
     </div>
 
     <div class="description">
-        <p>Apply a delegate to customize an application's gesture-recognition behavior.</p>
+        <p>Apply a <code>GestureDelegate</code> to customize an application's gesture-recognition behavior.</p>
     </div>
 
     
@@ -1680,7 +1588,7 @@ or return false</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L189"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:189</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L75"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:75</code></a>
         
         </p>
 
@@ -1690,7 +1598,8 @@ or return false</p>
     </div>
 
     <div class="description">
-        <p>Used to assign a gesture delegate on init process.</p>
+        <p>Used this property to assign <code>GestureDelegate</code> instance to the <code>delegate</code> property
+in <code>init</code> process.</p>
     </div>
 
     
@@ -1725,7 +1634,7 @@ or return false</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L169"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:169</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L54"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:54</code></a>
         
         </p>
 
@@ -1772,7 +1681,7 @@ or return false</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L205"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:205</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L92"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:92</code></a>
         
         </p>
 
@@ -1782,8 +1691,8 @@ or return false</p>
     </div>
 
     <div class="description">
-        <p>Use this property to disable gesture recognition. 
-Use isEnabledBinding to global or view properties.</p>
+        <p>Use this property to disable the gesture recognition.
+Use isEnabledBinding to bind to global or view properties.</p>
     </div>
 
     
@@ -1820,7 +1729,7 @@ Use isEnabledBinding to global or view properties.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L149"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:149</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L34"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:34</code></a>
         
         </p>
 
@@ -1868,7 +1777,7 @@ but Em.Gestures when a gesture is registered.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L227"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:227</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L114"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:114</code></a>
         
         </p>
 
@@ -1879,9 +1788,9 @@ but Em.Gestures when a gesture is registered.</p>
 
     <div class="description">
         <p>You can also use the numberOfActiveTouches property to inspect how many touches
-are active, this is mostly useful in shouldBegin since every other callback can
+are active, this is mostly useful in <code>shouldBegin</code> since every other callback can
 assume that there are as many active touches as specified in the 
-numberOfRequiredTouches property.</p>
+<code>numberOfRequiredTouches</code> property.</p>
     </div>
 
     
@@ -1918,7 +1827,7 @@ numberOfRequiredTouches property.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L239"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:239</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L126"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:126</code></a>
         
         </p>
 
@@ -1964,7 +1873,7 @@ state</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L179"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:179</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L64"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:64</code></a>
         
         </p>
 
@@ -1974,8 +1883,9 @@ state</p>
     </div>
 
     <div class="description">
-        <p>When true is guaranteed to allow simultaneous recognition. When false, the gesture <br />
-should not be recognized when there is other active gesture whose simultaneously is disabled.</p>
+        <p>This property enables to recognize gestures simultaneously. Whenever a gesture
+is being recognized and its <code>simultaneously</code> property is false, it denies other 
+gestures to be recognized at the same time.</p>
     </div>
 
     
@@ -2012,7 +1922,7 @@ should not be recognized when there is other active gesture whose simultaneously
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L140"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:140</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L18"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:18</code></a>
         
         </p>
 
@@ -2023,7 +1933,14 @@ should not be recognized when there is other active gesture whose simultaneously
 
     <div class="description">
         <p>The current state of the gesture recognizer. This value can be any one
-of the states defined at the end of this file.</p>
+of these states:</p>
+
+<p>WAITING<em>FOR</em>TOUCHES
+  POSSIBLE
+  BEGAN
+  CHANGED
+  ENDED
+  CANCELLED</p>
     </div>
 
     
@@ -2060,7 +1977,7 @@ of the states defined at the end of this file.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L216"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:216</code></a>
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/system/gesture.js#L103"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;gesture.js:103</code></a>
         
         </p>
 

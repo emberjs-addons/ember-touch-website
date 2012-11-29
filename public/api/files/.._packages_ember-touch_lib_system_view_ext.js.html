@@ -65,6 +65,8 @@
             
                 <li><a href="..&#x2F;classes/Ember.TapGestureRecognizer.html">Ember.TapGestureRecognizer</a></li>
             
+                <li><a href="..&#x2F;classes/Ember.TimeoutTouchEvent.html">Ember.TimeoutTouchEvent</a></li>
+            
                 <li><a href="..&#x2F;classes/Ember.TouchHoldGestureRecognizer.html">Ember.TouchHoldGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.TouchList.html">Ember.TouchList</a></li>
@@ -121,11 +123,10 @@ var get = Em.get, set = Em.set;
 &#x2F;* 
   Extends Em.View by making the init method gesture-aware.
 *&#x2F;
-Em.View.reopen(
-&#x2F;** @scope Em.View.prototype *&#x2F;{
+Em.View.reopen({
 
   &#x2F;**
-    The Em.GestureManager instance which will manager the gestures of the view.    
+    The Em.GestureManager instance which will manager the gestures of the view.
     This object is automatically created and set at init-time.
 
     @default null
