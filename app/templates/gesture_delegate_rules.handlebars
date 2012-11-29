@@ -1,7 +1,7 @@
 
 <div class="alert alert-info">
-  Gesture Delegate logic can be composed based on reusable <code>GestureDelegateRule</code> instances. The gesture delegate will iterate the rule list executing the <code>shouldReceiveTouch</code> for each rule, 
-  whenever the first rule response with a true/false value, this response will decide to allow/deny redirect the touchEvent to the gesture for being recognized. 
+  Gesture Delegate logic can be composed based on reusable <code>GestureDelegateRule</code> instances. The gesture delegate will iterate the rule list executing <code>shouldReceiveTouch</code>. The first rule
+  triggered with a true/false value will decide to allow/deny the redirection of the touchEvent to the gesture for being recognized.
 </div>
 
 <div class="row-fluid">
@@ -19,7 +19,7 @@
   {{/view}}
   <div class="alert span6">
     The gesture delegate has applied 4 rules.
-  </div> 
+  </div>
 </div>
 
 <div class="space"></div>
@@ -39,7 +39,7 @@
   {{/view}}
   <div class="alert span6">
     The gesture delegate has applied 2 rules (rule3 and rule4).
-  </div> 
+  </div>
 </div>
 
 <div class="space is-code"></div>
