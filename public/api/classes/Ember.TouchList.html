@@ -144,7 +144,7 @@
 
 
 <div class="box intro">
-    <p>Used to manage and maintain a list of active touches related to a gesture recognizer.</p>
+    <p>Manage and maintain a list of active touches related to a gesture recognizer.</p>
 </div>
 
 
@@ -188,13 +188,6 @@
                             </li>
                         
                             <li class="index-item method">
-                                <a href="#method_removeTouch">removeTouch</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
                                 <a href="#method_touchWithId">touchWithId</a>
 
                                 
@@ -217,6 +210,13 @@
                     <h3>Properties</h3>
 
                     <ul class="index-list properties extends">
+                        
+                            <li class="index-item property">
+                                <a href="#property_length">length</a>
+
+                                
+                                
+                            </li>
                         
                             <li class="index-item property">
                                 <a href="#property_timestamp">timestamp</a>
@@ -289,7 +289,9 @@
     </div>
 
     <div class="description">
-        
+        <p>Add a touch event to the list.
+This method is called only in the initialization of
+the touch session adding touchstart events.</p>
     </div>
 
     
@@ -332,7 +334,7 @@
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/touch_list.js#L77"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;touch_list.js:77</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/touch_list.js#L68"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;touch_list.js:68</code></a>
         
         </p>
 
@@ -343,61 +345,7 @@
     </div>
 
     <div class="description">
-        
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_removeTouch" class="method item">
-    <h3 class="name"><code>removeTouch</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/touch_list.js#L60"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;touch_list.js:60</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
+        <p>Reset the touch list.</p>
     </div>
 
     
@@ -440,7 +388,7 @@
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/touch_list.js#L84"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;touch_list.js:84</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/touch_list.js#L76"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;touch_list.js:76</code></a>
         
         </p>
 
@@ -451,7 +399,8 @@
     </div>
 
     <div class="description">
-        
+        <p>Given a touch identifier, it returns the touch event
+with the same identifier in the list.</p>
     </div>
 
     
@@ -494,7 +443,7 @@
             
         
         
-            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/touch_list.js#L43"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;touch_list.js:43</code></a>
+            <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/touch_list.js#L47"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;touch_list.js:47</code></a>
         
         </p>
 
@@ -505,7 +454,10 @@
     </div>
 
     <div class="description">
-        
+        <p>Update a touch event from the list.
+Given a touch event, it will iterate the current
+list to replace with the event the item whose 
+identifier is equal to the event identifier.</p>
     </div>
 
     
@@ -522,6 +474,51 @@
         
             <div id="properties" class="api-class-tabpanel">
                 <h2 class="off-left">Properties</h2>
+
+                
+                    
+<div id="property_length" class="property item">
+    <h3 class="name"><code>length</code></h3>
+    <span class="type">Unknown</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+           <a href="https://github.com/emberjs-addons/sproutcore-touch/blob/master/whatever/../packages/ember-touch/lib/utils/touch_list.js#L99"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;utils&#x2F;touch_list.js:99</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Length of the touch list.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
 
                 
                     

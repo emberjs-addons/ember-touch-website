@@ -5,14 +5,14 @@ require "bundler/setup"
 def generate_docs
   print "Generating docs .. "
 
-  Dir.chdir("app/submodules/sproutcore-touch/docs") do
+  Dir.chdir("app/submodules/ember-touch/docs") do
     system("npm install") unless File.exist?('node_modules')
     system("./node_modules/.bin/yuidoc -q -t touch-theme")
   end
   
   rm_rf 'public/api'
   mkdir 'public/api'
-  cp_r 'app/submodules/sproutcore-touch/docs/build/.', 'public/api'
+  cp_r 'app/submodules/ember-touch/docs/build/.', 'public/api'
 
 end
 

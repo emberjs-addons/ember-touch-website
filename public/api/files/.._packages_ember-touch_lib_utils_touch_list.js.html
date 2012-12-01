@@ -125,7 +125,7 @@ var get = Em.get; var set = Em.set;
 @submodule ember-touch
 *&#x2F;
 &#x2F;**
-  Used to manage and maintain a list of active touches related to a gesture recognizer.
+  Manage and maintain a list of active touches related to a gesture recognizer.
 
   @class TouchList
   @namespace Ember
@@ -152,6 +152,10 @@ Em.TouchList = Em.Object.extend({
   },
 
   &#x2F;**
+    Add a touch event to the list.
+    This method is called only in the initialization of
+    the touch session adding touchstart events.
+    
     @method addTouch
   *&#x2F;
   addTouch: function(touch) {
@@ -161,6 +165,10 @@ Em.TouchList = Em.Object.extend({
   },
 
   &#x2F;**
+    Update a touch event from the list.
+    Given a touch event, it will iterate the current
+    list to replace with the event the item whose 
+    identifier is equal to the event identifier.
     @method updateTouch
   *&#x2F;
   updateTouch: function(touch) {
@@ -178,23 +186,7 @@ Em.TouchList = Em.Object.extend({
   },
 
   &#x2F;**
-    @method removeTouch
-  *&#x2F;
-  removeTouch: function(touch) {
-    var touches = get(this, &#x27;touches&#x27;);
-
-    for (var i=0, l=touches.length; i&lt;l; i++) {
-      var _t = touches[i];
-
-      if (_t.identifier === touch.identifier) {
-        touches.splice(i,1);
-        this.notifyPropertyChange(&#x27;touches&#x27;);
-        break;
-      }
-    }
-  },
-
-  &#x2F;**
+    Reset the touch list.
     @method removeAllTouches
   *&#x2F;
   removeAllTouches: function() {
@@ -202,6 +194,9 @@ Em.TouchList = Em.Object.extend({
   },
 
   &#x2F;**
+    Given a touch identifier, it returns the touch event
+    with the same identifier in the list.
+
     @method touchWithId
   *&#x2F;
   touchWithId: function(id) {
@@ -220,6 +215,11 @@ Em.TouchList = Em.Object.extend({
     return ret;
   },
 
+
+  &#x2F;**
+    Length of the touch list.
+    @property length
+  *&#x2F;
   length: Ember.computed(function() {
     var touches = get(this, &#x27;touches&#x27;);
     return touches.length;
