@@ -1,3 +1,6 @@
 [submodule "app/submodules/ember.js"]
 	path = app/submodules/ember.js
 	url = git://github.com/emberjs/ember.js.git
+[submodule "app/submodules/ember-touch"]
+	path = app/submodules/ember-touch
+	url = git://github.com/emberjs-addons/ember-touch.git
