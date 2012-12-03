@@ -8,9 +8,9 @@ To get started:
 
 ```
 git clone git@github.com:emberjs-addons/ember-touch-website.git
+cd ember-touch-website
 git submodule init
 git submodule update
-cd ember-touch-website
 bundle install
 bundle exec rackup
 ```
