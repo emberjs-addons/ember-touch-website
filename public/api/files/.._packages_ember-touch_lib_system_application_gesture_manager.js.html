@@ -125,11 +125,11 @@
 *&#x2F;
 
 &#x2F;**
-  An ApplicationGestureManager instance is injected at the Application 
-  namespace to inform &#x60;GestureManager&#x60; instances if touch events can 
+  An ApplicationGestureManager instance is injected at the Application
+  namespace to inform &#x60;GestureManager&#x60; instances if touch events can
   be dispatched.
 
-  &#x60;GestureManager&#x60; instances denies dispatching events whenever &#x60;isAllBlocked&#x60; 
+  &#x60;GestureManager&#x60; instances deny dispatching events whenever the &#x60;isAllBlocked&#x60;
   property is true or &#x60;isBlocked&#x60; is true and the &#x60;shouldReceiveTouch&#x60; response
   is false.
 
@@ -141,7 +141,7 @@ Em.ApplicationGestureManager = Em.Object.extend({
 
 
   &#x2F;**
-    Access registered gestureDelegates in the application.
+    Access the registered gestureDelegates in the application.
 
     @type GestureDelegates
     @property gestureDelegates
@@ -157,15 +157,15 @@ Em.ApplicationGestureManager = Em.Object.extend({
   registeredGestures: null,
 
   &#x2F;**
-    Block application gesture recognition on true.
+    Block application gesture recognition when true.
     @property isAllBlocked
     @default false
   *&#x2F;
   isAllBlocked: false,
 
   &#x2F;**
-    View which has blocked the recognizer. This is the 
-    only view which can unblock gesture recognition.
+    View which has blocked the recognizer. This is the
+    only view which can unblock the gesture recognition.
 
     @private
     @property _blockerView
@@ -179,7 +179,7 @@ Em.ApplicationGestureManager = Em.Object.extend({
   _isBlocked: false,
 
   &#x2F;**
-    Whenever &#x60;isBlocked&#x60; property is true, this function
+    Whenever the &#x60;isBlocked&#x60; property is true, this function
     property decides if a touch event can be dispatched.
     @private
     @property _shouldReceiveTouchFn
@@ -197,7 +197,7 @@ Em.ApplicationGestureManager = Em.Object.extend({
 
 
   &#x2F;**
-    Whenever &#x60;isBlocked&#x60; property is true, the function output is provided 
+    Whenever the &#x60;isBlocked&#x60; property is true, the function output is provided
     to &#x60;GestureManager&#x60; instances to allow or deny dispatching touch events.
 
     @method shouldReceiveTouch
@@ -209,7 +209,7 @@ Em.ApplicationGestureManager = Em.Object.extend({
   },
 
   &#x2F;**
-    Blocks gesture recognition at the application level and setup
+    Blocks gesture recognition at the application level and setups
     which events can be dispatched based on the &#x60;shouldReceiveTouchFn&#x60; parameter.
 
     @method block

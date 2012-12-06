@@ -360,7 +360,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
             "line": 7,
-            "description": "An ApplicationGestureManager instance is injected at the Application \nnamespace to inform `GestureManager` instances if touch events can \nbe dispatched.\n\n`GestureManager` instances denies dispatching events whenever `isAllBlocked` \nproperty is true or `isBlocked` is true and the `shouldReceiveTouch` response\nis false.",
+            "description": "An ApplicationGestureManager instance is injected at the Application\nnamespace to inform `GestureManager` instances if touch events can\nbe dispatched.\n\n`GestureManager` instances deny dispatching events whenever the `isAllBlocked`\nproperty is true or `isBlocked` is true and the `shouldReceiveTouch` response\nis false.",
             "extends": "Em.Object"
         },
         "Ember.Gesture": {
@@ -376,7 +376,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 8,
-            "description": "Base class to be extended to define specific gesture recognizer. Handles low-level touch, \nstate management and provides some utility methods to the extended classes.",
+            "description": "Base class to be extended to define specific gesture recognizers. Handles low-level touch\nevents and state management. It also provides some utility methods to the extended classes.",
             "extends": "Ember.Object"
         },
         "Ember.GestureDelegate": {
@@ -392,7 +392,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/system/gesture_delegate.js",
             "line": 6,
-            "description": "GestureDelegate allows to `GestureManager` instances decide \nif a touch event can be dispatched to a view gesture.\n\nSet up your gestures to use a `GestureDelegate` to coordinate \nthe gesture recognition based on application logic.",
+            "description": "GestureDelegate allows `GestureManager` instances decide\nif a touch event can be dispatched to a view gesture.\n\nGestures can be set up using a `GestureDelegate` to coordinate\nthe gesture recognition based on application logic.",
             "extends": "Ember.Object"
         },
         "Ember.GestureDelegateRule": {
@@ -408,7 +408,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/system/gesture_delegate_rule.js",
             "line": 5,
-            "description": "Defines a rule on its `shouldReceiveTouch` method \nto be used by a `GestureDelegate` instance.",
+            "description": "Defines a rule on its `shouldReceiveTouch` method\nto be used by a `GestureDelegate` instance.",
             "extends": "Ember.Object"
         },
         "Ember.GestureManager": {
@@ -424,7 +424,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/system/gesture_manager.js",
             "line": 8,
-            "description": "`Em.GestureManager` mainly acts as a composite for the multiple gesture \nrecognizers associated with a view. \n\nThis class is instantiated automatically by Em.View and you wouldn't\ninteract with it yourself.\n\nWhenever it gets a touch event, it relays it to the gestures when \ncoordination conditions are satisfied.\n\nThe other main resposibility of `Em.GestureManager` is to manage\nevent bubbling.",
+            "description": "`Em.GestureManager` mainly acts as a composite for the multiple gesture\nrecognizers associated with a view.\n\nThis class is instantiated automatically by Em.View and it shouldn't be\ndirectly accessed.\n\nWhenever it gets a touch event, it relays it to the gestures when\ncoordination conditions are satisfied.\n\nThe other main resposibility of `Em.GestureManager` is to manage\nevent bubbling.",
             "extends": "Ember.Object"
         },
         "Ember.GestureDelegates": {
@@ -440,7 +440,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/utils/gesture_delegates.js",
             "line": 7,
-            "description": "A instance of this class is injected in the Application namespace \nto registry `GestureDelegate` instances in your application.\n\nWhenever a `Gesture` setup its `delegateName` property, \nassigns its `gestureDelegate` instance calling the `find` method of the \n`GestureDelegates` instance.",
+            "description": "An instance of this class is injected in the Application namespace\nto registry `GestureDelegate` instances in an application.\n\nWhenever a `Gesture` setups its `delegateName` property, it\nassigns its `gestureDelegate` instance calling the `find` method of the\n`GestureDelegates` instance.",
             "extends": "Em.Object",
             "access": "private",
             "tagname": ""
@@ -458,7 +458,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/utils/registered_gestures.js",
             "line": 9,
-            "description": "Registry of known gestures in the system which is used in the view `init`\n  method to find which gestures are supported by the initialized view.\nA instance of this class is injected in the Application namespace and\n  add default built-in gestures provided in the `ember-touch` package.\nYou must be responsable to register your own gestures when you want \n  to make the system aware of them.",
+            "description": "Registry of known gestures in the system which is used in the view's `init`\n  method to find which gestures are supported by the initialized view.\nAn instance of this class is injected into the Application namespace and\n  adds default built-in gestures provided in the `ember-touch` package.\nThe programmer must register his own gestures when he wants the system\n  to be aware of them.",
             "extends": "Em.Object",
             "access": "private",
             "tagname": ""
@@ -475,7 +475,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/utils/timeout_touch_event.js",
             "line": 6,
-            "description": "Based on your gesture implementation, a TimeoutTouchEvent event is \nnormally created to fire automatically after a period of time a \nview [gesture]Event which must be executed without being generated \nby a user touch event."
+            "description": "Based on custom  gestures implementation. A `TimeoutTouchEvent` event is\nnormally created to fire automatically after a given period of time.\nA view [gesture]Event which must be executed without being generated\nby an user touch event."
         },
         "Ember.TouchList": {
             "name": "Ember.TouchList",
@@ -490,7 +490,7 @@
             "namespace": "Ember",
             "file": "../packages/ember-touch/lib/utils/touch_list.js",
             "line": 7,
-            "description": "Manage and maintain a list of active touches related to a gesture recognizer.",
+            "description": "This component manages and maintains a list of active touches related\nto a gesture recognizer.",
             "extends": "Ember.Object",
             "access": "private",
             "tagname": ""
@@ -756,7 +756,7 @@
         {
             "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
             "line": 23,
-            "description": "Access registered gestureDelegates in the application.",
+            "description": "Access the registered gestureDelegates in the application.",
             "type": "GestureDelegates",
             "itemtype": "property",
             "name": "gestureDelegates",
@@ -780,7 +780,7 @@
         {
             "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
             "line": 39,
-            "description": "Block application gesture recognition on true.",
+            "description": "Block application gesture recognition when true.",
             "itemtype": "property",
             "name": "isAllBlocked",
             "default": "false",
@@ -792,7 +792,7 @@
         {
             "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
             "line": 46,
-            "description": "View which has blocked the recognizer. This is the \nonly view which can unblock gesture recognition.",
+            "description": "View which has blocked the recognizer. This is the\nonly view which can unblock the gesture recognition.",
             "access": "private",
             "tagname": "",
             "itemtype": "property",
@@ -817,7 +817,7 @@
         {
             "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
             "line": 61,
-            "description": "Whenever `isBlocked` property is true, this function\nproperty decides if a touch event can be dispatched.",
+            "description": "Whenever the `isBlocked` property is true, this function\nproperty decides if a touch event can be dispatched.",
             "access": "private",
             "tagname": "",
             "itemtype": "property",
@@ -840,7 +840,7 @@
         {
             "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
             "line": 79,
-            "description": "Whenever `isBlocked` property is true, the function output is provided \nto `GestureManager` instances to allow or deny dispatching touch events.",
+            "description": "Whenever the `isBlocked` property is true, the function output is provided\nto `GestureManager` instances to allow or deny dispatching touch events.",
             "itemtype": "method",
             "name": "shouldReceiveTouch",
             "class": "Ember.ApplicationGestureManager",
@@ -851,7 +851,7 @@
         {
             "file": "../packages/ember-touch/lib/system/application_gesture_manager.js",
             "line": 91,
-            "description": "Blocks gesture recognition at the application level and setup\nwhich events can be dispatched based on the `shouldReceiveTouchFn` parameter.",
+            "description": "Blocks gesture recognition at the application level and setups\nwhich events can be dispatched based on the `shouldReceiveTouchFn` parameter.",
             "itemtype": "method",
             "name": "block",
             "class": "Ember.ApplicationGestureManager",
@@ -873,7 +873,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 18,
-            "description": "The current state of the gesture recognizer. This value can be any one\nof these states:\n\n  WAITING_FOR_TOUCHES\n  POSSIBLE\n  BEGAN\n  CHANGED\n  ENDED\n  CANCELLED",
+            "description": "The current state of the gesture recognizer. This value can be any of the\nfollowing:\n\n  WAITING_FOR_TOUCHES\n  POSSIBLE\n  BEGAN\n  CHANGED\n  ENDED\n  CANCELLED",
             "itemtype": "property",
             "name": "state",
             "type": "Number",
@@ -885,7 +885,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 34,
-            "description": "A string of the gesture recognizer's name. This value is set automatically\nbut Em.Gestures when a gesture is registered.",
+            "description": "A string to identify the gesture recognizer's name. This value is set automatically\nby Em.Gestures when a gesture is registered.",
             "itemtype": "property",
             "name": "name",
             "type": "String",
@@ -928,7 +928,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 64,
-            "description": "This property enables to recognize gestures simultaneously. Whenever a gesture\nis being recognized and its `simultaneously` property is false, it denies other \ngestures to be recognized at the same time.",
+            "description": "This property enables to recognize gestures simultaneously. Whenever a gesture\nis being recognized and its `simultaneously` property is false, it denies other\ngestures to be recognized at the same time.",
             "itemtype": "property",
             "name": "simultaneously",
             "type": "Boolean",
@@ -941,7 +941,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 75,
-            "description": "Used this property to assign `GestureDelegate` instance to the `delegate` property\nin `init` process.",
+            "description": "Used this property to assign a `GestureDelegate` instance to the `delegate` property\nin the `init` process.",
             "itemtype": "property",
             "name": "delegateName",
             "type": "String",
@@ -978,7 +978,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 103,
-            "description": "Manage and maintain a list of active touches related to a gesture recognizer.\n\nA gesture updates automatically its internal touch list \nto have only the last active touch events.\n\nCustom gestures may not interact with the `TouchList` methods,\nit is usually the gesture API which manages its touch list.\n\nCustom gestures usually access its length property and\nthe internal touch list to have information of the last \nactive touch events.",
+            "description": "Manage and maintain a list of active touches related to a gesture recognizer.\n\nA gesture updates automatically its internal touch list\nto have only the last active touch events.\n\nCustom gestures may not interact with the `TouchList` methods,\nit is usually the gesture API which manages its touch list.\n\nCustom gestures usually access its length property and\nthe internal touch list to have information of the last\nactive touch events.",
             "access": "protected",
             "tagname": "",
             "itemtype": "property",
@@ -992,7 +992,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 122,
-            "description": "You can also use the numberOfActiveTouches property to inspect how many touches\nare active, this is mostly useful in `shouldBegin` since every other callback can\nassume that there are as many active touches as specified in the \n`numberOfRequiredTouches` property.",
+            "description": "You can also use the numberOfActiveTouches property to inspect how many touches\nare active, this is mostly useful in `shouldBegin` since every other callback can\nassume that there are as many active touches as specified in the\n`numberOfRequiredTouches` property.",
             "access": "private",
             "tagname": "",
             "itemtype": "property",
@@ -1006,7 +1006,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 134,
-            "description": "Used to specify the number of touches required for the gesture to enter a possible \nstate",
+            "description": "Used to specify the number of touches required for the gesture to enter a possible\nstate",
             "access": "private",
             "tagname": "",
             "itemtype": "property",
@@ -1020,7 +1020,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 168,
-            "description": "Called when a gesture enters a possible state. This means the gesture \nrecognizer has accepted enough touches to match the number of required touches. \nYou would usually initialize your state in this callback.",
+            "description": "Called when a gesture enters a possible state. This means the gesture\nrecognizer has accepted enough touches to match the number of required touches.\nUsually, the internal state is initialized in this callback.",
             "access": "protected",
             "tagname": "",
             "itemtype": "method",
@@ -1033,7 +1033,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 177,
-            "description": "Called if a view returns false from a gesture event. \nThis callback allows you to reset internal state if the user \nrejects an event.",
+            "description": "Called if a view returns false from a gesture event.\nThis callback allows to reset the internal state if the user\nrejects an event.",
             "access": "protected",
             "tagname": "",
             "itemtype": "method",
@@ -1046,7 +1046,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 186,
-            "description": "Called if a view returns false from a gesture event. This callback allows \nyou to reset internal state if the user rejects an event.",
+            "description": "Called if a view returns false from a gesture event. This callback allows\n to reset the internal state if the user rejects an event.",
             "access": "protected",
             "tagname": "",
             "itemtype": "method",
@@ -1059,7 +1059,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 196,
-            "description": "Called when the gesture enters a began state. \nCalled before the view receives the Start event.",
+            "description": "Called when the gesture enters a began state.\nCalled before the view receives the Start event.",
             "access": "protected",
             "tagname": "",
             "itemtype": "method",
@@ -1085,7 +1085,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 212,
-            "description": "Allows a gesture to block itself from entering an ended state. \nThis callback gets called whenever a tracked touch gets a touchEnd event.",
+            "description": "Allows a gesture to block itself from entering an ended state.\nThis callback gets called whenever a tracked touch gets a touchEnd event.",
             "access": "protected",
             "tagname": "",
             "itemtype": "method",
@@ -1098,7 +1098,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 222,
-            "description": "Called when the gesture enters an ended state. \nCalled before the view receives the End event.",
+            "description": "Called when the gesture enters an ended state.\nCalled before the view receives the End event.",
             "access": "protected",
             "tagname": "",
             "itemtype": "method",
@@ -1111,7 +1111,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 230,
-            "description": "Called when the gesture enters a cancelled state. \nCalled before the view receives the Cancel event.",
+            "description": "Called when the gesture enters a cancelled state.\nCalled before the view receives the Cancel event.",
             "access": "protected",
             "tagname": "",
             "itemtype": "method",
@@ -1145,7 +1145,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 263,
-            "description": "Notify the event to the view and trigger eventWasRejected if the view doesn't implement the API \nor return false.",
+            "description": "Notify the event to the view and trigger `eventWasRejected` if the view doesn't\nimplement the API or returned false.",
             "access": "private",
             "tagname": "",
             "itemtype": "method",
@@ -1174,7 +1174,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 303,
-            "description": "Given two Touch objects, this method returns the midpoint between them.",
+            "description": "Given an array of Touch objects, this method returns the midpoint between them.",
             "access": "private",
             "tagname": "",
             "itemtype": "method",
@@ -1190,7 +1190,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 328,
-            "description": "Allows the gesture to notify the view it's associated with of a gesture\nevent.",
+            "description": "Allows the gesture to notify a view associated with a gesture\nevent.",
             "access": "private",
             "tagname": "",
             "itemtype": "method",
@@ -1226,7 +1226,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 365,
-            "description": "Given a `touchstart` event, updates the list of touches,  \nif the `numberOfRequiredTouches` hasn't yet reached, set WAITING_FOR_TOUCHES state,\notherwise when the gesture is discrete move to BEGAN state and apply its logic or in the\nother hand, continous gestures are setup the POSSIBLE state and executes its `didBecomePossible` \nmethod.",
+            "description": "Given a `touchstart` event, updates the list of touches.\nIf the `numberOfRequiredTouches` hasn't been reached yet, it sets the\nWAITING_FOR_TOUCHES state. Otherwise when the gesture is discrete, it\nmoves to a BEGAN state and applies its logic. Continous gestures are setup\nto the POSSIBLE state and execute their `didBecomePossible` method.",
             "itemtype": "method",
             "name": "touchStart",
             "class": "Ember.Gesture",
@@ -1237,7 +1237,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
             "line": 416,
-            "description": "Given a `touchmove` event, updates the list of touches.\nIt changes the currentState to BEGAN and fire [gesture]Start view method if the gesture is discrete, \nthe state is POSSIBLE and its `shouldBegin` implementation response true. \nIf the current state is BEGAN or CHANGED and the gesture is continuous, apply CHANGED state\nand fire the [gesture]Change view method.",
+            "description": "Given a `touchmove` event, updates the list of touches.\nIt changes the currentState to BEGAN and fires the [gesture]Start\nview method.\nIf the gesture is discrete, the state is POSSIBLE and its `shouldBegin`\nimplementation response true.\nIf the current state is BEGAN or CHANGED and the gesture is continuous,\nit applies the CHANGED state and fires the [gesture]Change view method.",
             "itemtype": "method",
             "name": "touchMove",
             "class": "Ember.Gesture",
@@ -1247,8 +1247,8 @@
         },
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
-            "line": 475,
-            "description": "Given a `touchend` event, updates the list of touches, manages the event and finally\nreset the `touch` list.\nIf current state is either BEGAN or CHANGED and `shouldEnd` response is true, \nit changes the state to ENDED, performs `didEnd` method and fire [gesture]End view method.",
+            "line": 477,
+            "description": "Given a `touchend` event, updates the list of touches, manages the event and finally\nresets the `touch` list.\nIf the current state is either BEGAN or CHANGED and `shouldEnd` response is true,\nit changes the state to ENDED, performs `didEnd` method and fires the [gesture]End\nview method.",
             "itemtype": "method",
             "name": "touchEnd",
             "class": "Ember.Gesture",
@@ -1258,8 +1258,8 @@
         },
         {
             "file": "../packages/ember-touch/lib/system/gesture.js",
-            "line": 508,
-            "description": "Given a `touchcancel` event, reset the `touch` list, and when the \ncurrent state is different than CANCEL, set the state to CANCEL, performs\n`didCancel` method and if the gesture is continuous fires the [gesture]Cancel\nview method.",
+            "line": 511,
+            "description": "Given a `touchcancel` event, resets the `touch` list, and when the\ncurrent state is different than CANCEL, set the state to CANCEL, performs\n`didCancel` method and if the gesture is continuous fires the [gesture]Cancel\nview method.",
             "itemtype": "method",
             "name": "touchCancel",
             "class": "Ember.Gesture",
@@ -1270,7 +1270,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture_delegate.js",
             "line": 19,
-            "description": "Name of the gestureDelegate. \nThis optional property can be used on gestureOptions \nto assign a gestureDelegate to a specific gesture.",
+            "description": "Name of the gestureDelegate.\nThis optional property can be used on gestureOptions\nto assign a gestureDelegate to a specific gesture.",
             "itemtype": "property",
             "name": "name",
             "type": "Array",
@@ -1282,7 +1282,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture_delegate.js",
             "line": 29,
-            "description": "Array of `GestureDelegateRule` which can be setup \nwith string path, extended classes or instances.\nIn runtime, they are intented to be checked before\n`GestureDelegate.shouldReceiveTouch` call.",
+            "description": "Array of `GestureDelegateRule` which can be setup\nwith string path, extended classes or instances.\nIn runtime, they are intented to be checked before\n`GestureDelegate.shouldReceiveTouch` call.",
             "itemtype": "property",
             "name": "rules",
             "type": "Array",
@@ -1426,7 +1426,7 @@
         {
             "file": "../packages/ember-touch/lib/system/gesture_manager.js",
             "line": 177,
-            "description": "Iterates all `GestureDelegateRule` instances of the gestureDelegate parameter\nexecuting its shouldReceiveTouch method and return the value whenever \na rule respond with a defined value.",
+            "description": "Iterates all `GestureDelegateRule` instances of the gestureDelegate parameter\nexecuting its shouldReceiveTouch method and return the value whenever\na rule respond with a defined value.",
             "access": "private",
             "tagname": "",
             "itemtype": "method",
@@ -1442,7 +1442,7 @@
         {
             "file": "../packages/ember-touch/lib/system/view_ext.js",
             "line": 8,
-            "description": "The Em.GestureManager instance which will manager the gestures of the view.\nThis object is automatically created and set at init-time.",
+            "description": "The Em.GestureManager instance which will manage the gestures of the view.\nThis object is automatically created and set at init-time.",
             "default": "null",
             "type": "Array",
             "class": "Ember.GestureDelegates",
@@ -1452,7 +1452,7 @@
         {
             "file": "../packages/ember-touch/lib/system/view_ext.js",
             "line": 17,
-            "description": "Inspects the properties on the view instance and create gestures if they're \nused.",
+            "description": "Inspects the properties on the view instance and create gestures if they're\nused.",
             "class": "Ember.GestureDelegates",
             "module": "ember",
             "namespace": "Ember"
@@ -1515,7 +1515,7 @@
         {
             "file": "../packages/ember-touch/lib/utils/registered_gestures.js",
             "line": 40,
-            "description": "Registers a gesture recognizer to the system. \nThe gesture recognizer is identified by the name parameter, which must be globally unique.",
+            "description": "Registers a gesture recognizer to the system.\nThe gesture recognizer is identified by the name parameter. It must be globally unique.",
             "itemtype": "method",
             "name": "register",
             "class": "Ember.RegisteredGestureList",
@@ -1537,7 +1537,7 @@
         {
             "file": "../packages/ember-touch/lib/utils/registered_gestures.js",
             "line": 68,
-            "description": "Registers a gesture recognizer to the system. \nThe gesture recognizer is identified by the name parameter \nwhich must be unique in your application.",
+            "description": "Registers a gesture recognizer in the system.\nThe gesture recognizer is identified by the name parameter\nwhich must be unique in the application.",
             "itemtype": "method",
             "name": "knownGestures",
             "class": "Ember.RegisteredGestureList",
@@ -1547,7 +1547,7 @@
         },
         {
             "file": "../packages/ember-touch/lib/utils/touch_list.js",
-            "line": 17,
+            "line": 18,
             "itemtype": "property",
             "name": "touches",
             "type": "Array",
@@ -1558,7 +1558,7 @@
         },
         {
             "file": "../packages/ember-touch/lib/utils/touch_list.js",
-            "line": 23,
+            "line": 24,
             "itemtype": "property",
             "name": "timestamp",
             "class": "Ember.TouchList",
@@ -1568,7 +1568,7 @@
         },
         {
             "file": "../packages/ember-touch/lib/utils/touch_list.js",
-            "line": 34,
+            "line": 35,
             "description": "Add a touch event to the list.\nThis method is called only in the initialization of\nthe touch session adding touchstart events.",
             "itemtype": "method",
             "name": "addTouch",
@@ -1579,8 +1579,8 @@
         },
         {
             "file": "../packages/ember-touch/lib/utils/touch_list.js",
-            "line": 47,
-            "description": "Update a touch event from the list.\nGiven a touch event, it will iterate the current\nlist to replace with the event the item whose \nidentifier is equal to the event identifier.",
+            "line": 48,
+            "description": "Update a touch event from the list.\nGiven a touch event, it will iterate the current\nlist to replace with the event the item whose\nidentifier is equal to the event identifier.",
             "itemtype": "method",
             "name": "updateTouch",
             "class": "Ember.TouchList",
@@ -1590,7 +1590,7 @@
         },
         {
             "file": "../packages/ember-touch/lib/utils/touch_list.js",
-            "line": 68,
+            "line": 69,
             "description": "Reset the touch list.",
             "itemtype": "method",
             "name": "removeAllTouches",
@@ -1601,7 +1601,7 @@
         },
         {
             "file": "../packages/ember-touch/lib/utils/touch_list.js",
-            "line": 76,
+            "line": 77,
             "description": "Given a touch identifier, it returns the touch event\nwith the same identifier in the list.",
             "itemtype": "method",
             "name": "touchWithId",
@@ -1612,7 +1612,7 @@
         },
         {
             "file": "../packages/ember-touch/lib/utils/touch_list.js",
-            "line": 99,
+            "line": 100,
             "description": "Length of the touch list.",
             "itemtype": "property",
             "name": "length",

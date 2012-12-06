@@ -144,11 +144,11 @@
 
 
 <div class="box intro">
-    <p>An ApplicationGestureManager instance is injected at the Application 
-namespace to inform <code>GestureManager</code> instances if touch events can 
+    <p>An ApplicationGestureManager instance is injected at the Application
+namespace to inform <code>GestureManager</code> instances if touch events can
 be dispatched.</p>
 
-<p><code>GestureManager</code> instances denies dispatching events whenever <code>isAllBlocked</code> 
+<p><code>GestureManager</code> instances deny dispatching events whenever the <code>isAllBlocked</code>
 property is true or <code>isBlocked</code> is true and the <code>shouldReceiveTouch</code> response
 is false.</p>
 </div>
@@ -316,7 +316,7 @@ is false.</p>
     </div>
 
     <div class="description">
-        <p>Blocks gesture recognition at the application level and setup
+        <p>Blocks gesture recognition at the application level and setups
 which events can be dispatched based on the <code>shouldReceiveTouchFn</code> parameter.</p>
     </div>
 
@@ -371,7 +371,7 @@ which events can be dispatched based on the <code>shouldReceiveTouchFn</code> pa
     </div>
 
     <div class="description">
-        <p>Whenever <code>isBlocked</code> property is true, the function output is provided 
+        <p>Whenever the <code>isBlocked</code> property is true, the function output is provided
 to <code>GestureManager</code> instances to allow or deny dispatching touch events.</p>
     </div>
 
@@ -481,8 +481,8 @@ to <code>GestureManager</code> instances to allow or deny dispatching touch even
     </div>
 
     <div class="description">
-        <p>View which has blocked the recognizer. This is the 
-only view which can unblock gesture recognition.</p>
+        <p>View which has blocked the recognizer. This is the
+only view which can unblock the gesture recognition.</p>
     </div>
 
     
@@ -576,7 +576,7 @@ only view which can unblock gesture recognition.</p>
     </div>
 
     <div class="description">
-        <p>Whenever <code>isBlocked</code> property is true, this function
+        <p>Whenever the <code>isBlocked</code> property is true, this function
 property decides if a touch event can be dispatched.</p>
     </div>
 
@@ -622,7 +622,7 @@ property decides if a touch event can be dispatched.</p>
     </div>
 
     <div class="description">
-        <p>Access registered gestureDelegates in the application.</p>
+        <p>Access the registered gestureDelegates in the application.</p>
     </div>
 
     
@@ -667,7 +667,7 @@ property decides if a touch event can be dispatched.</p>
     </div>
 
     <div class="description">
-        <p>Block application gesture recognition on true.</p>
+        <p>Block application gesture recognition when true.</p>
     </div>
 
     

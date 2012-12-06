@@ -124,10 +124,10 @@
 @submodule ember-touch
 *&#x2F;
 &#x2F;**
-GestureDelegate allows to &#x60;GestureManager&#x60; instances decide 
+GestureDelegate allows &#x60;GestureManager&#x60; instances decide
 if a touch event can be dispatched to a view gesture.
 
-Set up your gestures to use a &#x60;GestureDelegate&#x60; to coordinate 
+Gestures can be set up using a &#x60;GestureDelegate&#x60; to coordinate
 the gesture recognition based on application logic.
 
 @class GestureDelegate
@@ -137,8 +137,8 @@ the gesture recognition based on application logic.
 Em.GestureDelegate = Em.Object.extend({
 
   &#x2F;**
-    Name of the gestureDelegate. 
-    This optional property can be used on gestureOptions 
+    Name of the gestureDelegate.
+    This optional property can be used on gestureOptions
     to assign a gestureDelegate to a specific gesture.
 
     @property name
@@ -147,7 +147,7 @@ Em.GestureDelegate = Em.Object.extend({
   name: null,
 
   &#x2F;**
-    Array of &#x60;GestureDelegateRule&#x60; which can be setup 
+    Array of &#x60;GestureDelegateRule&#x60; which can be setup
     with string path, extended classes or instances.
     In runtime, they are intented to be checked before
     &#x60;GestureDelegate.shouldReceiveTouch&#x60; call.
@@ -169,7 +169,7 @@ Em.GestureDelegate = Em.Object.extend({
 
       var i,
           max;
-      
+
       for ( i=0, max=rules.length; i&lt;max; i++ ) {
 
         rule = rules[i];
@@ -191,14 +191,14 @@ Em.GestureDelegate = Em.Object.extend({
 
   },
 
-	&#x2F;**
+  &#x2F;**
     Respond if a gesture recognizer should receive a touch event.
 
     @method shouldReceiveTouch
     @return Boolen
   *&#x2F;
   shouldReceiveTouch: function(gesture, view, event) {
-    return true; 
+    return true;
   }
 
 });

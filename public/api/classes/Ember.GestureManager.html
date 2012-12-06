@@ -144,13 +144,13 @@
 
 
 <div class="box intro">
-    <p><code>Em.GestureManager</code> mainly acts as a composite for the multiple gesture 
-recognizers associated with a view. </p>
+    <p><code>Em.GestureManager</code> mainly acts as a composite for the multiple gesture
+recognizers associated with a view.</p>
 
-<p>This class is instantiated automatically by Em.View and you wouldn't
-interact with it yourself.</p>
+<p>This class is instantiated automatically by Em.View and it shouldn't be
+directly accessed.</p>
 
-<p>Whenever it gets a touch event, it relays it to the gestures when 
+<p>Whenever it gets a touch event, it relays it to the gestures when
 coordination conditions are satisfied.</p>
 
 <p>The other main resposibility of <code>Em.GestureManager</code> is to manage
@@ -320,7 +320,7 @@ event bubbling.</p>
 
     <div class="description">
         <p>Iterates all <code>GestureDelegateRule</code> instances of the gestureDelegate parameter
-executing its shouldReceiveTouch method and return the value whenever 
+executing its shouldReceiveTouch method and return the value whenever
 a rule respond with a defined value.</p>
     </div>
 

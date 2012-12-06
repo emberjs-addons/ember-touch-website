@@ -144,12 +144,12 @@
 
 
 <div class="box intro">
-    <p>Registry of known gestures in the system which is used in the view <code>init</code>
+    <p>Registry of known gestures in the system which is used in the view's <code>init</code>
   method to find which gestures are supported by the initialized view.
-A instance of this class is injected in the Application namespace and
-  add default built-in gestures provided in the <code>ember-touch</code> package.
-You must be responsable to register your own gestures when you want 
-  to make the system aware of them.</p>
+An instance of this class is injected into the Application namespace and
+  adds default built-in gestures provided in the <code>ember-touch</code> package.
+The programmer must register his own gestures when he wants the system
+  to be aware of them.</p>
 </div>
 
 
@@ -273,9 +273,9 @@ You must be responsable to register your own gestures when you want
     </div>
 
     <div class="description">
-        <p>Registers a gesture recognizer to the system. 
-The gesture recognizer is identified by the name parameter 
-which must be unique in your application.</p>
+        <p>Registers a gesture recognizer in the system.
+The gesture recognizer is identified by the name parameter
+which must be unique in the application.</p>
     </div>
 
     
@@ -329,8 +329,8 @@ which must be unique in your application.</p>
     </div>
 
     <div class="description">
-        <p>Registers a gesture recognizer to the system. 
-The gesture recognizer is identified by the name parameter, which must be globally unique.</p>
+        <p>Registers a gesture recognizer to the system.
+The gesture recognizer is identified by the name parameter. It must be globally unique.</p>
     </div>
 
     

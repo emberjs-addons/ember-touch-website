@@ -128,14 +128,14 @@ var set = Em.set;
 
 &#x2F;**
 
-  Registry of known gestures in the system which is used in the view &#x60;init&#x60;
+  Registry of known gestures in the system which is used in the view&#x27;s &#x60;init&#x60;
   method to find which gestures are supported by the initialized view.
 
-  A instance of this class is injected in the Application namespace and
-  add default built-in gestures provided in the &#x60;ember-touch&#x60; package.
+  An instance of this class is injected into the Application namespace and
+  adds default built-in gestures provided in the &#x60;ember-touch&#x60; package.
 
-  You must be responsable to register your own gestures when you want 
-  to make the system aware of them.
+  The programmer must register his own gestures when he wants the system
+  to be aware of them.
 
   @class RegisteredGestureList
   @namespace Ember
@@ -158,8 +158,8 @@ Em.RegisteredGestures = Em.Object.extend({
   },
 
   &#x2F;**
-    Registers a gesture recognizer to the system. 
-    The gesture recognizer is identified by the name parameter, which must be globally unique.
+    Registers a gesture recognizer to the system.
+    The gesture recognizer is identified by the name parameter. It must be globally unique.
 
     @method register
   *&#x2F;
@@ -167,7 +167,7 @@ Em.RegisteredGestures = Em.Object.extend({
     var registeredGestures = this._registeredGestures;
 
     if (registeredGestures[name] !== undefined) {
-      throw new Em.Error(name+&quot; already exists as a registered gesture recognizers. Gesture recognizers must have globally unique names.&quot;);
+      throw new Em.Error(name+&quot; already exists as a registered gesture recognizer. Gesture recognizers must have globally unique names.&quot;);
     }
 
     registeredGestures[name] = recognizer;
@@ -186,9 +186,9 @@ Em.RegisteredGestures = Em.Object.extend({
   },
 
   &#x2F;**
-    Registers a gesture recognizer to the system. 
-    The gesture recognizer is identified by the name parameter 
-    which must be unique in your application.
+    Registers a gesture recognizer in the system.
+    The gesture recognizer is identified by the name parameter
+    which must be unique in the application.
 
     @method knownGestures
   *&#x2F;

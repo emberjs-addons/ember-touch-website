@@ -120,13 +120,13 @@
     <pre class="code prettyprint linenums">
 var get = Em.get, set = Em.set;
 
-&#x2F;* 
-  Extends Em.View by making the init method gesture-aware.
+&#x2F;*
+  Extends Em.View making the init method gesture-aware.
 *&#x2F;
 Em.View.reopen({
 
   &#x2F;**
-    The Em.GestureManager instance which will manager the gestures of the view.
+    The Em.GestureManager instance which will manage the gestures of the view.
     This object is automatically created and set at init-time.
 
     @default null
@@ -135,7 +135,7 @@ Em.View.reopen({
   eventManager: null,
 
   &#x2F;**
-    Inspects the properties on the view instance and create gestures if they&#x27;re 
+    Inspects the properties on the view instance and create gestures if they&#x27;re
     used.
   *&#x2F;
   init: function() {
@@ -174,7 +174,7 @@ Em.View.reopen({
           optionsHash.manager = manager;
 
           var extensions = {};
-          if ( optionsHash.isEnabledBinding ) { 
+          if ( optionsHash.isEnabledBinding ) {
 
             if ( !Ember.isGlobalPath(optionsHash.isEnabledBinding) ) {
               extensions.isEnabledBinding = &#x27;view.&#x27;+optionsHash.isEnabledBinding;
@@ -203,7 +203,7 @@ Em.View.reopen({
       set(manager, &#x27;gestures&#x27;, gestures);
 
       set(this, &#x27;eventManager&#x27;, manager);
- 
+
     }
   }
 

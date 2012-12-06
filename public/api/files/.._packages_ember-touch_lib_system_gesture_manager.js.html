@@ -126,13 +126,13 @@ var get = Em.get; var set = Em.set;
 *&#x2F;
 
 &#x2F;**
-&#x60;Em.GestureManager&#x60; mainly acts as a composite for the multiple gesture 
-recognizers associated with a view. 
+&#x60;Em.GestureManager&#x60; mainly acts as a composite for the multiple gesture
+recognizers associated with a view.
 
-This class is instantiated automatically by Em.View and you wouldn&#x27;t
-interact with it yourself.
+This class is instantiated automatically by Em.View and it shouldn&#x27;t be
+directly accessed.
 
-Whenever it gets a touch event, it relays it to the gestures when 
+Whenever it gets a touch event, it relays it to the gestures when
 coordination conditions are satisfied.
 
 The other main resposibility of &#x60;Em.GestureManager&#x60; is to manage
@@ -238,7 +238,7 @@ Em.GestureManager = Em.Object.extend({
 
       if ( l &gt; 0 ) {
 
-        &#x2F;&#x2F;appGestureManager allow to pass touchEvents at the App Level  
+        &#x2F;&#x2F;appGestureManager allow to pass touchEvents at the App Level
         var gesturesCanReceiveTouchEvent = this.applicationGestureManager.get(&#x27;isBlocked&#x27;)? this.applicationGestureManager.shouldReceiveTouch(this.view) : true;
         if ( gesturesCanReceiveTouchEvent ) {
 
@@ -257,7 +257,7 @@ Em.GestureManager = Em.Object.extend({
 
               if ( !gesture.get(&#x27;isEnabled&#x27;) ) {
                 isValid = false;
-              &#x2F;&#x2F;gestureDelegate allow to pass touchEvents depending on gesture state  
+              &#x2F;&#x2F;gestureDelegate allow to pass touchEvents depending on gesture state
               } else if ( !gestureDelegate ) {
                 isValid = true;
               } else {
@@ -279,7 +279,7 @@ Em.GestureManager = Em.Object.extend({
         }
 
       }
-      
+
       &#x2F;&#x2F; browser delivers the event to the DOM element
       &#x2F;&#x2F; bubble the event to the parentView
       var parentView = this.view.get(&#x27;parentView&#x27;);
@@ -296,7 +296,7 @@ Em.GestureManager = Em.Object.extend({
 
   &#x2F;**
     Iterates all &#x60;GestureDelegateRule&#x60; instances of the gestureDelegate parameter
-    executing its shouldReceiveTouch method and return the value whenever 
+    executing its shouldReceiveTouch method and return the value whenever
     a rule respond with a defined value.
 
     @private
