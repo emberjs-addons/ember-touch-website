@@ -3,7 +3,6 @@ require "json"
 require "uglifier"
 require "execjs"
 
-
 class HandlebarsFilter < Rake::Pipeline::Filter
 
   def initialize(&block)
@@ -21,27 +20,49 @@ class HandlebarsFilter < Rake::Pipeline::Filter
   end
 end
 
+class AddMicroLoaderFilter < Rake::Pipeline::Filter
+
+  LOADER = File.expand_path("../app/submodules/ember.js/packages/loader/lib/main.js", __FILE__)
+
+  def initialize(options={}, &block)
+    super(&block)
+    @global = options[:global]
+  end
+
+  def generate_output(inputs, output)
+    output.write "(function() {\n" unless @global
+
+    output.write File.read(LOADER)
+
+    inputs.each do |input|
+      output.write input.read
+    end
+
+    output.write "\n})();\n" unless @global
+  end
+
+  def additional_dependencies(input)
+    [ LOADER ]
+  end
+end
+
 
 output "public/source"
 
 
-input "css"  do
-
-  match "public/*.css" do
-    concat "app.css"
-	end
-
-  match "common/*.css" do
-    concat "app.css"
-	end
-
-  match "externals/*.css" do
-    concat "app.css"
-	end
-
-end
-
 input "app" do
+
+  match "styles/public/*.css" do
+    concat "app.css"
+	end
+
+  match "styles/common/*.css" do
+    concat "app.css"
+	end
+
+  match "styles/externals/*.css" do
+    concat "app.css"
+	end
 
 	match "templates/**/*.handlebars" do
 		filter HandlebarsFilter
@@ -93,17 +114,10 @@ input "app" do
 		}
 
 	 concat "app.js"
+   filter AddMicroLoaderFilter, :global => true
 	end
 
-	match "vendor/handlebars-1.0.rc.1.js" do
-		filter ConcatFilter, "app.js"
-	end
-
-	match "vendor/minispade.js" do
-		filter ConcatFilter, "app.js"
-	end
-
-	match "vendor/jquery-1.8.2.js" do
+	match "vendor/*" do
 		filter ConcatFilter, "app.js"
 	end
 

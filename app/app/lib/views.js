@@ -1,6 +1,5 @@
 
 
-require('app/views/application');
 
 require('app/views/uis/nav_item');
 require('app/views/uis/is_enabled_button');

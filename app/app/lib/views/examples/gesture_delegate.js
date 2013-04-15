@@ -4,7 +4,7 @@ var get = Em.get, set = Em.set;
 
 App.GestureDelegateCounterButtonView = Em.View.extend({
 
-  counterBinding: 'App.router.gestureDelegateController.counter',
+  counter: null,
 
   classNameBindings: ['btnInfo', 'btnWarning'],
   classNames: ['btn', 'btn-large'],
@@ -27,9 +27,10 @@ App.GestureDelegateCounterButtonView = Em.View.extend({
 
 
 var delegate = Em.GestureDelegate.create({
-    counterBinding: 'App.router.gestureDelegateController.counter',
+
     shouldReceiveTouch: function(gesture, view, event) {
-      return this.get('counter') === 0 ? false : ( this.get('counter') % 3 ) === 0;
+      var counter = view._context.get('counter');
+      return counter === 0 ? false : ( counter % 3 ) === 0;
     }
 });
 

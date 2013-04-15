@@ -21,26 +21,28 @@ App.GestureDelegateRulesButtonView = Em.View.extend({
 });
 
 App.GestureDelegateRule = Em.GestureDelegateRule.extend({
-  state: 0,
+  statePath: null,
   shouldReceiveTouch: function(gesture, view, event) {
-    var state = this.get('state');
+
+    var state = view._context.get( this.get('statePath') );
     return (state === 0) ? undefined : (state===1) ? false : true;
+
   }
 });
 
 App.GestureDelegateRule1 = App.GestureDelegateRule.create({
-  stateBinding: 'App.router.gestureDelegateRulesController.rule1State'
+  statePath: 'rule1State'
 });
 App.GestureDelegateRule2 = App.GestureDelegateRule.create({
-  stateBinding: 'App.router.gestureDelegateRulesController.rule2State'
+  statePath: 'rule2State'
 });
 
 App.GestureDelegateRule3 = App.GestureDelegateRule.create({
-  stateBinding: 'App.router.gestureDelegateRulesController.rule3State'
+  statePath: 'rule3State'
 });
 
 App.GestureDelegateRule4 = App.GestureDelegateRule.create({
-  stateBinding: 'App.router.gestureDelegateRulesController.rule4State'
+  statePath: 'rule4State'
 });
 
 
