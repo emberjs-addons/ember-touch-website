@@ -49,8 +49,6 @@
             
                 <li><a href="..&#x2F;classes/Ember.GestureDelegateRule.html">Ember.GestureDelegateRule</a></li>
             
-                <li><a href="..&#x2F;classes/Ember.GestureDelegates.html">Ember.GestureDelegates</a></li>
-            
                 <li><a href="..&#x2F;classes/Ember.GestureManager.html">Ember.GestureManager</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.PanGestureRecognizer.html">Ember.PanGestureRecognizer</a></li>
@@ -58,8 +56,6 @@
                 <li><a href="..&#x2F;classes/Ember.PinchGestureRecognizer.html">Ember.PinchGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.PressGestureRecognizer.html">Ember.PressGestureRecognizer</a></li>
-            
-                <li><a href="..&#x2F;classes/Ember.RegisteredGestureList.html">Ember.RegisteredGestureList</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.SwipeGestureRecognizer.html">Ember.SwipeGestureRecognizer</a></li>
             
@@ -127,7 +123,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L7"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:7</code></a>
+            Defined in: <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L8"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:8</code></a>
         </div>
     
 
@@ -144,9 +140,9 @@
 
 
 <div class="box intro">
-    <p>An ApplicationGestureManager instance is injected at the Application
-namespace to inform <code>GestureManager</code> instances if touch events can
-be dispatched.</p>
+    <p>An ApplicationGestureManager instance is registered into the container
+to inform <code>GestureManager</code> instances if touch events can
+be dispatched and it stores application gestures and delegates.</p>
 
 <p><code>GestureManager</code> instances deny dispatching events whenever the <code>isAllBlocked</code>
 property is true or <code>isBlocked</code> is true and the <code>shouldReceiveTouch</code> response
@@ -187,6 +183,34 @@ is false.</p>
                             </li>
                         
                             <li class="index-item method">
+                                <a href="#method_findDelegate">findDelegate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_knownGestures">knownGestures</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_registerDelegate">registerDelegate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_registerGesture">registerGesture</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
                                 <a href="#method_shouldReceiveTouch">shouldReceiveTouch</a>
 
                                 
@@ -195,6 +219,13 @@ is false.</p>
                         
                             <li class="index-item method">
                                 <a href="#method_unblock">unblock</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_unregisterGesture">unregisterGesture</a>
 
                                 
                                 
@@ -217,6 +248,20 @@ is false.</p>
                                 
                             </li>
                         
+                            <li class="index-item property">
+                                <a href="#property__gestures">_gestures</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property__gestures">_gestures</a>
+
+                                
+                                
+                            </li>
+                        
                             <li class="index-item property private">
                                 <a href="#property__isBlocked">_isBlocked</a>
 
@@ -232,13 +277,6 @@ is false.</p>
                             </li>
                         
                             <li class="index-item property">
-                                <a href="#property_gestureDelegates">gestureDelegates</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
                                 <a href="#property_isAllBlocked">isAllBlocked</a>
 
                                 
@@ -247,13 +285,6 @@ is false.</p>
                         
                             <li class="index-item property">
                                 <a href="#property_isBlocked">isBlocked</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_registeredGestures">registeredGestures</a>
 
                                 
                                 
@@ -305,7 +336,7 @@ is false.</p>
             
         
         
-            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L91"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:91</code></a>
+            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L150"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:150</code></a>
         
         </p>
 
@@ -318,6 +349,222 @@ is false.</p>
     <div class="description">
         <p>Blocks gesture recognition at the application level and setups
 which events can be dispatched based on the <code>shouldReceiveTouchFn</code> parameter.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_findDelegate" class="method item">
+    <h3 class="name"><code>findDelegate</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L120"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:120</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_knownGestures" class="method item">
+    <h3 class="name"><code>knownGestures</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L104"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:104</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get the list of the application gestures</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_registerDelegate" class="method item">
+    <h3 class="name"><code>registerDelegate</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L113"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:113</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_registerGesture" class="method item">
+    <h3 class="name"><code>registerGesture</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L78"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:78</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Register a new gesture in the application</p>
     </div>
 
     
@@ -360,7 +607,7 @@ which events can be dispatched based on the <code>shouldReceiveTouchFn</code> pa
             
         
         
-            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L79"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:79</code></a>
+            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L138"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:138</code></a>
         
         </p>
 
@@ -415,7 +662,7 @@ to <code>GestureManager</code> instances to allow or deny dispatching touch even
             
         
         
-            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L110"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:110</code></a>
+            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L168"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:168</code></a>
         
         </p>
 
@@ -427,6 +674,60 @@ to <code>GestureManager</code> instances to allow or deny dispatching touch even
 
     <div class="description">
         <p>Unblock current gesture blocking state.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_unregisterGesture" class="method item">
+    <h3 class="name"><code>unregisterGesture</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+            <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L93"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:93</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
     </div>
 
     
@@ -471,7 +772,7 @@ to <code>GestureManager</code> instances to allow or deny dispatching touch even
             
         
         
-           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L46"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:46</code></a>
+           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L47"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:47</code></a>
         
         </p>
 
@@ -483,6 +784,96 @@ to <code>GestureManager</code> instances to allow or deny dispatching touch even
     <div class="description">
         <p>View which has blocked the recognizer. This is the
 only view which can unblock the gesture recognition.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    
+<div id="property__gestures" class="property item">
+    <h3 class="name"><code>_gestures</code></h3>
+    <span class="type">GestureDelegates</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L24"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:24</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Access the list of application delegates registered.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    
+<div id="property__gestures" class="property item">
+    <h3 class="name"><code>_gestures</code></h3>
+    <span class="type">Unknown</span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L40"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:40</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Access the registered gestures in the application.</p>
     </div>
 
     
@@ -519,7 +910,7 @@ only view which can unblock the gesture recognition.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L55"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:55</code></a>
+           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L56"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:56</code></a>
         
         </p>
 
@@ -566,7 +957,7 @@ only view which can unblock the gesture recognition.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L61"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:61</code></a>
+           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L62"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:62</code></a>
         
         </p>
 
@@ -578,51 +969,6 @@ only view which can unblock the gesture recognition.</p>
     <div class="description">
         <p>Whenever the <code>isBlocked</code> property is true, this function
 property decides if a touch event can be dispatched.</p>
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    
-<div id="property_gestureDelegates" class="property item">
-    <h3 class="name"><code>gestureDelegates</code></h3>
-    <span class="type">GestureDelegates</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L23"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:23</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Access the registered gestureDelegates in the application.</p>
     </div>
 
     
@@ -657,7 +1003,7 @@ property decides if a touch event can be dispatched.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L39"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:39</code></a>
+           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L33"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:33</code></a>
         
         </p>
 
@@ -704,7 +1050,7 @@ property decides if a touch event can be dispatched.</p>
             
         
         
-           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L69"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:69</code></a>
+           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L128"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:128</code></a>
         
         </p>
 
@@ -715,51 +1061,6 @@ property decides if a touch event can be dispatched.</p>
 
     <div class="description">
         
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    
-<div id="property_registeredGestures" class="property item">
-    <h3 class="name"><code>registeredGestures</code></h3>
-    <span class="type">RegisteredGestures</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-           <a href="https://github.com/emberjs-addons/ember-touch/blob/master/whatever/../packages/ember-touch/lib/system/application_gesture_manager.js#L31"><code>..&#x2F;packages&#x2F;ember-touch&#x2F;lib&#x2F;system&#x2F;application_gesture_manager.js:31</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Access the registered gestures in the application.</p>
     </div>
 
     

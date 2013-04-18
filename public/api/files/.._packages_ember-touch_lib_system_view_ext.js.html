@@ -49,8 +49,6 @@
             
                 <li><a href="..&#x2F;classes/Ember.GestureDelegateRule.html">Ember.GestureDelegateRule</a></li>
             
-                <li><a href="..&#x2F;classes/Ember.GestureDelegates.html">Ember.GestureDelegates</a></li>
-            
                 <li><a href="..&#x2F;classes/Ember.GestureManager.html">Ember.GestureManager</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.PanGestureRecognizer.html">Ember.PanGestureRecognizer</a></li>
@@ -58,8 +56,6 @@
                 <li><a href="..&#x2F;classes/Ember.PinchGestureRecognizer.html">Ember.PinchGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.PressGestureRecognizer.html">Ember.PressGestureRecognizer</a></li>
-            
-                <li><a href="..&#x2F;classes/Ember.RegisteredGestureList.html">Ember.RegisteredGestureList</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.SwipeGestureRecognizer.html">Ember.SwipeGestureRecognizer</a></li>
             
@@ -134,27 +130,28 @@ Em.View.reopen({
   *&#x2F;
   eventManager: null,
 
+  init: function() {
+    this._super();
+    this._createGestureManager();
+    
+  },
+
   &#x2F;**
     Inspects the properties on the view instance and create gestures if they&#x27;re
     used.
   *&#x2F;
-  init: function() {
-    this._super();
-
+  _createGestureManager: function() {
+    
     var eventManager = get(this, &#x27;eventManager&#x27;);
 
     if (!eventManager) {
 
-      &#x2F;&#x2F; TODO: access via Application instance instead of global
-      &#x2F;&#x2F; instance
-      var applicationGestureManager = Em.applicationGestureManager;
+      var applicationGestureManager = get(this, &#x27;container&#x27;).lookup(&#x27;gesture:application&#x27;);
+      var knownGestures = applicationGestureManager.knownGestures();
 
 
       var gestures = [];
-      var manager = Em.GestureManager.create({});
-      var knownGestures = get(applicationGestureManager, &#x27;registeredGestures&#x27;).knownGestures();
-
-
+      var manager = Em.GestureManager.create();
       Em.assert(&#x27;You should register a gesture. Take a look at the registerGestures injection&#x27;, !!knownGestures );
 
 
@@ -170,7 +167,6 @@ Em.View.reopen({
 
           optionsHash.name = gesture;
           optionsHash.view = this;
-          optionsHash.applicationGestureManager = applicationGestureManager;
           optionsHash.manager = manager;
 
           var extensions = {};
@@ -198,13 +194,14 @@ Em.View.reopen({
       }
 
 
-      set(manager, &#x27;applicationGestureManager&#x27;, applicationGestureManager);
       set(manager, &#x27;view&#x27;, this);
       set(manager, &#x27;gestures&#x27;, gestures);
 
       set(this, &#x27;eventManager&#x27;, manager);
 
     }
+
+
   }
 
 });

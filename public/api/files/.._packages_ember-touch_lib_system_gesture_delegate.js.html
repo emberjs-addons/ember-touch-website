@@ -49,8 +49,6 @@
             
                 <li><a href="..&#x2F;classes/Ember.GestureDelegateRule.html">Ember.GestureDelegateRule</a></li>
             
-                <li><a href="..&#x2F;classes/Ember.GestureDelegates.html">Ember.GestureDelegates</a></li>
-            
                 <li><a href="..&#x2F;classes/Ember.GestureManager.html">Ember.GestureManager</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.PanGestureRecognizer.html">Ember.PanGestureRecognizer</a></li>
@@ -58,8 +56,6 @@
                 <li><a href="..&#x2F;classes/Ember.PinchGestureRecognizer.html">Ember.PinchGestureRecognizer</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.PressGestureRecognizer.html">Ember.PressGestureRecognizer</a></li>
-            
-                <li><a href="..&#x2F;classes/Ember.RegisteredGestureList.html">Ember.RegisteredGestureList</a></li>
             
                 <li><a href="..&#x2F;classes/Ember.SwipeGestureRecognizer.html">Ember.SwipeGestureRecognizer</a></li>
             
@@ -175,7 +171,7 @@ Em.GestureDelegate = Em.Object.extend({
         rule = rules[i];
 
         if ( Em.typeOf(rule) === &quot;string&quot; ) {
-          rule = Em.getPath(rule);
+          rule = Em.get(rule);
         }
 
         if ( !rule.isInstance ) {

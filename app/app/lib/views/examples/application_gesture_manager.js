@@ -26,7 +26,7 @@ App.ApplicationGestureManagerButtonView = Em.View.extend({
 
   willDestroyElement: function() {
 
-    App.gestureManager.set('isAllBlocked', false);
+    App.get('gestureManager').set('isAllBlocked', false);
 
   }
 

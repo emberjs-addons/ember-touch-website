@@ -39,11 +39,15 @@ App.ApplicationGestureManagerButtonView = Em.View.extend({
   isGesturesBlockedBinding: '<b>App.gestureManager.isAllBlocked</b>',
 
   click: function() {
+
     set(this, 'isGesturesBlocked', !get(this, 'isGesturesBlocked') );
+
   },
 
   willDestroyElement: function() {
-    App.gestureManager.set('isAllBlocked', false);
+
+    App.get('gestureManager').set('isAllBlocked', false);
+
   }
 
 });
